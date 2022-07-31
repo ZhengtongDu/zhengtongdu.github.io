@@ -23,7 +23,8 @@ url: "https://zhengtongdu.github.io" # the base hostname & protocol for your sit
 github_username: zhengtongdu
 # Build settings
 markdown: kramdown
-theme: minima
+# Remove minima theme as it is now a regular theme.
+# theme: minima
 plugins:
   - jekyll-feed
 
