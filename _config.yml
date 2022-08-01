@@ -1,11 +1,11 @@
 # Setup
-title: Not Pure Poole
-description: A simple, beautiful, and powerful Jekyll theme for blogs
-url: https://vszhub.github.io
-avatar: /avatar.jpeg
+title: Zhengtong's blog
+description: Learning and recording
+url: https://zhengtongdu.github.io
+avatar: /avapig.jpg
 paginate: 5
 permalink: pretty
-cover_image: /bg.jpeg
+cover_image: /bg.jpg
 
 # Gems
 plugins:
@@ -28,16 +28,16 @@ exclude:
   - not-pure-poole.gemspec
 
 # Optimize Jekyl SEO Tag
-twitter:
-  username: vszhub
-  card: summary
-logo: logo.png
+#twitter:
+#  username: vszhub
+#  card: summary
+logo: avapig.jpg
 social:
-  name: Songzi Vong
+  name: zhengtongdu
   links:
-    - https://twitter.com/vszhub
-    - https://github.com/vszhub
-google_site_verification: xxxxx
+#    - https://twitter.com/vszhub
+    - https://github.com/zhengtongdu
+# google_site_verification: xxxxx
 lang: en
 
 sass:
@@ -54,6 +54,6 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Songzi Vong
-  url: https://github.com/vszhub/
-  email: vszhub@gmail.com
+  name: zhengtongdu
+  url: https://github.com/zhengtongdu
+  email: zhengtongdu_at_zju.edu.cn

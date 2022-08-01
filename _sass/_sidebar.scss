@@ -8,13 +8,13 @@
   width: 100%;
 
   a {
-    color: inherit;
+    color: var(--gray-900);
     text-decoration: none;
   }
 }
 
 .avatar-image {
-  width: 30%;
+  width: 40%;
   height: auto;
   border-radius: 50%;
   display: block;
@@ -25,8 +25,8 @@
 .masthead-title {
   padding: 0;
   margin: 0;
-  font-size: 2rem;
-  font-weight: 900;
+  font-size: 2.1rem;
+  font-weight: 700;
 
   a:hover,
   a:focus {
@@ -37,14 +37,17 @@
 .masthead-tagline {
   padding: 0;
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 400;
-  opacity: .7;
+  color: var(--red);
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .navigation-list {
   margin-top: var(--spacer-2);
+  font-size: 1.5rem;
+  color: var(--black);
   padding: 0;
+  font-weight: 700;
   list-style: none;
 }
 
@@ -55,7 +58,7 @@
 
 .navigation-item a {
   background: transparent;
-  color: inherit;
+  color: var(--gray-700);
   letter-spacing: 0.05em;
   font-size: 90%;
   border-bottom: 2px solid;
