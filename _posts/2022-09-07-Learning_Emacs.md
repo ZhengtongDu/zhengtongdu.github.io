@@ -5,7 +5,7 @@ date: 2022-09-07 17:57 +0800
 tags: [learning,emacs]
 toc: true
 ---
-Using this post to record what I have learned in book *Learning GNU Emacs*, as well as training to master *markdown* :)
+Use this post to record what I have learned in book *Learning GNU Emacs*, as well as training to master *markdown* :)
 
 And maybe there are some links directing to the study note of each chapter.
 ## LIST OF LEARNING
