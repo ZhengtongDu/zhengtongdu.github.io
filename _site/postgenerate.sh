@@ -1,7 +1,8 @@
 #!/bin/bash
 dat=$(date +"%Y-%m-%d")
 tim=$(date +"%Y-%m-%d %H:%M")
-post=_post/${dat}-${1}.md
+cd _posts
+post=${dat}-${1}.md
 touch $post
 echo "---" >> $post 
 echo "layout: post" >> $post 
