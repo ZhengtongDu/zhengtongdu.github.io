@@ -10,7 +10,7 @@ Use this post to record what I have learned in book *Learning GNU Emacs*, as wel
 And maybe there are some links directing to the study note of each chapter.
 ## LIST OF LEARNING
 - [x] &nbsp; Preface
-- [ ] &nbsp; Chapter 1
+- [x] &nbsp; [Chapter 1](https://zhengtongdu.github.io/2022/09/08/Learning_Emacs_I/)
 - [ ] &nbsp; Chapter 2
 - [ ] &nbsp; Chapter 3
 - [ ] &nbsp; Chapter 4
