@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learning_Emacs_I
+title: Learning Emacs I
 date: 2022-09-08 10:16 +0800
 tags: [learning,emacs]
 toc: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learning_Emacs_Overview
+title: Learning Emacs Overview
 date: 2022-09-07 17:57 +0800
 tags: [learning,emacs]
 toc: true
@@ -11,7 +11,7 @@ And maybe there are some links directing to the study note of each chapter.
 ## LIST OF LEARNING
 - [x] &nbsp; Preface
 - [x] &nbsp; [Chapter 1](https://zhengtongdu.github.io/2022/09/08/Learning_Emacs_I/)
-- [ ] &nbsp; Chapter 2
+- [x] &nbsp; [Chapter 2](https://zhengtongdu.github.io/2022/09/10/Learning_Emacs_II/)
 - [ ] &nbsp; Chapter 3
 - [ ] &nbsp; Chapter 4
 - [ ] &nbsp; Chapter 5
