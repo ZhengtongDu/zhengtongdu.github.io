@@ -109,11 +109,3 @@ The result is the part being selected is reformatted.
 |Meta - M-u| negative-argument;upcase-word| Uppercase previous word.|
 |Meta - M-l| negative-argument;downcase-word| Lowercase previous word.|
 
-
-
-|Keystrokes|Command name| Action|
-|:---|:---|:---|
-|| | |
-|| | |
-|| | |
-|| | |
