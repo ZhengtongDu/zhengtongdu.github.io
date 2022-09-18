@@ -1,0 +1,344 @@
+<h1 id="lesson-01-adtlist-implementation">Lesson 01: ADTList Implementation</h1>
+
+<p>ADT(Abstract Data Type)List: A set of objects together with a set of operations</p>
+
+<p>Some notations: The size of list is <em>N</em>, <strong>empty list</strong> when <em>N = 0</em>;</p>
+
+<ul>
+  <li>Operations of List:</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">function</th>
+      <th style="text-align: left">description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">printList()</td>
+      <td style="text-align: left">build a list <em>L</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">makeEmpty(<em>L</em>)</td>
+      <td style="text-align: left">make list <em>L</em> empty</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">findKth(<em>pos</em>)</td>
+      <td style="text-align: left">find the <em>pos</em>th element</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">insert(<em>pos</em>, <em>x</em>)</td>
+      <td style="text-align: left">insert <em>x</em> at <em>pos</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remove(<em>x</em>)</td>
+      <td style="text-align: left">delete the element <em>x</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">next(<em>pos</em>)</td>
+      <td style="text-align: left">return the position of <em>pos</em>th element’s successor</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">previous(<em>pos</em>)</td>
+      <td style="text-align: left">return the position of <em>pos</em>th element’s predecessor</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Simple implementation</li>
+</ul>
+
+<p>It’s the first time to write a cpp-class…</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class ADTList
+{
+  double *data;
+  int size;
+}
+</code></pre></div></div>
+
+<p>Hold on! How to create a cpp file and edit it when you face so clear terminal?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ emacs main.cpp
+Maybe you should install it.
+$ sudo apt-get install emacs
+</code></pre></div></div>
+
+<ul>
+  <li>There are three main text editors used in the linux(ubuntu): Emacs / Vim / VS-Code. Now you can use one of them to create <em>main.cpp</em> file and edit it.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
+#include &lt;iostream&gt;
+
+int main(int argc, int *argv[])
+{
+        std::cout &lt;&lt; "Hello world!" &lt;&lt; std::endl;
+        return 0;
+}
+</code></pre></div></div>
+
+<p>Back to terminal(or directly work on Emacs) and compile the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ g++ -o main main.cpp
+$ ./main
+</code></pre></div></div>
+<p>You will see “Hello world!” in your terminal.</p>
+
+<p>OK, we’ll add more details:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
+#include &lt;iostream&gt;
+
+class ADTList
+{
+private:
+  double *data;
+  int size;
+public:
+  void makeEmpty();
+}
+
+int main(int argc, char *argv[])
+{
+  ADTList A;
+  A.makeEmpty();
+
+  std::cout &lt;&lt; "Hello world!" &lt;&lt; std::endl;
+  return 0;
+}
+</code></pre></div></div>
+
+<p>Attention! You should intialize the element of <em>A</em> before doing other things!</p>
+
+<ul>
+  <li>Construtor</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public:
+ADTList() // No return value (which is different from void)
+{
+  data = nullptr;
+  size = 0;
+}
+</code></pre></div></div>
+
+<p><strong>using gdb to dubug</strong></p>
+
+<p>If you want the constructor offers other service for you to create a object like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ADTList A{15, 20, 1, 23}; 
+</code></pre></div></div>
+<p>You should link another library *<intializer_list>*, [click it and see more about it.](https://cplusplus.com/reference/initializer_list/initializer_list/initializer_list/)</intializer_list></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
+#include &lt;iostream&gt;
+#include &lt;initializer_list&gt;
+
+class ADTList
+{
+private:
+  double *data;
+  int size;
+public:
+
+  ADTList()
+  {
+    data = nullptr;
+    size = 0;
+  }
+  
+  ADTList(std::initializer_list&lt;double&gt; _list);
+
+  void makeEmpty();
+};
+
+ADTList::ADTList(std::initializer_list&lt;double&gt; _list)
+{
+    ~ADTlist(); // Destructor, similiar to constructor
+
+ADTList::~ADTList()
+{
+  if (data != nullptr)
+     delete [] data;
+}
+
+ADTList::makeEmtpy()
+{
+  if (data != nullptr)
+     delete [] data;
+  size = 0;
+}
+
+</code></pre></div></div>
+
+<p>One more step! Using a private function to replace the same piece, make it a inline function to boost efficiency.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private:
+  inline void _empty()
+  {
+    if (data != nullptr)
+       delete [] data;
+  }
+public:
+  ~ADTList();
+
+ADTList::~ADTList()
+{
+  _empty();
+}
+
+ADTList::makeEmtpy()
+{
+  _empty();
+  size = 0;
+}
+
+</code></pre></div></div>
+
+<ul>
+  <li>You can also use <strong>valgrind</strong> to check if memory leak exists.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ g++ -o main main.cpp
+$ valgrind ./main
+</code></pre></div></div>
+
+<ul>
+  <li>Add a <strong>real</strong> function <em>insert(int _p, double _v)</em>:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void ADTList::insert(int _p, double _v)
+{
+    
+  double *data_new = new double [size + 1];
+  int i = 0;
+  for (; i &lt; _p - 1; i++)
+    data_new[i] = data[i];
+  data_new[i] = _v;
+  for (; i&lt; size; i++)
+    data_new[i+1] = data[i];
+  _empty();
+  data = data_new;
+  size = size+1;
+}
+</code></pre></div></div>
+
+<p>If the client programmer wants to insert a new element at an <strong>illegal</strong> position, the program should return an error message:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  if(_p &gt;= size || _p &lt;0)
+    {
+      std::cout &lt;&lt; "Out of range" &lt;&lt; std::endl;
+      std::exit(2);
+    }
+</code></pre></div></div>
+<p>(How to check the error code? You can use shell command like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo $?
+</code></pre></div></div>
+<p>If “out of rage” happens, terminal will return the error code “2”.
+)</p>
+
+<ul>
+  <li>The remain functions are similiar to <em>insert(int _p, double _v)</em>, try to write it. The following is the code mentioned in this lesson:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
+#include &lt;iostream&gt;
+#include &lt;initializer_list&gt;
+
+class ADTList
+{
+private:
+  double *data;
+  int size;
+  void _empty()
+  {
+    if (data != nullptr)
+      delete [] data;
+  }
+public:
+
+  ADTList()
+  {
+    data = nullptr;
+    size = 0;
+  }
+  
+  ADTList(std::initializer_list&lt;double&gt; _list);
+  ~ADTList();
+  
+  void makeEmpty();
+  void printList();
+  bool is_empty();
+  void insert(int _p, double _v);
+};
+
+ADTList::ADTList(std::initializer_list&lt;double&gt; _list)
+{
+  size = _list.size();
+  data = new double[size];
+  int i = 0;
+  for (double x : _list){
+    data[i] = x;
+    i++;
+  }
+};
+
+ADTList::~ADTList()
+{
+  _empty();
+};
+
+void ADTList::makeEmpty()
+{
+  _empty();
+  size = 0;
+};
+
+void ADTList::printList()
+{
+  for (int i = 0; i &lt; size; i++)
+    std::cout &lt;&lt; data[i] &lt;&lt; "  ";
+  std::cout &lt;&lt; std::endl;
+};
+
+bool ADTList::is_empty()
+{
+  return (size == 0);
+};
+
+void ADTList::insert(int _p, double _v)
+{
+  if(_p &gt;= size || _p &lt;0)
+    {
+      std::cout &lt;&lt; "Out of range" &lt;&lt; std::endl;
+      std::exit(2);
+    }
+    
+  double *data_new = new double [size + 1];
+  int i = 0;
+  for (; i &lt; _p - 1; i++)
+    data_new[i] = data[i];
+  data_new[i] = _v;
+  for (; i&lt; size; i++)
+    data_new[i+1] = data[i];
+  _empty();
+  data = data_new;
+  size = size+1;
+}
+
+
+int main(int argc, char *argv[])
+{
+  ADTList A{1,2,3};
+  A.printList();
+  A.insert(2, 4);
+  // A.insert(4, 4); // Error happens!
+  A.printList();
+  return 0;
+}
+
+</code></pre></div></div>
+
