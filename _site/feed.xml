@@ -1,4 +1,388 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-12T13:56:01+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Learning Emacs III</title><link href="http://localhost:4000/2022/09/12/Learning_Emacs_III/" rel="alternate" type="text/html" title="Learning Emacs III" /><published>2022-09-12T13:37:00+08:00</published><updated>2022-09-12T13:37:00+08:00</updated><id>http://localhost:4000/2022/09/12/Learning_Emacs_III</id><content type="html" xml:base="http://localhost:4000/2022/09/12/Learning_Emacs_III/"><![CDATA[<p>Chapter03: Search and Replace</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-19T22:34:16+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<ul>
+  <li>Monday</li>
+</ul>
+
+<p>Leetcode problems*2</p>
+
+<p>Words*60</p>
+
+<p>Installing washing machine</p>
+
+<p>Running 5.02 km in 31m25s</p>
+
+<ul>
+  <li>Tuesday</li>
+</ul>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[Monday]]></summary></entry><entry><title type="html">Positive Psychology II</title><link href="http://localhost:4000/2022/09/18/Positive_Psychology_II/" rel="alternate" type="text/html" title="Positive Psychology II" /><published>2022-09-18T20:44:00+08:00</published><updated>2022-09-18T20:44:00+08:00</updated><id>http://localhost:4000/2022/09/18/Positive_Psychology_II</id><content type="html" xml:base="http://localhost:4000/2022/09/18/Positive_Psychology_II/"><![CDATA[<h2 id="lesson03">Lesson03</h2>
+
+<ul>
+  <li>Happiness is not negation of Unhappiness.</li>
+</ul>
+
+<p>Getting rid of the negative doesn’t guarantee us the positive. So instead of focusing on the weakness, focusing on the strengths we have. When we cultivate the positive, we’re essentially focusing on prevention(from the negative).</p>
+
+<p>It was found that the most effective way of dealing with the phenomenon of depression was actually to cultivate the positive, to cultivate personal strengths, to cultivate and identify one’s passions. To ask a question such as what is meaningful to me in my life, what’s my purpose, why I am here.</p>
+
+<ul>
+  <li>Cultivating capcity.</li>
+</ul>
+
+<p>Positive psychology serves a new model(health mode). The conventional model thinks that the reason why a person is sick is that he is ill, and taking away the illness leads to being healthy. The positive psychology model thinks that the reason a person is sick is that there is not enough health in his life and he isn’t pursuing those things that make him healthy.</p>
+
+<ul>
+  <li>The five basic premises of the course</li>
+</ul>
+
+<ol>
+  <li>Bridge building. Bridge building among disciplines and eclectic. Bridge building in terms of academia and main street.</li>
+  <li>Change is possible whether it is individual change, organizational change.</li>
+  <li>Internal factors primarily determine happiness, which is opposite to happiness is primarily function of external circumstances.</li>
+  <li>Human nature need to be obeyed, as opposed to attempting to perfect it on the psychological level.</li>
+  <li>Happiness is the ultimate and the aim which we pursue, as opposed to there are persuits that are higher, more important, more moral than that.</li>
+</ol>
+
+<h2 id="bridge-building">BRIDGE BUILDING</h2>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="pos-psy" /><summary type="html"><![CDATA[Lesson03]]></summary></entry><entry><title type="html">Data Structures I</title><link href="http://localhost:4000/2022/09/15/Data_Structures_I/" rel="alternate" type="text/html" title="Data Structures I" /><published>2022-09-15T13:51:00+08:00</published><updated>2022-09-15T13:51:00+08:00</updated><id>http://localhost:4000/2022/09/15/Data_Structures_I</id><content type="html" xml:base="http://localhost:4000/2022/09/15/Data_Structures_I/"><![CDATA[<h1 id="lesson-01-adtlist-implementation">Lesson 01: ADTList Implementation</h1>
+
+<p>ADT(Abstract Data Type)List: A set of objects together with a set of operations</p>
+
+<p>Some notations: The size of list is <em>N</em>, <strong>empty list</strong> when <em>N = 0</em>;</p>
+
+<ul>
+  <li>Operations of List:</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">function</th>
+      <th style="text-align: left">description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">printList()</td>
+      <td style="text-align: left">build a list <em>L</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">makeEmpty(<em>L</em>)</td>
+      <td style="text-align: left">make list <em>L</em> empty</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">findKth(<em>pos</em>)</td>
+      <td style="text-align: left">find the <em>pos</em>th element</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">insert(<em>pos</em>, <em>x</em>)</td>
+      <td style="text-align: left">insert <em>x</em> at <em>pos</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remove(<em>x</em>)</td>
+      <td style="text-align: left">delete the element <em>x</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">next(<em>pos</em>)</td>
+      <td style="text-align: left">return the position of <em>pos</em>th element’s successor</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">previous(<em>pos</em>)</td>
+      <td style="text-align: left">return the position of <em>pos</em>th element’s predecessor</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Simple implementation</li>
+</ul>
+
+<p>It’s the first time to write a cpp-class…</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class ADTList
+{
+  double *data;
+  int size;
+}
+</code></pre></div></div>
+
+<p>Hold on! How to create a cpp file and edit it when you face so clear terminal?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ emacs main.cpp
+Maybe you should install it.
+$ sudo apt-get install emacs
+</code></pre></div></div>
+
+<ul>
+  <li>There are three main text editors used in the linux(ubuntu): Emacs / Vim / VS-Code. Now you can use one of them to create <em>main.cpp</em> file and edit it.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
+#include &lt;iostream&gt;
+
+int main(int argc, int *argv[])
+{
+        std::cout &lt;&lt; "Hello world!" &lt;&lt; std::endl;
+        return 0;
+}
+</code></pre></div></div>
+
+<p>Back to terminal(or directly work on Emacs) and compile the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ g++ -o main main.cpp
+$ ./main
+</code></pre></div></div>
+<p>You will see “Hello world!” in your terminal.</p>
+
+<p>OK, we’ll add more details:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
+#include &lt;iostream&gt;
+
+class ADTList
+{
+private:
+  double *data;
+  int size;
+public:
+  void makeEmpty();
+}
+
+int main(int argc, char *argv[])
+{
+  ADTList A;
+  A.makeEmpty();
+
+  std::cout &lt;&lt; "Hello world!" &lt;&lt; std::endl;
+  return 0;
+}
+</code></pre></div></div>
+
+<p>Attention! You should intialize the element of <em>A</em> before doing other things!</p>
+
+<ul>
+  <li>Construtor</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public:
+ADTList() // No return value (which is different from void)
+{
+  data = nullptr;
+  size = 0;
+}
+</code></pre></div></div>
+
+<p><strong>using gdb to dubug</strong></p>
+
+<p>If you want the constructor offers other service for you to create a object like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ADTList A{15, 20, 1, 23}; 
+</code></pre></div></div>
+<p>You should link another library *<intializer_list>*, [click it and see more about it.](https://cplusplus.com/reference/initializer_list/initializer_list/initializer_list/)</intializer_list></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
+#include &lt;iostream&gt;
+#include &lt;initializer_list&gt;
+
+class ADTList
+{
+private:
+  double *data;
+  int size;
+public:
+
+  ADTList()
+  {
+    data = nullptr;
+    size = 0;
+  }
+  
+  ADTList(std::initializer_list&lt;double&gt; _list);
+
+  void makeEmpty();
+};
+
+ADTList::ADTList(std::initializer_list&lt;double&gt; _list)
+{
+    ~ADTlist(); // Destructor, similiar to constructor
+
+ADTList::~ADTList()
+{
+  if (data != nullptr)
+     delete [] data;
+}
+
+ADTList::makeEmtpy()
+{
+  if (data != nullptr)
+     delete [] data;
+  size = 0;
+}
+
+</code></pre></div></div>
+
+<p>One more step! Using a private function to replace the same piece, make it a inline function to boost efficiency.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private:
+  inline void _empty()
+  {
+    if (data != nullptr)
+       delete [] data;
+  }
+public:
+  ~ADTList();
+
+ADTList::~ADTList()
+{
+  _empty();
+}
+
+ADTList::makeEmtpy()
+{
+  _empty();
+  size = 0;
+}
+
+</code></pre></div></div>
+
+<ul>
+  <li>You can also use <strong>valgrind</strong> to check if memory leak exists.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ g++ -o main main.cpp
+$ valgrind ./main
+</code></pre></div></div>
+
+<ul>
+  <li>Add a <strong>real</strong> function <em>insert(int _p, double _v)</em>:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void ADTList::insert(int _p, double _v)
+{
+    
+  double *data_new = new double [size + 1];
+  int i = 0;
+  for (; i &lt; _p - 1; i++)
+    data_new[i] = data[i];
+  data_new[i] = _v;
+  for (; i&lt; size; i++)
+    data_new[i+1] = data[i];
+  _empty();
+  data = data_new;
+  size = size+1;
+}
+</code></pre></div></div>
+
+<p>If the client programmer wants to insert a new element at an <strong>illegal</strong> position, the program should return an error message:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  if(_p &gt;= size || _p &lt;0)
+    {
+      std::cout &lt;&lt; "Out of range" &lt;&lt; std::endl;
+      std::exit(2);
+    }
+</code></pre></div></div>
+<p>(How to check the error code? You can use shell command like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo $?
+</code></pre></div></div>
+<p>If “out of rage” happens, terminal will return the error code “2”.
+)</p>
+
+<ul>
+  <li>The remain functions are similiar to <em>insert(int _p, double _v)</em>, try to write it. The following is the code mentioned in this lesson:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
+#include &lt;iostream&gt;
+#include &lt;initializer_list&gt;
+
+class ADTList
+{
+private:
+  double *data;
+  int size;
+  void _empty()
+  {
+    if (data != nullptr)
+      delete [] data;
+  }
+public:
+
+  ADTList()
+  {
+    data = nullptr;
+    size = 0;
+  }
+  
+  ADTList(std::initializer_list&lt;double&gt; _list);
+  ~ADTList();
+  
+  void makeEmpty();
+  void printList();
+  bool is_empty();
+  void insert(int _p, double _v);
+};
+
+ADTList::ADTList(std::initializer_list&lt;double&gt; _list)
+{
+  size = _list.size();
+  data = new double[size];
+  int i = 0;
+  for (double x : _list){
+    data[i] = x;
+    i++;
+  }
+};
+
+ADTList::~ADTList()
+{
+  _empty();
+};
+
+void ADTList::makeEmpty()
+{
+  _empty();
+  size = 0;
+};
+
+void ADTList::printList()
+{
+  for (int i = 0; i &lt; size; i++)
+    std::cout &lt;&lt; data[i] &lt;&lt; "  ";
+  std::cout &lt;&lt; std::endl;
+};
+
+bool ADTList::is_empty()
+{
+  return (size == 0);
+};
+
+void ADTList::insert(int _p, double _v)
+{
+  if(_p &gt;= size || _p &lt;0)
+    {
+      std::cout &lt;&lt; "Out of range" &lt;&lt; std::endl;
+      std::exit(2);
+    }
+    
+  double *data_new = new double [size + 1];
+  int i = 0;
+  for (; i &lt; _p - 1; i++)
+    data_new[i] = data[i];
+  data_new[i] = _v;
+  for (; i&lt; size; i++)
+    data_new[i+1] = data[i];
+  _empty();
+  data = data_new;
+  size = size+1;
+}
+
+
+int main(int argc, char *argv[])
+{
+  ADTList A{1,2,3};
+  A.printList();
+  A.insert(2, 4);
+  // A.insert(4, 4); // Error happens!
+  A.printList();
+  return 0;
+}
+
+</code></pre></div></div>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="data_structure" /><summary type="html"><![CDATA[Lesson 01: ADTList Implementation]]></summary></entry><entry><title type="html">Data Structures Learning Overview</title><link href="http://localhost:4000/2022/09/15/Data_Structures_Learning_Overview/" rel="alternate" type="text/html" title="Data Structures Learning Overview" /><published>2022-09-15T13:50:00+08:00</published><updated>2022-09-15T13:50:00+08:00</updated><id>http://localhost:4000/2022/09/15/Data_Structures_Learning_Overview</id><content type="html" xml:base="http://localhost:4000/2022/09/15/Data_Structures_Learning_Overview/"><![CDATA[<p>waiting to update</p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="data_structure" /><summary type="html"><![CDATA[waiting to update]]></summary></entry><entry><title type="html">Learning Emacs III</title><link href="http://localhost:4000/2022/09/12/Learning_Emacs_III/" rel="alternate" type="text/html" title="Learning Emacs III" /><published>2022-09-12T13:37:00+08:00</published><updated>2022-09-12T13:37:00+08:00</updated><id>http://localhost:4000/2022/09/12/Learning_Emacs_III</id><content type="html" xml:base="http://localhost:4000/2022/09/12/Learning_Emacs_III/"><![CDATA[<p>Chapter03: Search and Replace</p>
 
 <ul>
   <li>Traditional search and replace facilities</li>
