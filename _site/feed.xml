@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-19T22:34:16+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-20T23:26:57+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<ul>
   <li>Monday</li>
 </ul>
 
@@ -12,6 +12,16 @@
 
 <ul>
   <li>Tuesday</li>
+</ul>
+
+<p>Leetcode problems*3</p>
+
+<p>Words*60</p>
+
+<p>A little Learning GNU Emacs(last position: Query-Replace)</p>
+
+<ul>
+  <li>Wednesday</li>
 </ul>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[Monday]]></summary></entry><entry><title type="html">Positive Psychology II</title><link href="http://localhost:4000/2022/09/18/Positive_Psychology_II/" rel="alternate" type="text/html" title="Positive Psychology II" /><published>2022-09-18T20:44:00+08:00</published><updated>2022-09-18T20:44:00+08:00</updated><id>http://localhost:4000/2022/09/18/Positive_Psychology_II</id><content type="html" xml:base="http://localhost:4000/2022/09/18/Positive_Psychology_II/"><![CDATA[<h2 id="lesson03">Lesson03</h2>
 
 <ul>
@@ -388,8 +398,197 @@ int main(int argc, char *argv[])
   <li>Traditional search and replace facilities</li>
   <li>Incremental searches, regular expression searches and query-replace</li>
   <li>Spell-checkng</li>
-  <li>Some modes</li>
-</ul>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter03: Search and Replace]]></summary></entry><entry><title type="html">Learning Emacs II</title><link href="http://localhost:4000/2022/09/10/Learning_Emacs_II/" rel="alternate" type="text/html" title="Learning Emacs II" /><published>2022-09-10T12:11:00+08:00</published><updated>2022-09-10T12:11:00+08:00</updated><id>http://localhost:4000/2022/09/10/Learning_Emacs_II</id><content type="html" xml:base="http://localhost:4000/2022/09/10/Learning_Emacs_II/"><![CDATA[<h2 id="chapter-02">Chapter 02</h2>
+  <li>
+    <p>Some modes</p>
+  </li>
+  <li>Incremental search commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C-s</td>
+      <td style="text-align: left">isearch-forward</td>
+      <td style="text-align: left">Start incremental search forward; follow by search string. Also, find next occurrence(forward) of search string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-r</td>
+      <td style="text-align: left">isearch-backward</td>
+      <td style="text-align: left">Start incremental search backward; follow by search string. Also, find next occurrence(backward) of search string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Enter</td>
+      <td style="text-align: left">isearch-exit</td>
+      <td style="text-align: left">In an incremental search, exit the search.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-g</td>
+      <td style="text-align: left">keyboard-quit</td>
+      <td style="text-align: left">In an incremental search, cancel the search.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Del</td>
+      <td style="text-align: left">isearch-delete-char</td>
+      <td style="text-align: left">In an incremental search, delete character from search string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-s C-w</td>
+      <td style="text-align: left">isearch-yank-word</td>
+      <td style="text-align: left">Staran incremental search with the word the cursor is on as th search string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-s C-y</td>
+      <td style="text-align: left">isearch-yank-line</td>
+      <td style="text-align: left">Start an incremental search with the text from the cursor position to the end of the line as the search string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-s M-y</td>
+      <td style="text-align: left">isearch-yank-kill</td>
+      <td style="text-align: left">Start an incremental search with text from the kill ring as the search string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-s C-s</td>
+      <td style="text-align: left">isearch-repeat-forward</td>
+      <td style="text-align: left">Repeat previous search.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-r C-r</td>
+      <td style="text-align: left">isearch-repeat-backward</td>
+      <td style="text-align: left">Repeat previous search.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Simple search commands(nonincremental search)</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C-s Enter <em>SEARCH STRING</em> Enter</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Start nonincremental search forward</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-s</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Repeat search forward</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-r Enter <em>SEARCH STRING</em> Enter</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Start nonincremental search backward</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-r</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Repeat search backward</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter03: Search and Replace]]></summary></entry><entry><title type="html">Learning Emacs II</title><link href="http://localhost:4000/2022/09/10/Learning_Emacs_II/" rel="alternate" type="text/html" title="Learning Emacs II" /><published>2022-09-10T12:11:00+08:00</published><updated>2022-09-10T12:11:00+08:00</updated><id>http://localhost:4000/2022/09/10/Learning_Emacs_II</id><content type="html" xml:base="http://localhost:4000/2022/09/10/Learning_Emacs_II/"><![CDATA[<h2 id="chapter-02">Chapter 02</h2>
 <p>All about EDITING.</p>
 
 <ul>
