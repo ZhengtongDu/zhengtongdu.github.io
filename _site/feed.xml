@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-20T23:26:57+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-21T10:10:51+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<ul>
   <li>Monday</li>
 </ul>
 
@@ -397,10 +397,13 @@ int main(int argc, char *argv[])
 <ul>
   <li>Traditional search and replace facilities</li>
   <li>Incremental searches, regular expression searches and query-replace</li>
-  <li>Spell-checkng</li>
-  <li>
-    <p>Some modes</p>
-  </li>
+  <li>Spell-checking</li>
+  <li>Some modes</li>
+</ul>
+
+<h2 id="searching">SEARCHING</h2>
+
+<ul>
   <li>Incremental search commands</li>
 </ul>
 
@@ -441,7 +444,7 @@ int main(int argc, char *argv[])
     <tr>
       <td style="text-align: left">C-s C-w</td>
       <td style="text-align: left">isearch-yank-word</td>
-      <td style="text-align: left">Staran incremental search with the word the cursor is on as th search string.</td>
+      <td style="text-align: left">Start incremental search with the word the cursor is on as the search string.</td>
     </tr>
     <tr>
       <td style="text-align: left">C-s C-y</td>
@@ -502,6 +505,14 @@ int main(int argc, char *argv[])
   </tbody>
 </table>
 
+<h2 id="replacing">REPLACING</h2>
+
+<ul>
+  <li>Query-replace</li>
+</ul>
+
+<p>Responses during query-replace(Type M-% to go into query-replace)</p>
+
 <table>
   <thead>
     <tr>
@@ -512,17 +523,175 @@ int main(int argc, char *argv[])
   </thead>
   <tbody>
     <tr>
+      <td style="text-align: left">Space or y</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">Replace <em>search string</em> with <em>new string</em> and go to the next instance of the string.</td>
     </tr>
     <tr>
+      <td style="text-align: left">Del or n</td>
       <td style="text-align: left"> </td>
+      <td style="text-align: left">Don’t replace; move to next instance.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.</td>
       <td style="text-align: left"> </td>
+      <td style="text-align: left">Replace the current instance and quit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">,</td>
       <td style="text-align: left"> </td>
+      <td style="text-align: left">Replace and let me see the result before moving on.(Press Space or y to move on.)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">!</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Replace all the rest and don’t ask.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">^</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Back up to the previous instance.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Enter or q</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Exit query-replace.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Modify the replacement string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-r</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Enter a recursive edit.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-w</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Delete this instance and enter a recursive edit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-M-c</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Exit recursive edit and resume query-replace.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-]</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Exit recursive edit and query-replace</td>
     </tr>
   </tbody>
 </table>
+
+<ul>
+  <li>
+    <p>Regular Expressions for Search and Replacement Operations</p>
+  </li>
+  <li>
+    <p>Characters for regular expressions</p>
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Character(s)</th>
+      <th style="text-align: left">Match</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">^</td>
+      <td style="text-align: left">Matches the beginning of a line.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$</td>
+      <td style="text-align: left">Matches the end of a line.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.</td>
+      <td style="text-align: left">Matches any single character(like ? in filenames).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.*</td>
+      <td style="text-align: left">Matches any group of zero or more characters(. matches any character and * matches zero or more of the previous character)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\&lt;</td>
+      <td style="text-align: left">Matches the beginning of a word.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\&gt;</td>
+      <td style="text-align: left">Matches the end of a word.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">[]</td>
+      <td style="text-align: left">Matches any character specified within the brackets; for example, [a-z] matches any alphabetic character.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\s, \S</td>
+      <td style="text-align: left">Matches any white space character: space, a newline, a tab, a carriage return, a formfeed, or a backspace; \S matches any character except white space.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\d, \D</td>
+      <td style="text-align: left">Matches any single digit, 0-9; \D matches any character but a digit.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\w, \w</td>
+      <td style="text-align: left">Matches any "word" character(upper- and lowercase letters, digits, and the underscore character);\W matches any character but these.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Regular expression search commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C-M-s Enter</td>
+      <td style="text-align: left">re-search-forward</td>
+      <td style="text-align: left">Search for a regular expression forward</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-M-r Enter</td>
+      <td style="text-align: left">re-search-backward</td>
+      <td style="text-align: left">Search for a regular expression backward.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-M-s</td>
+      <td style="text-align: left">isearch-forward-regexp</td>
+      <td style="text-align: left">Search incrementally forward for a regular expression.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-M-r</td>
+      <td style="text-align: left">isearch-backward-regexp</td>
+      <td style="text-align: left">Search incrementally backward for a regular expression.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-M-%</td>
+      <td style="text-align: left">query-replace-regexp</td>
+      <td style="text-align: left">Query-replace a regular expression.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">(none)</td>
+      <td style="text-align: left">replace-regexp</td>
+      <td style="text-align: left">Globally replace a regular expression unconditionally(use with caution).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="spelling-checking">SPELLING CHECKING</h2>
 
 <table>
   <thead>
@@ -543,18 +712,6 @@ int main(int argc, char *argv[])
       <td style="text-align: left"> </td>
       <td style="text-align: left"> </td>
     </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
     <tr>
       <td style="text-align: left"> </td>
       <td style="text-align: left"> </td>
@@ -565,18 +722,16 @@ int main(int argc, char *argv[])
       <td style="text-align: left"> </td>
       <td style="text-align: left"> </td>
     </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
     <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
     </tr>
-  </thead>
-  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
     <tr>
       <td style="text-align: left"> </td>
       <td style="text-align: left"> </td>
