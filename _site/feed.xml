@@ -1,4 +1,120 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-21T10:10:51+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-22T15:49:55+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Data Structures II</title><link href="http://localhost:4000/2022/09/22/Data_Structures_II/" rel="alternate" type="text/html" title="Data Structures II" /><published>2022-09-22T12:55:00+08:00</published><updated>2022-09-22T12:55:00+08:00</updated><id>http://localhost:4000/2022/09/22/Data_Structures_II</id><content type="html" xml:base="http://localhost:4000/2022/09/22/Data_Structures_II/"><![CDATA[<h1 id="lesson-02-linked-list">Lesson 02: Linked list</h1>
+
+<p>In order to avoid the linear cost of insertion and deletion, we need to ensure that the list is not stored contiguously, which introduces the idea of <strong>linked list</strong>.</p>
+
+<p><a href="https://towardsdatascience.com/how-i-taught-myself-linked-lists-72c4837ea721">A blog helps you understand linked list</a></p>
+
+<p>A program about address</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// test.cpp
+#include&lt;iostream&gt;
+#include&lt;limits&gt;
+
+int main()
+{
+  int *a;
+  double *b;
+  a = new(int);
+  b = new(double);
+  *a = 1; 
+  *b = 3.14;
+  std::cout &lt;&lt; a &lt;&lt; ", a + 1 = " &lt;&lt; a + 1 &lt;&lt; std::endl;
+  std::cout &lt;&lt; b &lt;&lt; ", b + 1 = " &lt;&lt; b + 1 &lt;&lt; std::endl;  
+  return 0;
+}
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include&lt;iostream&gt;
+#include&lt;limits&gt;
+
+template &lt;typename DT&gt;
+class Node{
+public:
+  DT data;
+  Node* next;
+  DT get_data();
+}
+
+tmplate&lt;typename DT&gt;
+DT Node&lt;DT&gt;::get_data(){
+        return data;
+}
+
+int main()
+{
+
+  Node&lt;int&gt; n;
+
+  int *a;
+  double *b;
+  a = new(int);
+  b = new(double);
+  *a = 1; 
+  *b = 3.14;
+  std::cout &lt;&lt; a &lt;&lt; ", a + 1 = " &lt;&lt; a + 1 &lt;&lt; std::endl;
+  std::cout &lt;&lt; b &lt;&lt; ", b + 1 = " &lt;&lt; b + 1 &lt;&lt; std::endl;  
+  return 0;
+}
+
+</code></pre></div></div>
+
+<ul>
+  <li>Ops of linked list(Actually still a ADT List!!)</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Function</th>
+      <th style="text-align: left">Action</th>
+      <th style="text-align: left">TimeConsuming</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">insert(dat)</td>
+      <td style="text-align: left">insert <em>dat</em> at the end</td>
+      <td style="text-align: left">O(1)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">delete()</td>
+      <td style="text-align: left">delete(pop) the first <em>dat</em></td>
+      <td style="text-align: left">O(1)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">find(dat)</td>
+      <td style="text-align: left">find if <em>dat</em> exist</td>
+      <td style="text-align: left">O(n)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When implement the functions, notice that <strong>single linked list</strong> cannot share the class <em>Node</em> with <strong>DoubleLinkedList</strong>. A optional way to fix this problem is to place the class <em>Node</em> into class <em>SingleLinkedList</em>, which avoids being used by other class.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<p>Question appears! Where to insert? So we should add more properties into our linked list class.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Don’t forget to add necessary comments explaining your code.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Add <em>remove()</em> function</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Remember to add destructor into <em>SingleLinkedlist</em> class.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="data_structure" /><summary type="html"><![CDATA[Lesson 02: Linked list]]></summary></entry><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<ul>
   <li>Monday</li>
 </ul>
 
@@ -22,6 +138,16 @@
 
 <ul>
   <li>Wednesday</li>
+</ul>
+
+<p>Leetcode problems*2</p>
+
+<p>Words*60</p>
+
+<p>A little Learning GNU Emacs(last position: Spell-checking)</p>
+
+<ul>
+  <li>Thursday</li>
 </ul>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[Monday]]></summary></entry><entry><title type="html">Positive Psychology II</title><link href="http://localhost:4000/2022/09/18/Positive_Psychology_II/" rel="alternate" type="text/html" title="Positive Psychology II" /><published>2022-09-18T20:44:00+08:00</published><updated>2022-09-18T20:44:00+08:00</updated><id>http://localhost:4000/2022/09/18/Positive_Psychology_II</id><content type="html" xml:base="http://localhost:4000/2022/09/18/Positive_Psychology_II/"><![CDATA[<h2 id="lesson03">Lesson03</h2>
 
 <ul>
@@ -1200,5 +1326,4 @@ The result is the part being selected is reformatted.
   <li>Learn how to prevent from depression.</li>
 </ul>
 
-<p>Resilience, and the conponents: Optimisim, Faith and a sense of meaning, Prosocial behavior, Focusing on strengths, Set goals, A role model and Social support.</p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="pos-psy" /><category term="learning" /><summary type="html"><![CDATA[How can I become happier?]]></summary></entry><entry><title type="html">A Good start</title><link href="http://localhost:4000/2022/08/01/A-good-start/" rel="alternate" type="text/html" title="A Good start" /><published>2022-08-01T17:26:00+08:00</published><updated>2022-08-01T17:26:00+08:00</updated><id>http://localhost:4000/2022/08/01/A-good-start</id><content type="html" xml:base="http://localhost:4000/2022/08/01/A-good-start/"><![CDATA[<p>Now, I have finished the necessary config initialization. Besides, I also wrote a script to auto generate markdown template. The following thing I will do is to install some useful plug-ins such as write-good.
-Happy coding!</p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="life" /><summary type="html"><![CDATA[Now, I have finished the necessary config initialization. Besides, I also wrote a script to auto generate markdown template. The following thing I will do is to install some useful plug-ins such as write-good. Happy coding!]]></summary></entry></feed>
+<p>Resilience, and the conponents: Optimisim, Faith and a sense of meaning, Prosocial behavior, Focusing on strengths, Set goals, A role model and Social support.</p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="pos-psy" /><category term="learning" /><summary type="html"><![CDATA[How can I become happier?]]></summary></entry></feed>

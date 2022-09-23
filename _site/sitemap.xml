@@ -41,6 +41,10 @@
 <lastmod>2022-09-19T21:49:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2022/09/22/Data_Structures_II/</loc>
+<lastmod>2022-09-22T12:55:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 </url>
 <url>
@@ -57,5 +61,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page3/</loc>
 </url>
 </urlset>
