@@ -366,6 +366,10 @@
 
 <h2 id="spelling-checking">SPELLING CHECKING</h2>
 
+<ul>
+  <li>Spell-checking commands</li>
+</ul>
+
 <table>
   <thead>
     <tr>
@@ -376,44 +380,115 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">M-$</td>
+      <td style="text-align: left">ispell-word</td>
+      <td style="text-align: left">Check the word the cursor is on or the word following the cursor.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-region</td>
+      <td style="text-align: left">Check spelling of the region.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-buffer</td>
+      <td style="text-align: left">Check spelling of the buffer.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-message</td>
+      <td style="text-align: left">Check spelling of the body of a mail message.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-comments-and-strings</td>
+      <td style="text-align: left">Check spelling of comments and strings in a program.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-u M-$</td>
+      <td style="text-align: left">ispell-continue</td>
+      <td style="text-align: left">Resume Ispell; it works only if stopped Ispell with C-g.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-kill-ispell</td>
+      <td style="text-align: left">Kill the Ispell process, which continues to run in the background after it is invoked.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">M-Tab</td>
+      <td style="text-align: left">ispell-complete-word</td>
+      <td style="text-align: left">In text mode, list possible completions for the current word.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">flyspell-mode</td>
+      <td style="text-align: left">Enter the Flyspell minor mode, in which incorrectly spelled words are highlighted</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
+      <td style="text-align: left">flyspell-buffer</td>
+      <td style="text-align: left">Spell-check the current buffer, underlining all misspelled words. Use middle mouse button to correct.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Word abbreviation commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">M-/</td>
+      <td style="text-align: left">dabbrev-expand</td>
+      <td style="text-align: left">Complete this word based on the nearest word that starts with this string(press M-/ again if that’s not the word you want).</td>
+    </tr>
+    <tr>
       <td style="text-align: left"> </td>
+      <td style="text-align: left">abbrev-mode</td>
+      <td style="text-align: left">Enter(or exit) word abbreviation mode.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x a - or C-x a i g</td>
+      <td style="text-align: left">inverse-add-global-abbrev</td>
+      <td style="text-align: left">After typing the global abbreviation, type the definition.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x a i l</td>
+      <td style="text-align: left">inverse-add-mode-abbrev</td>
+      <td style="text-align: left">After typing the local abbreviation, type the definition.</td>
+    </tr>
+    <tr>
       <td style="text-align: left"> </td>
+      <td style="text-align: left">unexpand-abbrev</td>
+      <td style="text-align: left">Undo the last word abbreviation.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">write-abbrev-file</td>
+      <td style="text-align: left">Write the word abbreviation file.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">edit-abbrevs</td>
+      <td style="text-align: left">Edit the word abbreviations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">list-abbrevs</td>
+      <td style="text-align: left">View the word abbreviations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">kill-all-abbrevs</td>
+      <td style="text-align: left">Kill abbreviations for this session.</td>
     </tr>
   </tbody>
 </table>

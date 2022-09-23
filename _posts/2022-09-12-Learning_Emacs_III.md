@@ -89,13 +89,31 @@ Responses during query-replace(Type M-% to go into query-replace)
 
 ## SPELLING CHECKING
 
+- Spell-checking commands
+
 |Keystrokes|Command name|Action|
 |:---|:---|:---|
-||||
-||||
-||||
-||||
-||||
-||||
-||||
-||||
+|M-$|ispell-word|Check the word the cursor is on or the word following the cursor.|
+||ispell-region|Check spelling of the region.|
+||ispell-buffer|Check spelling of the buffer.|
+||ispell-message|Check spelling of the body of a mail message.|
+||ispell-comments-and-strings|Check spelling of comments and strings in a program.|
+|C-u M-$|ispell-continue|Resume Ispell; it works only if stopped Ispell with C-g.|
+||ispell-kill-ispell|Kill the Ispell process, which continues to run in the background after it is invoked.|
+|M-Tab|ispell-complete-word|In text mode, list possible completions for the current word.|
+||flyspell-mode|Enter the Flyspell minor mode, in which incorrectly spelled words are highlighted|
+||flyspell-buffer|Spell-check the current buffer, underlining all misspelled words. Use middle mouse button to correct.|
+
+- Word abbreviation commands
+
+|Keystrokes|Command name|Action|
+|:---|:---|:---|
+|M-/|dabbrev-expand| Complete this word based on the nearest word that starts with this string(press M-/ again if that's not the word you want).|
+||abbrev-mode|Enter(or exit) word abbreviation mode.|
+|C-x a - or C-x a i g|inverse-add-global-abbrev|After typing the global abbreviation, type the definition.|
+|C-x a i l|inverse-add-mode-abbrev|After typing the local abbreviation, type the definition.|
+||unexpand-abbrev|Undo the last word abbreviation.|
+||write-abbrev-file|Write the word abbreviation file.|
+||edit-abbrevs|Edit the word abbreviations.|
+||list-abbrevs|View the word abbreviations.|
+||kill-all-abbrevs|Kill abbreviations for this session.|

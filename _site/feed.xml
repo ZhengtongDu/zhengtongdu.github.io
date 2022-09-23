@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-22T15:49:55+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Data Structures II</title><link href="http://localhost:4000/2022/09/22/Data_Structures_II/" rel="alternate" type="text/html" title="Data Structures II" /><published>2022-09-22T12:55:00+08:00</published><updated>2022-09-22T12:55:00+08:00</updated><id>http://localhost:4000/2022/09/22/Data_Structures_II</id><content type="html" xml:base="http://localhost:4000/2022/09/22/Data_Structures_II/"><![CDATA[<h1 id="lesson-02-linked-list">Lesson 02: Linked list</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-23T23:43:35+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Data Structures II</title><link href="http://localhost:4000/2022/09/22/Data_Structures_II/" rel="alternate" type="text/html" title="Data Structures II" /><published>2022-09-22T12:55:00+08:00</published><updated>2022-09-22T12:55:00+08:00</updated><id>http://localhost:4000/2022/09/22/Data_Structures_II</id><content type="html" xml:base="http://localhost:4000/2022/09/22/Data_Structures_II/"><![CDATA[<h1 id="lesson-02-linked-list">Lesson 02: Linked list</h1>
 
 <p>In order to avoid the linear cost of insertion and deletion, we need to ensure that the list is not stored contiguously, which introduces the idea of <strong>linked list</strong>.</p>
 
@@ -114,7 +114,9 @@ int main()
 <p>Remember to add destructor into <em>SingleLinkedlist</em> class.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-</code></pre></div></div>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="data_structure" /><summary type="html"><![CDATA[Lesson 02: Linked list]]></summary></entry><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<ul>
+</code></pre></div></div>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="data_structure" /><summary type="html"><![CDATA[Lesson 02: Linked list]]></summary></entry><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<p>2nd week’s record during postgraduate period</p>
+
+<ul>
   <li>Monday</li>
 </ul>
 
@@ -148,7 +150,21 @@ int main()
 
 <ul>
   <li>Thursday</li>
-</ul>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[Monday]]></summary></entry><entry><title type="html">Positive Psychology II</title><link href="http://localhost:4000/2022/09/18/Positive_Psychology_II/" rel="alternate" type="text/html" title="Positive Psychology II" /><published>2022-09-18T20:44:00+08:00</published><updated>2022-09-18T20:44:00+08:00</updated><id>http://localhost:4000/2022/09/18/Positive_Psychology_II</id><content type="html" xml:base="http://localhost:4000/2022/09/18/Positive_Psychology_II/"><![CDATA[<h2 id="lesson03">Lesson03</h2>
+</ul>
+
+<p>Leetcode problems*3</p>
+
+<p>Thinking in CPP Chapter08</p>
+
+<p>Configuring two routers</p>
+
+<ul>
+  <li>Friday</li>
+</ul>
+
+<p>Leetcode problems*2</p>
+
+<p>Configuring lab’s printer</p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[2nd week’s record during postgraduate period]]></summary></entry><entry><title type="html">Positive Psychology II</title><link href="http://localhost:4000/2022/09/18/Positive_Psychology_II/" rel="alternate" type="text/html" title="Positive Psychology II" /><published>2022-09-18T20:44:00+08:00</published><updated>2022-09-18T20:44:00+08:00</updated><id>http://localhost:4000/2022/09/18/Positive_Psychology_II</id><content type="html" xml:base="http://localhost:4000/2022/09/18/Positive_Psychology_II/"><![CDATA[<h2 id="lesson03">Lesson03</h2>
 
 <ul>
   <li>Happiness is not negation of Unhappiness.</li>
@@ -819,6 +835,10 @@ int main(int argc, char *argv[])
 
 <h2 id="spelling-checking">SPELLING CHECKING</h2>
 
+<ul>
+  <li>Spell-checking commands</li>
+</ul>
+
 <table>
   <thead>
     <tr>
@@ -829,44 +849,115 @@ int main(int argc, char *argv[])
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">M-$</td>
+      <td style="text-align: left">ispell-word</td>
+      <td style="text-align: left">Check the word the cursor is on or the word following the cursor.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-region</td>
+      <td style="text-align: left">Check spelling of the region.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-buffer</td>
+      <td style="text-align: left">Check spelling of the buffer.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-message</td>
+      <td style="text-align: left">Check spelling of the body of a mail message.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-comments-and-strings</td>
+      <td style="text-align: left">Check spelling of comments and strings in a program.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-u M-$</td>
+      <td style="text-align: left">ispell-continue</td>
+      <td style="text-align: left">Resume Ispell; it works only if stopped Ispell with C-g.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-kill-ispell</td>
+      <td style="text-align: left">Kill the Ispell process, which continues to run in the background after it is invoked.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">M-Tab</td>
+      <td style="text-align: left">ispell-complete-word</td>
+      <td style="text-align: left">In text mode, list possible completions for the current word.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">flyspell-mode</td>
+      <td style="text-align: left">Enter the Flyspell minor mode, in which incorrectly spelled words are highlighted</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
+      <td style="text-align: left">flyspell-buffer</td>
+      <td style="text-align: left">Spell-check the current buffer, underlining all misspelled words. Use middle mouse button to correct.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Word abbreviation commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">M-/</td>
+      <td style="text-align: left">dabbrev-expand</td>
+      <td style="text-align: left">Complete this word based on the nearest word that starts with this string(press M-/ again if that’s not the word you want).</td>
+    </tr>
+    <tr>
       <td style="text-align: left"> </td>
+      <td style="text-align: left">abbrev-mode</td>
+      <td style="text-align: left">Enter(or exit) word abbreviation mode.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x a - or C-x a i g</td>
+      <td style="text-align: left">inverse-add-global-abbrev</td>
+      <td style="text-align: left">After typing the global abbreviation, type the definition.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x a i l</td>
+      <td style="text-align: left">inverse-add-mode-abbrev</td>
+      <td style="text-align: left">After typing the local abbreviation, type the definition.</td>
+    </tr>
+    <tr>
       <td style="text-align: left"> </td>
+      <td style="text-align: left">unexpand-abbrev</td>
+      <td style="text-align: left">Undo the last word abbreviation.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">write-abbrev-file</td>
+      <td style="text-align: left">Write the word abbreviation file.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">edit-abbrevs</td>
+      <td style="text-align: left">Edit the word abbreviations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">list-abbrevs</td>
+      <td style="text-align: left">View the word abbreviations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">kill-all-abbrevs</td>
+      <td style="text-align: left">Kill abbreviations for this session.</td>
     </tr>
   </tbody>
 </table>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter03: Search and Replace]]></summary></entry><entry><title type="html">Learning Emacs II</title><link href="http://localhost:4000/2022/09/10/Learning_Emacs_II/" rel="alternate" type="text/html" title="Learning Emacs II" /><published>2022-09-10T12:11:00+08:00</published><updated>2022-09-10T12:11:00+08:00</updated><id>http://localhost:4000/2022/09/10/Learning_Emacs_II</id><content type="html" xml:base="http://localhost:4000/2022/09/10/Learning_Emacs_II/"><![CDATA[<h2 id="chapter-02">Chapter 02</h2>
