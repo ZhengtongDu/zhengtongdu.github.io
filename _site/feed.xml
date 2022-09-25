@@ -1,4 +1,322 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-23T23:43:35+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Data Structures II</title><link href="http://localhost:4000/2022/09/22/Data_Structures_II/" rel="alternate" type="text/html" title="Data Structures II" /><published>2022-09-22T12:55:00+08:00</published><updated>2022-09-22T12:55:00+08:00</updated><id>http://localhost:4000/2022/09/22/Data_Structures_II</id><content type="html" xml:base="http://localhost:4000/2022/09/22/Data_Structures_II/"><![CDATA[<h1 id="lesson-02-linked-list">Lesson 02: Linked list</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-25T17:23:07+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Learning Emacs IV</title><link href="http://localhost:4000/2022/09/25/Learning_Emacs_IV/" rel="alternate" type="text/html" title="Learning Emacs IV" /><published>2022-09-25T14:29:00+08:00</published><updated>2022-09-25T14:29:00+08:00</updated><id>http://localhost:4000/2022/09/25/Learning_Emacs_IV</id><content type="html" xml:base="http://localhost:4000/2022/09/25/Learning_Emacs_IV/"><![CDATA[<h1 id="chapter-04-using-buffers-windows-and-frames">Chapter 04: Using Buffers, Windows, and Frames</h1>
+
+<p>So interesting!</p>
+
+<ul>
+  <li>Frame commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C-x 5 o</td>
+      <td style="text-align: left">other-frame</td>
+      <td style="text-align: left">Move to other frame.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x 5 0</td>
+      <td style="text-align: left">delete-frame</td>
+      <td style="text-align: left">Delete current frame.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x 5 2</td>
+      <td style="text-align: left">make-frame</td>
+      <td style="text-align: left">Create a new frame on the current buffer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x 5 f</td>
+      <td style="text-align: left">find-file-other-frame</td>
+      <td style="text-align: left">Find file in a new frame.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x 5 r</td>
+      <td style="text-align: left">find-file-read-only-other-frame</td>
+      <td style="text-align: left">Find a file in a new frame, but it is read-only.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x 5 b</td>
+      <td style="text-align: left">switch-to-buffer-other-frame</td>
+      <td style="text-align: left">Make frame and display other buffer in it.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Buffer manipulation commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C-x b</td>
+      <td style="text-align: left">switch-to-buffer</td>
+      <td style="text-align: left">Move to the buffer specified.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x \right-arrow</td>
+      <td style="text-align: left">next-buffer</td>
+      <td style="text-align: left">Move to the next buffer in the buffer list.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x \left-arrow</td>
+      <td style="text-align: left">previous-buffer</td>
+      <td style="text-align: left">Move to the previous buffer in the buffer list.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x C-b</td>
+      <td style="text-align: left">list-buffers</td>
+      <td style="text-align: left">Display the buffer list.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x k</td>
+      <td style="text-align: left">kill-buffer</td>
+      <td style="text-align: left">Delete the buffer specified</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">kill-some-buffers</td>
+      <td style="text-align: left">Ask about deleting each buffer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">rename-buffer</td>
+      <td style="text-align: left">Change the buffer’s name to the name specified.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x s</td>
+      <td style="text-align: left">save-some-buffers</td>
+      <td style="text-align: left">Ask whether you want to save each modified buffer.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Buffer list commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Action</th>
+      <th style="text-align: left">Occurs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C-n, Space, n, or \down-arrow</td>
+      <td style="text-align: left">Move to the next buffers in the list(i.e., down one line).</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-p, p, or \up-arrow</td>
+      <td style="text-align: left">Move to the previous buffer in the list(i.e., up one line).</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">d, or k</td>
+      <td style="text-align: left">Mark buffer for deletion.</td>
+      <td style="text-align: left">When you press x</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s</td>
+      <td style="text-align: left">Save buffer.</td>
+      <td style="text-align: left">When you press x</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">u</td>
+      <td style="text-align: left">Unmark buffer.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">x</td>
+      <td style="text-align: left">Execute other one-letter commands on all marked buffers.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Del</td>
+      <td style="text-align: left">Unmark the previous buffer in the list; if there is no mark, move up one line.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">~</td>
+      <td style="text-align: left">Mark buffer as unmodified.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">%</td>
+      <td style="text-align: left">Toggle read-only status of buffer.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Display buffer in a full screen.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Display this buffer and the next one in horizontal windows.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">f</td>
+      <td style="text-align: left">Replace buffer list with this buffer.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">o</td>
+      <td style="text-align: left">Replace other window with this buffer.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">m</td>
+      <td style="text-align: left">Mark buffers to be displayed in windows.</td>
+      <td style="text-align: left">When you press v</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">v</td>
+      <td style="text-align: left">Display buffers marked with m; Emacs makes as many windows as needed.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">q</td>
+      <td style="text-align: left">Quit buffer list.</td>
+      <td style="text-align: left">Immediately</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Window commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C-x 2</td>
+      <td style="text-align: left">split-window-vertically</td>
+      <td style="text-align: left">Divide current window into two Windows, one above the other.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x 3</td>
+      <td style="text-align: left">split-window-horizontally</td>
+      <td style="text-align: left">Divide current window into two side-by-side windows.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x o</td>
+      <td style="text-align: left">other-window</td>
+      <td style="text-align: left">Move to the other window; if there are several, move to the next window.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x 0</td>
+      <td style="text-align: left">delete-window</td>
+      <td style="text-align: left">Delete the current window.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x 1</td>
+      <td style="text-align: left">delete-other-windows</td>
+      <td style="text-align: left">Delete all windows but this one.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x ^</td>
+      <td style="text-align: left">enlarge-window</td>
+      <td style="text-align: left">Make window taller.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">shrink-window</td>
+      <td style="text-align: left">Make window shorter.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x }</td>
+      <td style="text-align: left">enlarge-window-horizontally</td>
+      <td style="text-align: left">Make window wider.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x {</td>
+      <td style="text-align: left">shrink-window-horizontally</td>
+      <td style="text-align: left">Make window narrower.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x +</td>
+      <td style="text-align: left">balance-windows</td>
+      <td style="text-align: left">Make windows the same size.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x 4 f</td>
+      <td style="text-align: left">find-file-other-window</td>
+      <td style="text-align: left">Find a file in the other window.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x 4 b</td>
+      <td style="text-align: left">switch-to-buffer-other-window</td>
+      <td style="text-align: left">Select a buffer in the other window.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter 04: Using Buffers, Windows, and Frames]]></summary></entry><entry><title type="html">Data Structures II</title><link href="http://localhost:4000/2022/09/22/Data_Structures_II/" rel="alternate" type="text/html" title="Data Structures II" /><published>2022-09-22T12:55:00+08:00</published><updated>2022-09-22T12:55:00+08:00</updated><id>http://localhost:4000/2022/09/22/Data_Structures_II</id><content type="html" xml:base="http://localhost:4000/2022/09/22/Data_Structures_II/"><![CDATA[<h1 id="lesson-02-linked-list">Lesson 02: Linked list</h1>
 
 <p>In order to avoid the linear cost of insertion and deletion, we need to ensure that the list is not stored contiguously, which introduces the idea of <strong>linked list</strong>.</p>
 
@@ -164,7 +482,19 @@ int main()
 
 <p>Leetcode problems*2</p>
 
-<p>Configuring lab’s printer</p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[2nd week’s record during postgraduate period]]></summary></entry><entry><title type="html">Positive Psychology II</title><link href="http://localhost:4000/2022/09/18/Positive_Psychology_II/" rel="alternate" type="text/html" title="Positive Psychology II" /><published>2022-09-18T20:44:00+08:00</published><updated>2022-09-18T20:44:00+08:00</updated><id>http://localhost:4000/2022/09/18/Positive_Psychology_II</id><content type="html" xml:base="http://localhost:4000/2022/09/18/Positive_Psychology_II/"><![CDATA[<h2 id="lesson03">Lesson03</h2>
+<p>Learning GNU Emacs Chapter03</p>
+
+<p>Configuring lab’s printer</p>
+
+<ul>
+  <li>Satursday</li>
+</ul>
+
+<p>Leetcode problems*2</p>
+
+<ul>
+  <li>Sunday</li>
+</ul>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[2nd week’s record during postgraduate period]]></summary></entry><entry><title type="html">Positive Psychology II</title><link href="http://localhost:4000/2022/09/18/Positive_Psychology_II/" rel="alternate" type="text/html" title="Positive Psychology II" /><published>2022-09-18T20:44:00+08:00</published><updated>2022-09-18T20:44:00+08:00</updated><id>http://localhost:4000/2022/09/18/Positive_Psychology_II</id><content type="html" xml:base="http://localhost:4000/2022/09/18/Positive_Psychology_II/"><![CDATA[<h2 id="lesson03">Lesson03</h2>
 
 <ul>
   <li>Happiness is not negation of Unhappiness.</li>
@@ -1398,23 +1728,4 @@ The result is the part being selected is reformatted.
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 11</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 12</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 14</li>
-</ul>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Use this post to record what I have learned in book Learning GNU Emacs, as well as training to master markdown :)]]></summary></entry><entry><title type="html">Positive Psychology I</title><link href="http://localhost:4000/2022/09/07/Positive_Psychology_I/" rel="alternate" type="text/html" title="Positive Psychology I" /><published>2022-09-07T17:01:00+08:00</published><updated>2022-09-07T17:01:00+08:00</updated><id>http://localhost:4000/2022/09/07/Positive_Psychology_I</id><content type="html" xml:base="http://localhost:4000/2022/09/07/Positive_Psychology_I/"><![CDATA[<p>How can I become happier?</p>
-
-<h2 id="lecture01-introduction">Lecture01 Introduction</h2>
-
-<p>The Goal of this course is to chip away the “excess stone” covered on ourselves and to help us to realize our potential, “David”.</p>
-
-<p>This course will focus on the simplicity on the other side of complexity, not the straightforward complicity. And what you need to do is to apply what you have learned into life, the behaviors. It matters that what you do differs from that before.</p>
-
-<h2 id="lecture02-why-positive-psychology">Lecture02 Why Positive Psychology?</h2>
-<ul>
-  <li>Questions create reality. Only look at deficiency will make good things not visible.
-    <ul>
-      <li>Appreciate what is good inside me.</li>
-    </ul>
-  </li>
-  <li>Being happy is not just a negation of depression and anxiety.</li>
-  <li>Learn how to prevent from depression.</li>
-</ul>
-
-<p>Resilience, and the conponents: Optimisim, Faith and a sense of meaning, Prosocial behavior, Focusing on strengths, Set goals, A role model and Social support.</p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="pos-psy" /><category term="learning" /><summary type="html"><![CDATA[How can I become happier?]]></summary></entry></feed>
+</ul>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Use this post to record what I have learned in book Learning GNU Emacs, as well as training to master markdown :)]]></summary></entry></feed>

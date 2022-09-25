@@ -1,0 +1,117 @@
+<h1 id="lesson-02-linked-list">Lesson 02: Linked list</h1>
+
+<p>In order to avoid the linear cost of insertion and deletion, we need to ensure that the list is not stored contiguously, which introduces the idea of <strong>linked list</strong>.</p>
+
+<p><a href="https://towardsdatascience.com/how-i-taught-myself-linked-lists-72c4837ea721">A blog helps you understand linked list</a></p>
+
+<p>A program about address</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// test.cpp
+#include&lt;iostream&gt;
+#include&lt;limits&gt;
+
+int main()
+{
+  int *a;
+  double *b;
+  a = new(int);
+  b = new(double);
+  *a = 1; 
+  *b = 3.14;
+  std::cout &lt;&lt; a &lt;&lt; ", a + 1 = " &lt;&lt; a + 1 &lt;&lt; std::endl;
+  std::cout &lt;&lt; b &lt;&lt; ", b + 1 = " &lt;&lt; b + 1 &lt;&lt; std::endl;  
+  return 0;
+}
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include&lt;iostream&gt;
+#include&lt;limits&gt;
+
+template &lt;typename DT&gt;
+class Node{
+public:
+  DT data;
+  Node* next;
+  DT get_data();
+}
+
+tmplate&lt;typename DT&gt;
+DT Node&lt;DT&gt;::get_data(){
+        return data;
+}
+
+int main()
+{
+
+  Node&lt;int&gt; n;
+
+  int *a;
+  double *b;
+  a = new(int);
+  b = new(double);
+  *a = 1; 
+  *b = 3.14;
+  std::cout &lt;&lt; a &lt;&lt; ", a + 1 = " &lt;&lt; a + 1 &lt;&lt; std::endl;
+  std::cout &lt;&lt; b &lt;&lt; ", b + 1 = " &lt;&lt; b + 1 &lt;&lt; std::endl;  
+  return 0;
+}
+
+</code></pre></div></div>
+
+<ul>
+  <li>Ops of linked list(Actually still a ADT List!!)</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Function</th>
+      <th style="text-align: left">Action</th>
+      <th style="text-align: left">TimeConsuming</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">insert(dat)</td>
+      <td style="text-align: left">insert <em>dat</em> at the end</td>
+      <td style="text-align: left">O(1)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">delete()</td>
+      <td style="text-align: left">delete(pop) the first <em>dat</em></td>
+      <td style="text-align: left">O(1)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">find(dat)</td>
+      <td style="text-align: left">find if <em>dat</em> exist</td>
+      <td style="text-align: left">O(n)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When implement the functions, notice that <strong>single linked list</strong> cannot share the class <em>Node</em> with <strong>DoubleLinkedList</strong>. A optional way to fix this problem is to place the class <em>Node</em> into class <em>SingleLinkedList</em>, which avoids being used by other class.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<p>Question appears! Where to insert? So we should add more properties into our linked list class.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Don’t forget to add necessary comments explaining your code.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Add <em>remove()</em> function</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Remember to add destructor into <em>SingleLinkedlist</em> class.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
