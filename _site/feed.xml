@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-25T17:23:07+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Learning Emacs IV</title><link href="http://localhost:4000/2022/09/25/Learning_Emacs_IV/" rel="alternate" type="text/html" title="Learning Emacs IV" /><published>2022-09-25T14:29:00+08:00</published><updated>2022-09-25T14:29:00+08:00</updated><id>http://localhost:4000/2022/09/25/Learning_Emacs_IV</id><content type="html" xml:base="http://localhost:4000/2022/09/25/Learning_Emacs_IV/"><![CDATA[<h1 id="chapter-04-using-buffers-windows-and-frames">Chapter 04: Using Buffers, Windows, and Frames</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-25T21:29:43+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Learning Emacs IV</title><link href="http://localhost:4000/2022/09/25/Learning_Emacs_IV/" rel="alternate" type="text/html" title="Learning Emacs IV" /><published>2022-09-25T14:29:00+08:00</published><updated>2022-09-25T14:29:00+08:00</updated><id>http://localhost:4000/2022/09/25/Learning_Emacs_IV</id><content type="html" xml:base="http://localhost:4000/2022/09/25/Learning_Emacs_IV/"><![CDATA[<h1 id="chapter-04-using-buffers-windows-and-frames">Chapter 04: Using Buffers, Windows, and Frames</h1>
 
-<p>So interesting!</p>
+<p>This chapter focuses on topics of frames, windows and bookmarks, teaching you how to use them for convenience. So interesting!</p>
 
 <ul>
   <li>Frame commands</li>
@@ -276,6 +276,95 @@
   </tbody>
 </table>
 
+<p>Commands for editing the bookmark list</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Enter, f, or j</td>
+      <td style="text-align: left">Go to the bookmark on the current line.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-o or o</td>
+      <td style="text-align: left">Open the bookmark on the current line in another window;o moves the cursor to that window; C-o keeps the cursor in the current window.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">d, C-d, or k</td>
+      <td style="text-align: left">Flag bookmark for deletion.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">r</td>
+      <td style="text-align: left">Rename bookmark.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s</td>
+      <td style="text-align: left">Save all bookmarks listed.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">m</td>
+      <td style="text-align: left">Mark bookmarks to be displayed in multiple windows.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">v</td>
+      <td style="text-align: left">Display marked bookmarks or the one the cursor is on if none are marked.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">t</td>
+      <td style="text-align: left">Toggle display of paths to files associated with bookmarks.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">w</td>
+      <td style="text-align: left">In the minibuffer, display location of file associated with bookmarks.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">x</td>
+      <td style="text-align: left">Delete bookmarks flagged for deletion.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">u</td>
+      <td style="text-align: left">Remove mark from bookmark.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Del</td>
+      <td style="text-align: left">Remove mark from bookmark on previous line or move to the previous line(if there is no mark).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">q</td>
+      <td style="text-align: left">Exit bookmark list.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Space or n</td>
+      <td style="text-align: left">Move down a line.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">p</td>
+      <td style="text-align: left">Move up a line.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">|</td>
+      <td style="text-align: left">Load a bookmark file(other than the default).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">A</td>
+      <td style="text-align: left">Display all annotations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">a</td>
+      <td style="text-align: left">Display annotation for current bookmark.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">e</td>
+      <td style="text-align: left">Edit(or create)annotation for the current bookmark.</td>
+    </tr>
+  </tbody>
+</table>
+
 <table>
   <thead>
     <tr>
@@ -286,34 +375,34 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">C-x r m</td>
+      <td style="text-align: left">bookmark-set</td>
+      <td style="text-align: left">Set a bookmark at the current cursor position.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x r b</td>
+      <td style="text-align: left">bookmark-jump</td>
+      <td style="text-align: left">Jump to a bookmark.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">bookmark-rename</td>
+      <td style="text-align: left">Rename a bookmark.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">bookmark-delete</td>
+      <td style="text-align: left">Delete a bookmark.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">bookmark-save</td>
+      <td style="text-align: left">Save all bookmarks in default file.</td>
     </tr>
     <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">C-x r l</td>
+      <td style="text-align: left">bookmark-menu-list</td>
+      <td style="text-align: left">Move to *Bookmark List*buffer.</td>
     </tr>
   </tbody>
 </table>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter 04: Using Buffers, Windows, and Frames]]></summary></entry><entry><title type="html">Data Structures II</title><link href="http://localhost:4000/2022/09/22/Data_Structures_II/" rel="alternate" type="text/html" title="Data Structures II" /><published>2022-09-22T12:55:00+08:00</published><updated>2022-09-22T12:55:00+08:00</updated><id>http://localhost:4000/2022/09/22/Data_Structures_II</id><content type="html" xml:base="http://localhost:4000/2022/09/22/Data_Structures_II/"><![CDATA[<h1 id="lesson-02-linked-list">Lesson 02: Linked list</h1>
@@ -432,7 +521,7 @@ int main()
 <p>Remember to add destructor into <em>SingleLinkedlist</em> class.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-</code></pre></div></div>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="data_structure" /><summary type="html"><![CDATA[Lesson 02: Linked list]]></summary></entry><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<p>2nd week’s record during postgraduate period</p>
+</code></pre></div></div>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="data_structure" /><summary type="html"><![CDATA[Lesson 02: Linked list]]></summary></entry><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<p>My 2nd week’s record during postgraduate period.</p>
 
 <ul>
   <li>Monday</li>
@@ -494,7 +583,17 @@ int main()
 
 <ul>
   <li>Sunday</li>
-</ul>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[2nd week’s record during postgraduate period]]></summary></entry><entry><title type="html">Positive Psychology II</title><link href="http://localhost:4000/2022/09/18/Positive_Psychology_II/" rel="alternate" type="text/html" title="Positive Psychology II" /><published>2022-09-18T20:44:00+08:00</published><updated>2022-09-18T20:44:00+08:00</updated><id>http://localhost:4000/2022/09/18/Positive_Psychology_II</id><content type="html" xml:base="http://localhost:4000/2022/09/18/Positive_Psychology_II/"><![CDATA[<h2 id="lesson03">Lesson03</h2>
+</ul>
+
+<p>Leetcode problems*5</p>
+
+<p>Learning GNU Emacs Chapter04</p>
+
+<p>Positive Psychology Lesson03</p>
+
+<p>Printing a copy of <em>Advice for early-stage Ph.D. students</em></p>
+
+<p><a href="https://zhengtongdu.github.io/2022/09/26/Week_003_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My 2nd week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Positive Psychology II</title><link href="http://localhost:4000/2022/09/18/Positive_Psychology_II/" rel="alternate" type="text/html" title="Positive Psychology II" /><published>2022-09-18T20:44:00+08:00</published><updated>2022-09-18T20:44:00+08:00</updated><id>http://localhost:4000/2022/09/18/Positive_Psychology_II</id><content type="html" xml:base="http://localhost:4000/2022/09/18/Positive_Psychology_II/"><![CDATA[<h2 id="lesson03">Lesson03</h2>
 
 <ul>
   <li>Happiness is not negation of Unhappiness.</li>
@@ -505,7 +604,7 @@ int main()
 <p>It was found that the most effective way of dealing with the phenomenon of depression was actually to cultivate the positive, to cultivate personal strengths, to cultivate and identify one’s passions. To ask a question such as what is meaningful to me in my life, what’s my purpose, why I am here.</p>
 
 <ul>
-  <li>Cultivating capcity.</li>
+  <li>Cultivating capacity.</li>
 </ul>
 
 <p>Positive psychology serves a new model(health mode). The conventional model thinks that the reason why a person is sick is that he is ill, and taking away the illness leads to being healthy. The positive psychology model thinks that the reason a person is sick is that there is not enough health in his life and he isn’t pursuing those things that make him healthy.</p>
@@ -519,10 +618,8 @@ int main()
   <li>Change is possible whether it is individual change, organizational change.</li>
   <li>Internal factors primarily determine happiness, which is opposite to happiness is primarily function of external circumstances.</li>
   <li>Human nature need to be obeyed, as opposed to attempting to perfect it on the psychological level.</li>
-  <li>Happiness is the ultimate and the aim which we pursue, as opposed to there are persuits that are higher, more important, more moral than that.</li>
-</ol>
-
-<h2 id="bridge-building">BRIDGE BUILDING</h2>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="pos-psy" /><summary type="html"><![CDATA[Lesson03]]></summary></entry><entry><title type="html">Data Structures I</title><link href="http://localhost:4000/2022/09/15/Data_Structures_I/" rel="alternate" type="text/html" title="Data Structures I" /><published>2022-09-15T13:51:00+08:00</published><updated>2022-09-15T13:51:00+08:00</updated><id>http://localhost:4000/2022/09/15/Data_Structures_I</id><content type="html" xml:base="http://localhost:4000/2022/09/15/Data_Structures_I/"><![CDATA[<h1 id="lesson-01-adtlist-implementation">Lesson 01: ADTList Implementation</h1>
+  <li>Happiness is the ultimate and the aim which we pursue, as opposed to there are pursuits that are higher, more important, more moral than that.</li>
+</ol>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="pos-psy" /><summary type="html"><![CDATA[Lesson03]]></summary></entry><entry><title type="html">Data Structures I</title><link href="http://localhost:4000/2022/09/15/Data_Structures_I/" rel="alternate" type="text/html" title="Data Structures I" /><published>2022-09-15T13:51:00+08:00</published><updated>2022-09-15T13:51:00+08:00</updated><id>http://localhost:4000/2022/09/15/Data_Structures_I</id><content type="html" xml:base="http://localhost:4000/2022/09/15/Data_Structures_I/"><![CDATA[<h1 id="lesson-01-adtlist-implementation">Lesson 01: ADTList Implementation</h1>
 
 <p>ADT(Abstract Data Type)List: A set of objects together with a set of operations</p>
 

@@ -67,7 +67,7 @@
 
   <h1 id="chapter-04-using-buffers-windows-and-frames">Chapter 04: Using Buffers, Windows, and Frames</h1>
 
-<p>So interesting!</p>
+<p>This chapter focuses on topics of frames, windows and bookmarks, teaching you how to use them for convenience. So interesting!</p>
 
 <ul>
   <li>Frame commands</li>
@@ -343,6 +343,95 @@
   </tbody>
 </table>
 
+<p>Commands for editing the bookmark list</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Enter, f, or j</td>
+      <td style="text-align: left">Go to the bookmark on the current line.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-o or o</td>
+      <td style="text-align: left">Open the bookmark on the current line in another window;o moves the cursor to that window; C-o keeps the cursor in the current window.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">d, C-d, or k</td>
+      <td style="text-align: left">Flag bookmark for deletion.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">r</td>
+      <td style="text-align: left">Rename bookmark.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s</td>
+      <td style="text-align: left">Save all bookmarks listed.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">m</td>
+      <td style="text-align: left">Mark bookmarks to be displayed in multiple windows.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">v</td>
+      <td style="text-align: left">Display marked bookmarks or the one the cursor is on if none are marked.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">t</td>
+      <td style="text-align: left">Toggle display of paths to files associated with bookmarks.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">w</td>
+      <td style="text-align: left">In the minibuffer, display location of file associated with bookmarks.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">x</td>
+      <td style="text-align: left">Delete bookmarks flagged for deletion.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">u</td>
+      <td style="text-align: left">Remove mark from bookmark.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Del</td>
+      <td style="text-align: left">Remove mark from bookmark on previous line or move to the previous line(if there is no mark).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">q</td>
+      <td style="text-align: left">Exit bookmark list.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Space or n</td>
+      <td style="text-align: left">Move down a line.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">p</td>
+      <td style="text-align: left">Move up a line.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">|</td>
+      <td style="text-align: left">Load a bookmark file(other than the default).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">A</td>
+      <td style="text-align: left">Display all annotations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">a</td>
+      <td style="text-align: left">Display annotation for current bookmark.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">e</td>
+      <td style="text-align: left">Edit(or create)annotation for the current bookmark.</td>
+    </tr>
+  </tbody>
+</table>
+
 <table>
   <thead>
     <tr>
@@ -353,37 +442,38 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">C-x r m</td>
+      <td style="text-align: left">bookmark-set</td>
+      <td style="text-align: left">Set a bookmark at the current cursor position.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x r b</td>
+      <td style="text-align: left">bookmark-jump</td>
+      <td style="text-align: left">Jump to a bookmark.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">bookmark-rename</td>
+      <td style="text-align: left">Rename a bookmark.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">bookmark-delete</td>
+      <td style="text-align: left">Delete a bookmark.</td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">bookmark-save</td>
+      <td style="text-align: left">Save all bookmarks in default file.</td>
     </tr>
     <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">C-x r l</td>
+      <td style="text-align: left">bookmark-menu-list</td>
+      <td style="text-align: left">Move to *Bookmark List*buffer.</td>
     </tr>
   </tbody>
 </table>
+
 
 
   

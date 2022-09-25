@@ -8,7 +8,7 @@ toc: true
 
 # Chapter 04: Using Buffers, Windows, and Frames
 
-So interesting!
+This chapter focuses on topics of frames, windows and bookmarks, teaching you how to use them for convenience. So interesting!
 
 - Frame commands
 
@@ -72,12 +72,37 @@ So interesting!
 |C-x 4 f|find-file-other-window|Find a file in the other window.|
 |C-x 4 b|switch-to-buffer-other-window|Select a buffer in the other window.|
 
+Commands for editing the bookmark list
+
+|Command name|Action|
+|:---|:---|
+|Enter, f, or j|Go to the bookmark on the current line.|
+|C-o or o|Open the bookmark on the current line in another window;o moves the cursor to that window; C-o keeps the cursor in the current window.|
+|d, C-d, or k|Flag bookmark for deletion.|
+|r|Rename bookmark.|
+|s|Save all bookmarks listed.|
+|m|Mark bookmarks to be displayed in multiple windows.|
+|v|Display marked bookmarks or the one the cursor is on if none are marked.|
+|t|Toggle display of paths to files associated with bookmarks.|
+|w|In the minibuffer, display location of file associated with bookmarks.|
+|x|Delete bookmarks flagged for deletion.|
+|u|Remove mark from bookmark.|
+|Del|Remove mark from bookmark on previous line or move to the previous line(if there is no mark).|
+|q|Exit bookmark list.|
+|Space or n|Move down a line.|
+|p|Move up a line.|
+|\||Load a bookmark file(other than the default).|
+|A|Display all annotations.|
+|a|Display annotation for current bookmark.|
+|e|Edit(or create)annotation for the current bookmark.|
+
 
 |Keystrokes|Command name|Action|
 |:---|:---|:---|
-||||
-||||
-||||
-||||
-||||
-||||
+|C-x r m|bookmark-set|Set a bookmark at the current cursor position.|
+|C-x r b|bookmark-jump|Jump to a bookmark.|
+||bookmark-rename|Rename a bookmark.|
+||bookmark-delete|Delete a bookmark.|
+||bookmark-save|Save all bookmarks in default file.|
+|C-x r l|bookmark-menu-list|Move to \*Bookmark List\*buffer.|
+

@@ -11,6 +11,8 @@ echo "date: $tim +0800" >> $post
 echo "tags: [rearch_record]" >> $post 
 echo "toc: true" >> $post 
 echo "---" >> $post
+echo "" >> $post
+echo "My  week's record during postgraduate period." >> $post
 echo "- Monday" >> $post
 echo "" >> $post
 echo "- Tuesday" >> $post
