@@ -7,3 +7,13 @@ toc: true
 ---
 
 # Chapter05 Emacs as a Work Environment
+
+## Shell Mode
+
+**Why don't I use shell directly?**
+
+**So I decide to skip this chapter!**
+
+# Chapter08 Markup Language Support
+
+
