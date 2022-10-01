@@ -5,6 +5,8 @@ date: 2022-09-15 13:51 +0800
 tags: [learning, data_structure]
 toc: true
 ---
+Just a note example, better way to learn it is watching course videos.
+
 # Lesson 01: ADTList Implementation
 
 ADT(Abstract Data Type)List: A set of objects together with a set of operations
