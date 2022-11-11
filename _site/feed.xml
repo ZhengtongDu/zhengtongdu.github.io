@@ -1,4 +1,378 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-09-25T21:29:43+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Learning Emacs IV</title><link href="http://localhost:4000/2022/09/25/Learning_Emacs_IV/" rel="alternate" type="text/html" title="Learning Emacs IV" /><published>2022-09-25T14:29:00+08:00</published><updated>2022-09-25T14:29:00+08:00</updated><id>http://localhost:4000/2022/09/25/Learning_Emacs_IV</id><content type="html" xml:base="http://localhost:4000/2022/09/25/Learning_Emacs_IV/"><![CDATA[<h1 id="chapter-04-using-buffers-windows-and-frames">Chapter 04: Using Buffers, Windows, and Frames</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-11-11T10:44:43+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Week_009 Record</title><link href="http://localhost:4000/2022/11/07/Week_009_Record/" rel="alternate" type="text/html" title="Week_009 Record" /><published>2022-11-07T19:30:00+08:00</published><updated>2022-11-07T19:30:00+08:00</updated><id>http://localhost:4000/2022/11/07/Week_009_Record</id><content type="html" xml:base="http://localhost:4000/2022/11/07/Week_009_Record/"><![CDATA[<p>My  week’s record during postgraduate period.</p>
+
+<ul>
+  <li>Monday</li>
+</ul>
+
+<p>Running 5.07 km in 31m47s</p>
+
+<ul>
+  <li>Tuesday</li>
+</ul>
+
+<p>(1.5h) ConvexHull(by “Divide and Conquer”): design framework and solve the ostream operation of point2<T>.
+Running 5.07 km in 31m35s</T></p>
+
+<ul>
+  <li>Wednesday</li>
+</ul>
+
+<p>leetcode top100: 1/100
+(3h) ConvexHull(by “Divide and Conquer”): finishing(but have no document)!</p>
+
+<ul>
+  <li>
+    <p>Thursday</p>
+  </li>
+  <li>
+    <p>Friday</p>
+  </li>
+  <li>
+    <p>Saturday</p>
+  </li>
+  <li>
+    <p>Sunday</p>
+  </li>
+  <li>
+    <p>Summary</p>
+  </li>
+</ul>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/31/Week_008_Record/">See last week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Week_008 Record</title><link href="http://localhost:4000/2022/10/31/Week_008_Record/" rel="alternate" type="text/html" title="Week_008 Record" /><published>2022-10-31T09:51:00+08:00</published><updated>2022-10-31T09:51:00+08:00</updated><id>http://localhost:4000/2022/10/31/Week_008_Record</id><content type="html" xml:base="http://localhost:4000/2022/10/31/Week_008_Record/"><![CDATA[<p>My  week’s record during postgraduate period.</p>
+
+<ul>
+  <li>Monday</li>
+</ul>
+
+<p>The begining of program design: Arithmetic Caculator, thinking how to design for 2h</p>
+
+<ul>
+  <li>Tuesday</li>
+</ul>
+
+<p>(4h) ArithmeticCaculator Design: finish subroutine: split expression into vector of strings.</p>
+
+<p>Running 5.09 km in 32m08s</p>
+
+<ul>
+  <li>Wednesday</li>
+</ul>
+
+<p>(6h) ArithmeticCaculator Design: finish subroutine: generate list contains different types of elements.</p>
+
+<ul>
+  <li>Thursday</li>
+</ul>
+
+<p>(9h) ArithmeticCaculator Design: finish programming.</p>
+
+<p>Running 5.05 km in 31m58s</p>
+
+<ul>
+  <li>Friday</li>
+</ul>
+
+<p>Attending two conferences.</p>
+
+<ul>
+  <li>Saturday</li>
+</ul>
+
+<p>Relaxation.</p>
+
+<ul>
+  <li>Sunday</li>
+</ul>
+
+<p>Doing midterm homework.</p>
+
+<ul>
+  <li>Summary</li>
+</ul>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/24/Week_007_Record/">See last week’s record</a></p>
+
+<p><a href="https://zhengtongdu.github.io/2022/11/07/Week_009_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Week_007 Record</title><link href="http://localhost:4000/2022/10/24/Week_007_Record/" rel="alternate" type="text/html" title="Week_007 Record" /><published>2022-10-24T16:08:00+08:00</published><updated>2022-10-24T16:08:00+08:00</updated><id>http://localhost:4000/2022/10/24/Week_007_Record</id><content type="html" xml:base="http://localhost:4000/2022/10/24/Week_007_Record/"><![CDATA[<p>My  week’s record during postgraduate period.</p>
+<ul>
+  <li>
+    <p>Monday</p>
+  </li>
+  <li>
+    <p>Tuesday</p>
+  </li>
+</ul>
+
+<p>Running 5.14 km in 33m10s</p>
+
+<ul>
+  <li>
+    <p>Wednesday</p>
+  </li>
+  <li>
+    <p>Thursday</p>
+  </li>
+  <li>
+    <p>Friday</p>
+  </li>
+  <li>
+    <p>Saturday</p>
+  </li>
+  <li>
+    <p>Sunday</p>
+  </li>
+</ul>
+
+<p>Running 5.02 km in 31m26s</p>
+
+<ul>
+  <li>Summary</li>
+</ul>
+
+<p>This week I did few things about research due to lots of mid-term homework and other useless things:(.</p>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/17/Week_006_Record/">See last week’s record</a></p>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/31/Week_008_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My week’s record during postgraduate period. Monday]]></summary></entry><entry><title type="html">Week_006 Record</title><link href="http://localhost:4000/2022/10/17/Week_006_Record/" rel="alternate" type="text/html" title="Week_006 Record" /><published>2022-10-17T18:13:00+08:00</published><updated>2022-10-17T18:13:00+08:00</updated><id>http://localhost:4000/2022/10/17/Week_006_Record</id><content type="html" xml:base="http://localhost:4000/2022/10/17/Week_006_Record/"><![CDATA[<p>My  week’s record during postgraduate period.</p>
+
+<ul>
+  <li>Monday</li>
+</ul>
+
+<p>Effective Modern C++: Stop at Item 4</p>
+
+<ul>
+  <li>Tuesday</li>
+</ul>
+
+<p>Effective Modern C++: Stop at Item 6</p>
+
+<p>PBRT: Stop at 2.7: Transformation</p>
+
+<ul>
+  <li>Wednesday</li>
+</ul>
+
+<p>Effective Modern C++: Stop at Item 9</p>
+
+<p>Running 5.01 km in 33m17s</p>
+
+<ul>
+  <li>Thursday</li>
+</ul>
+
+<p>Effective Modern C++: Stop at Item 12</p>
+
+<ul>
+  <li>Friday</li>
+</ul>
+
+<p>Effective Modern C++: Stop at Item 15</p>
+
+<ul>
+  <li>
+    <p>Saturday</p>
+  </li>
+  <li>
+    <p>Sunday</p>
+  </li>
+</ul>
+
+<p>Effective Modern C++: Stop at Item 18
+Running 5.11 km in 35m15s</p>
+
+<ul>
+  <li>Summary</li>
+</ul>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/10/Week_005_Record/">See last week’s record</a></p>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/24/Week_007_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Week_005 Record</title><link href="http://localhost:4000/2022/10/10/Week_005_Record/" rel="alternate" type="text/html" title="Week_005 Record" /><published>2022-10-10T15:59:00+08:00</published><updated>2022-10-10T15:59:00+08:00</updated><id>http://localhost:4000/2022/10/10/Week_005_Record</id><content type="html" xml:base="http://localhost:4000/2022/10/10/Week_005_Record/"><![CDATA[<p>My  week’s record during postgraduate period.</p>
+<ul>
+  <li>Monday</li>
+</ul>
+
+<p>6.046 Lesson02</p>
+
+<ul>
+  <li>Tuesday</li>
+</ul>
+
+<p>Thinking in CPP Chapter 14</p>
+
+<ul>
+  <li>Wednesday</li>
+</ul>
+
+<p>Thinking in CPP Chapter 15</p>
+
+<p>Start coding(Implementions of computing convex hull of 2D points)</p>
+
+<ul>
+  <li>Thursday</li>
+</ul>
+
+<p>Debuging code of AVL Tree</p>
+
+<ul>
+  <li>Friday</li>
+</ul>
+
+<p>Debuging code of AVL Tree</p>
+
+<ul>
+  <li>Saturday</li>
+</ul>
+
+<p>Finish debugging!</p>
+
+<p>Start Modern Effective C++: Item 01</p>
+
+<ul>
+  <li>Sunday</li>
+</ul>
+
+<p>Orienteering 5.36km</p>
+
+<ul>
+  <li>Summary</li>
+</ul>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/03/Week_004_Record/">See last week’s record</a></p>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/17/Week_006_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My week’s record during postgraduate period. Monday]]></summary></entry><entry><title type="html">Week_004 Record</title><link href="http://localhost:4000/2022/10/03/Week_004_Record/" rel="alternate" type="text/html" title="Week_004 Record" /><published>2022-10-03T15:18:00+08:00</published><updated>2022-10-03T15:18:00+08:00</updated><id>http://localhost:4000/2022/10/03/Week_004_Record</id><content type="html" xml:base="http://localhost:4000/2022/10/03/Week_004_Record/"><![CDATA[<p>My week’s record during postgraduate period.</p>
+<ul>
+  <li>Monday</li>
+</ul>
+
+<p>Leetcode*3</p>
+
+<p>PBRT: Stop at Chapter02: Rays</p>
+
+<ul>
+  <li>Tuesday</li>
+</ul>
+
+<p>Thinking in CPP: Chapter 11, 12</p>
+
+<p>PBRT: Stop at Chapter02: Transformations</p>
+
+<ul>
+  <li>Wednesday</li>
+</ul>
+
+<p>Thinking in CPP: Chapter 13</p>
+
+<ul>
+  <li>Thursday</li>
+</ul>
+
+<p>Thinking in CPP: Chapter 14</p>
+
+<ul>
+  <li>Friday</li>
+</ul>
+
+<p>Do few things</p>
+
+<ul>
+  <li>Saturday</li>
+</ul>
+
+<p>Checking homework1 of ds lesson</p>
+
+<p>Start 6.046, half of Lesson01</p>
+
+<ul>
+  <li>Sunday</li>
+</ul>
+
+<p>6.046 Lesson01</p>
+
+<ul>
+  <li>Summary</li>
+</ul>
+
+<p><a href="https://zhengtongdu.github.io/2022/09/26/Week_003_Record/">See last week’s record</a></p>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/10/Week_005_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My week’s record during postgraduate period. Monday]]></summary></entry><entry><title type="html">Learning Emacs V</title><link href="http://localhost:4000/2022/10/01/Learning_Emacs_V/" rel="alternate" type="text/html" title="Learning Emacs V" /><published>2022-10-01T16:31:00+08:00</published><updated>2022-10-01T16:31:00+08:00</updated><id>http://localhost:4000/2022/10/01/Learning_Emacs_V</id><content type="html" xml:base="http://localhost:4000/2022/10/01/Learning_Emacs_V/"><![CDATA[<h1 id="chapter05-emacs-as-a-work-environment">Chapter05 Emacs as a Work Environment</h1>
+
+<h2 id="shell-mode">Shell Mode</h2>
+
+<p><strong>Why don’t I use shell directly?</strong></p>
+
+<p><strong>So I decide to skip this chapter!</strong></p>
+
+<h1 id="chapter08-markup-language-support">Chapter08 Markup Language Support</h1>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter05 Emacs as a Work Environment]]></summary></entry><entry><title type="html">Week_003 Record</title><link href="http://localhost:4000/2022/09/26/Week_003_Record/" rel="alternate" type="text/html" title="Week_003 Record" /><published>2022-09-26T21:24:00+08:00</published><updated>2022-09-26T21:24:00+08:00</updated><id>http://localhost:4000/2022/09/26/Week_003_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/26/Week_003_Record/"><![CDATA[<p>My 3rd week’s record during postgraduate period.</p>
+
+<ul>
+  <li>Monday</li>
+</ul>
+
+<p>Leetcode*2</p>
+
+<p>Start pbrt learning</p>
+
+<p>Finish reading &lt;Advice for early-stage Ph.D. students&gt;</p>
+
+<ul>
+  <li>Tuesday</li>
+</ul>
+
+<p>PBRT: Stop at System Overview</p>
+
+<p>Suffers from installing Chinese input method :(</p>
+
+<p>Running 5.02 km in 32m53s</p>
+
+<ul>
+  <li>Wednesday</li>
+</ul>
+
+<p>PBRT: Stop at Data Races and Coordination</p>
+
+<p>Leetcode*2</p>
+
+<ul>
+  <li>Thursday</li>
+</ul>
+
+<p>PBRT: Stop at Chapter01 Exercise</p>
+
+<p>Leetcode*2</p>
+
+<ul>
+  <li>Friday</li>
+</ul>
+
+<p>Thinking in CPP Volume1 Chapter10</p>
+
+<p>Leetcode*2</p>
+
+<ul>
+  <li>Saturday</li>
+</ul>
+
+<p>Thinking in CPP Volume1 Chapter10</p>
+
+<p>Leetcode*2</p>
+
+<ul>
+  <li>Sunday</li>
+</ul>
+
+<p>PBRT: Stop at Chapter02 Points</p>
+
+<p>Leetcode*3</p>
+
+<ul>
+  <li>Summary</li>
+</ul>
+
+<p>The first week I start learning PBRT.</p>
+
+<p><a href="https://zhengtongdu.github.io/2022/09/19/Week_002_Record/">See last week’s record</a></p>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/3/Week_004_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My 3rd week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Learning Emacs IV</title><link href="http://localhost:4000/2022/09/25/Learning_Emacs_IV/" rel="alternate" type="text/html" title="Learning Emacs IV" /><published>2022-09-25T14:29:00+08:00</published><updated>2022-09-25T14:29:00+08:00</updated><id>http://localhost:4000/2022/09/25/Learning_Emacs_IV</id><content type="html" xml:base="http://localhost:4000/2022/09/25/Learning_Emacs_IV/"><![CDATA[<h1 id="chapter-04-using-buffers-windows-and-frames">Chapter 04: Using Buffers, Windows, and Frames</h1>
 
 <p>This chapter focuses on topics of frames, windows and bookmarks, teaching you how to use them for convenience. So interesting!</p>
 
@@ -405,123 +779,7 @@
       <td style="text-align: left">Move to *Bookmark List*buffer.</td>
     </tr>
   </tbody>
-</table>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter 04: Using Buffers, Windows, and Frames]]></summary></entry><entry><title type="html">Data Structures II</title><link href="http://localhost:4000/2022/09/22/Data_Structures_II/" rel="alternate" type="text/html" title="Data Structures II" /><published>2022-09-22T12:55:00+08:00</published><updated>2022-09-22T12:55:00+08:00</updated><id>http://localhost:4000/2022/09/22/Data_Structures_II</id><content type="html" xml:base="http://localhost:4000/2022/09/22/Data_Structures_II/"><![CDATA[<h1 id="lesson-02-linked-list">Lesson 02: Linked list</h1>
-
-<p>In order to avoid the linear cost of insertion and deletion, we need to ensure that the list is not stored contiguously, which introduces the idea of <strong>linked list</strong>.</p>
-
-<p><a href="https://towardsdatascience.com/how-i-taught-myself-linked-lists-72c4837ea721">A blog helps you understand linked list</a></p>
-
-<p>A program about address</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// test.cpp
-#include&lt;iostream&gt;
-#include&lt;limits&gt;
-
-int main()
-{
-  int *a;
-  double *b;
-  a = new(int);
-  b = new(double);
-  *a = 1; 
-  *b = 3.14;
-  std::cout &lt;&lt; a &lt;&lt; ", a + 1 = " &lt;&lt; a + 1 &lt;&lt; std::endl;
-  std::cout &lt;&lt; b &lt;&lt; ", b + 1 = " &lt;&lt; b + 1 &lt;&lt; std::endl;  
-  return 0;
-}
-
-</code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include&lt;iostream&gt;
-#include&lt;limits&gt;
-
-template &lt;typename DT&gt;
-class Node{
-public:
-  DT data;
-  Node* next;
-  DT get_data();
-}
-
-tmplate&lt;typename DT&gt;
-DT Node&lt;DT&gt;::get_data(){
-        return data;
-}
-
-int main()
-{
-
-  Node&lt;int&gt; n;
-
-  int *a;
-  double *b;
-  a = new(int);
-  b = new(double);
-  *a = 1; 
-  *b = 3.14;
-  std::cout &lt;&lt; a &lt;&lt; ", a + 1 = " &lt;&lt; a + 1 &lt;&lt; std::endl;
-  std::cout &lt;&lt; b &lt;&lt; ", b + 1 = " &lt;&lt; b + 1 &lt;&lt; std::endl;  
-  return 0;
-}
-
-</code></pre></div></div>
-
-<ul>
-  <li>Ops of linked list(Actually still a ADT List!!)</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Function</th>
-      <th style="text-align: left">Action</th>
-      <th style="text-align: left">TimeConsuming</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">insert(dat)</td>
-      <td style="text-align: left">insert <em>dat</em> at the end</td>
-      <td style="text-align: left">O(1)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">delete()</td>
-      <td style="text-align: left">delete(pop) the first <em>dat</em></td>
-      <td style="text-align: left">O(1)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">find(dat)</td>
-      <td style="text-align: left">find if <em>dat</em> exist</td>
-      <td style="text-align: left">O(n)</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>When implement the functions, notice that <strong>single linked list</strong> cannot share the class <em>Node</em> with <strong>DoubleLinkedList</strong>. A optional way to fix this problem is to place the class <em>Node</em> into class <em>SingleLinkedList</em>, which avoids being used by other class.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-
-</code></pre></div></div>
-
-<p>Question appears! Where to insert? So we should add more properties into our linked list class.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-</code></pre></div></div>
-
-<p>Don’t forget to add necessary comments explaining your code.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-</code></pre></div></div>
-
-<p>Add <em>remove()</em> function</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-</code></pre></div></div>
-
-<p>Remember to add destructor into <em>SingleLinkedlist</em> class.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-</code></pre></div></div>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="data_structure" /><summary type="html"><![CDATA[Lesson 02: Linked list]]></summary></entry><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<p>My 2nd week’s record during postgraduate period.</p>
+</table>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter 04: Using Buffers, Windows, and Frames]]></summary></entry><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<p>My 2nd week’s record during postgraduate period.</p>
 
 <ul>
   <li>Monday</li>
@@ -591,1238 +849,4 @@ int main()
 
 <p>Positive Psychology Lesson03</p>
 
-<p>Printing a copy of <em>Advice for early-stage Ph.D. students</em></p>
-
-<p><a href="https://zhengtongdu.github.io/2022/09/26/Week_003_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My 2nd week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Positive Psychology II</title><link href="http://localhost:4000/2022/09/18/Positive_Psychology_II/" rel="alternate" type="text/html" title="Positive Psychology II" /><published>2022-09-18T20:44:00+08:00</published><updated>2022-09-18T20:44:00+08:00</updated><id>http://localhost:4000/2022/09/18/Positive_Psychology_II</id><content type="html" xml:base="http://localhost:4000/2022/09/18/Positive_Psychology_II/"><![CDATA[<h2 id="lesson03">Lesson03</h2>
-
-<ul>
-  <li>Happiness is not negation of Unhappiness.</li>
-</ul>
-
-<p>Getting rid of the negative doesn’t guarantee us the positive. So instead of focusing on the weakness, focusing on the strengths we have. When we cultivate the positive, we’re essentially focusing on prevention(from the negative).</p>
-
-<p>It was found that the most effective way of dealing with the phenomenon of depression was actually to cultivate the positive, to cultivate personal strengths, to cultivate and identify one’s passions. To ask a question such as what is meaningful to me in my life, what’s my purpose, why I am here.</p>
-
-<ul>
-  <li>Cultivating capacity.</li>
-</ul>
-
-<p>Positive psychology serves a new model(health mode). The conventional model thinks that the reason why a person is sick is that he is ill, and taking away the illness leads to being healthy. The positive psychology model thinks that the reason a person is sick is that there is not enough health in his life and he isn’t pursuing those things that make him healthy.</p>
-
-<ul>
-  <li>The five basic premises of the course</li>
-</ul>
-
-<ol>
-  <li>Bridge building. Bridge building among disciplines and eclectic. Bridge building in terms of academia and main street.</li>
-  <li>Change is possible whether it is individual change, organizational change.</li>
-  <li>Internal factors primarily determine happiness, which is opposite to happiness is primarily function of external circumstances.</li>
-  <li>Human nature need to be obeyed, as opposed to attempting to perfect it on the psychological level.</li>
-  <li>Happiness is the ultimate and the aim which we pursue, as opposed to there are pursuits that are higher, more important, more moral than that.</li>
-</ol>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="pos-psy" /><summary type="html"><![CDATA[Lesson03]]></summary></entry><entry><title type="html">Data Structures I</title><link href="http://localhost:4000/2022/09/15/Data_Structures_I/" rel="alternate" type="text/html" title="Data Structures I" /><published>2022-09-15T13:51:00+08:00</published><updated>2022-09-15T13:51:00+08:00</updated><id>http://localhost:4000/2022/09/15/Data_Structures_I</id><content type="html" xml:base="http://localhost:4000/2022/09/15/Data_Structures_I/"><![CDATA[<h1 id="lesson-01-adtlist-implementation">Lesson 01: ADTList Implementation</h1>
-
-<p>ADT(Abstract Data Type)List: A set of objects together with a set of operations</p>
-
-<p>Some notations: The size of list is <em>N</em>, <strong>empty list</strong> when <em>N = 0</em>;</p>
-
-<ul>
-  <li>Operations of List:</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">function</th>
-      <th style="text-align: left">description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">printList()</td>
-      <td style="text-align: left">build a list <em>L</em></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">makeEmpty(<em>L</em>)</td>
-      <td style="text-align: left">make list <em>L</em> empty</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">findKth(<em>pos</em>)</td>
-      <td style="text-align: left">find the <em>pos</em>th element</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">insert(<em>pos</em>, <em>x</em>)</td>
-      <td style="text-align: left">insert <em>x</em> at <em>pos</em></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">remove(<em>x</em>)</td>
-      <td style="text-align: left">delete the element <em>x</em></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">next(<em>pos</em>)</td>
-      <td style="text-align: left">return the position of <em>pos</em>th element’s successor</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">previous(<em>pos</em>)</td>
-      <td style="text-align: left">return the position of <em>pos</em>th element’s predecessor</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Simple implementation</li>
-</ul>
-
-<p>It’s the first time to write a cpp-class…</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class ADTList
-{
-  double *data;
-  int size;
-}
-</code></pre></div></div>
-
-<p>Hold on! How to create a cpp file and edit it when you face so clear terminal?</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ emacs main.cpp
-Maybe you should install it.
-$ sudo apt-get install emacs
-</code></pre></div></div>
-
-<ul>
-  <li>There are three main text editors used in the linux(ubuntu): Emacs / Vim / VS-Code. Now you can use one of them to create <em>main.cpp</em> file and edit it.</li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
-#include &lt;iostream&gt;
-
-int main(int argc, int *argv[])
-{
-        std::cout &lt;&lt; "Hello world!" &lt;&lt; std::endl;
-        return 0;
-}
-</code></pre></div></div>
-
-<p>Back to terminal(or directly work on Emacs) and compile the file:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ g++ -o main main.cpp
-$ ./main
-</code></pre></div></div>
-<p>You will see “Hello world!” in your terminal.</p>
-
-<p>OK, we’ll add more details:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
-#include &lt;iostream&gt;
-
-class ADTList
-{
-private:
-  double *data;
-  int size;
-public:
-  void makeEmpty();
-}
-
-int main(int argc, char *argv[])
-{
-  ADTList A;
-  A.makeEmpty();
-
-  std::cout &lt;&lt; "Hello world!" &lt;&lt; std::endl;
-  return 0;
-}
-</code></pre></div></div>
-
-<p>Attention! You should intialize the element of <em>A</em> before doing other things!</p>
-
-<ul>
-  <li>Construtor</li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public:
-ADTList() // No return value (which is different from void)
-{
-  data = nullptr;
-  size = 0;
-}
-</code></pre></div></div>
-
-<p><strong>using gdb to dubug</strong></p>
-
-<p>If you want the constructor offers other service for you to create a object like this:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ADTList A{15, 20, 1, 23}; 
-</code></pre></div></div>
-<p>You should link another library *<intializer_list>*, [click it and see more about it.](https://cplusplus.com/reference/initializer_list/initializer_list/initializer_list/)</intializer_list></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
-#include &lt;iostream&gt;
-#include &lt;initializer_list&gt;
-
-class ADTList
-{
-private:
-  double *data;
-  int size;
-public:
-
-  ADTList()
-  {
-    data = nullptr;
-    size = 0;
-  }
-  
-  ADTList(std::initializer_list&lt;double&gt; _list);
-
-  void makeEmpty();
-};
-
-ADTList::ADTList(std::initializer_list&lt;double&gt; _list)
-{
-    ~ADTlist(); // Destructor, similiar to constructor
-
-ADTList::~ADTList()
-{
-  if (data != nullptr)
-     delete [] data;
-}
-
-ADTList::makeEmtpy()
-{
-  if (data != nullptr)
-     delete [] data;
-  size = 0;
-}
-
-</code></pre></div></div>
-
-<p>One more step! Using a private function to replace the same piece, make it a inline function to boost efficiency.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private:
-  inline void _empty()
-  {
-    if (data != nullptr)
-       delete [] data;
-  }
-public:
-  ~ADTList();
-
-ADTList::~ADTList()
-{
-  _empty();
-}
-
-ADTList::makeEmtpy()
-{
-  _empty();
-  size = 0;
-}
-
-</code></pre></div></div>
-
-<ul>
-  <li>You can also use <strong>valgrind</strong> to check if memory leak exists.</li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ g++ -o main main.cpp
-$ valgrind ./main
-</code></pre></div></div>
-
-<ul>
-  <li>Add a <strong>real</strong> function <em>insert(int _p, double _v)</em>:</li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void ADTList::insert(int _p, double _v)
-{
-    
-  double *data_new = new double [size + 1];
-  int i = 0;
-  for (; i &lt; _p - 1; i++)
-    data_new[i] = data[i];
-  data_new[i] = _v;
-  for (; i&lt; size; i++)
-    data_new[i+1] = data[i];
-  _empty();
-  data = data_new;
-  size = size+1;
-}
-</code></pre></div></div>
-
-<p>If the client programmer wants to insert a new element at an <strong>illegal</strong> position, the program should return an error message:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  if(_p &gt;= size || _p &lt;0)
-    {
-      std::cout &lt;&lt; "Out of range" &lt;&lt; std::endl;
-      std::exit(2);
-    }
-</code></pre></div></div>
-<p>(How to check the error code? You can use shell command like this:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo $?
-</code></pre></div></div>
-<p>If “out of rage” happens, terminal will return the error code “2”.
-)</p>
-
-<ul>
-  <li>The remain functions are similiar to <em>insert(int _p, double _v)</em>, try to write it. The following is the code mentioned in this lesson:</li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//main.cpp
-#include &lt;iostream&gt;
-#include &lt;initializer_list&gt;
-
-class ADTList
-{
-private:
-  double *data;
-  int size;
-  void _empty()
-  {
-    if (data != nullptr)
-      delete [] data;
-  }
-public:
-
-  ADTList()
-  {
-    data = nullptr;
-    size = 0;
-  }
-  
-  ADTList(std::initializer_list&lt;double&gt; _list);
-  ~ADTList();
-  
-  void makeEmpty();
-  void printList();
-  bool is_empty();
-  void insert(int _p, double _v);
-};
-
-ADTList::ADTList(std::initializer_list&lt;double&gt; _list)
-{
-  size = _list.size();
-  data = new double[size];
-  int i = 0;
-  for (double x : _list){
-    data[i] = x;
-    i++;
-  }
-};
-
-ADTList::~ADTList()
-{
-  _empty();
-};
-
-void ADTList::makeEmpty()
-{
-  _empty();
-  size = 0;
-};
-
-void ADTList::printList()
-{
-  for (int i = 0; i &lt; size; i++)
-    std::cout &lt;&lt; data[i] &lt;&lt; "  ";
-  std::cout &lt;&lt; std::endl;
-};
-
-bool ADTList::is_empty()
-{
-  return (size == 0);
-};
-
-void ADTList::insert(int _p, double _v)
-{
-  if(_p &gt;= size || _p &lt;0)
-    {
-      std::cout &lt;&lt; "Out of range" &lt;&lt; std::endl;
-      std::exit(2);
-    }
-    
-  double *data_new = new double [size + 1];
-  int i = 0;
-  for (; i &lt; _p - 1; i++)
-    data_new[i] = data[i];
-  data_new[i] = _v;
-  for (; i&lt; size; i++)
-    data_new[i+1] = data[i];
-  _empty();
-  data = data_new;
-  size = size+1;
-}
-
-
-int main(int argc, char *argv[])
-{
-  ADTList A{1,2,3};
-  A.printList();
-  A.insert(2, 4);
-  // A.insert(4, 4); // Error happens!
-  A.printList();
-  return 0;
-}
-
-</code></pre></div></div>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="data_structure" /><summary type="html"><![CDATA[Lesson 01: ADTList Implementation]]></summary></entry><entry><title type="html">Data Structures Learning Overview</title><link href="http://localhost:4000/2022/09/15/Data_Structures_Learning_Overview/" rel="alternate" type="text/html" title="Data Structures Learning Overview" /><published>2022-09-15T13:50:00+08:00</published><updated>2022-09-15T13:50:00+08:00</updated><id>http://localhost:4000/2022/09/15/Data_Structures_Learning_Overview</id><content type="html" xml:base="http://localhost:4000/2022/09/15/Data_Structures_Learning_Overview/"><![CDATA[<p>waiting to update</p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="data_structure" /><summary type="html"><![CDATA[waiting to update]]></summary></entry><entry><title type="html">Learning Emacs III</title><link href="http://localhost:4000/2022/09/12/Learning_Emacs_III/" rel="alternate" type="text/html" title="Learning Emacs III" /><published>2022-09-12T13:37:00+08:00</published><updated>2022-09-12T13:37:00+08:00</updated><id>http://localhost:4000/2022/09/12/Learning_Emacs_III</id><content type="html" xml:base="http://localhost:4000/2022/09/12/Learning_Emacs_III/"><![CDATA[<p>Chapter03: Search and Replace</p>
-
-<ul>
-  <li>Traditional search and replace facilities</li>
-  <li>Incremental searches, regular expression searches and query-replace</li>
-  <li>Spell-checking</li>
-  <li>Some modes</li>
-</ul>
-
-<h2 id="searching">SEARCHING</h2>
-
-<ul>
-  <li>Incremental search commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-s</td>
-      <td style="text-align: left">isearch-forward</td>
-      <td style="text-align: left">Start incremental search forward; follow by search string. Also, find next occurrence(forward) of search string.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-r</td>
-      <td style="text-align: left">isearch-backward</td>
-      <td style="text-align: left">Start incremental search backward; follow by search string. Also, find next occurrence(backward) of search string.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Enter</td>
-      <td style="text-align: left">isearch-exit</td>
-      <td style="text-align: left">In an incremental search, exit the search.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-g</td>
-      <td style="text-align: left">keyboard-quit</td>
-      <td style="text-align: left">In an incremental search, cancel the search.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Del</td>
-      <td style="text-align: left">isearch-delete-char</td>
-      <td style="text-align: left">In an incremental search, delete character from search string.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-s C-w</td>
-      <td style="text-align: left">isearch-yank-word</td>
-      <td style="text-align: left">Start incremental search with the word the cursor is on as the search string.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-s C-y</td>
-      <td style="text-align: left">isearch-yank-line</td>
-      <td style="text-align: left">Start an incremental search with the text from the cursor position to the end of the line as the search string.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-s M-y</td>
-      <td style="text-align: left">isearch-yank-kill</td>
-      <td style="text-align: left">Start an incremental search with text from the kill ring as the search string</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-s C-s</td>
-      <td style="text-align: left">isearch-repeat-forward</td>
-      <td style="text-align: left">Repeat previous search.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-r C-r</td>
-      <td style="text-align: left">isearch-repeat-backward</td>
-      <td style="text-align: left">Repeat previous search.</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Simple search commands(nonincremental search)</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-s Enter <em>SEARCH STRING</em> Enter</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Start nonincremental search forward</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-s</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Repeat search forward</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-r Enter <em>SEARCH STRING</em> Enter</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Start nonincremental search backward</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-r</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Repeat search backward</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="replacing">REPLACING</h2>
-
-<ul>
-  <li>Query-replace</li>
-</ul>
-
-<p>Responses during query-replace(Type M-% to go into query-replace)</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Space or y</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Replace <em>search string</em> with <em>new string</em> and go to the next instance of the string.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Del or n</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Don’t replace; move to next instance.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">.</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Replace the current instance and quit</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">,</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Replace and let me see the result before moving on.(Press Space or y to move on.)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">!</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Replace all the rest and don’t ask.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">^</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Back up to the previous instance.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Enter or q</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Exit query-replace.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">E</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Modify the replacement string.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-r</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Enter a recursive edit.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-w</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Delete this instance and enter a recursive edit</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-M-c</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Exit recursive edit and resume query-replace.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-]</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Exit recursive edit and query-replace</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>
-    <p>Regular Expressions for Search and Replacement Operations</p>
-  </li>
-  <li>
-    <p>Characters for regular expressions</p>
-  </li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Character(s)</th>
-      <th style="text-align: left">Match</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">^</td>
-      <td style="text-align: left">Matches the beginning of a line.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">$</td>
-      <td style="text-align: left">Matches the end of a line.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">.</td>
-      <td style="text-align: left">Matches any single character(like ? in filenames).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">.*</td>
-      <td style="text-align: left">Matches any group of zero or more characters(. matches any character and * matches zero or more of the previous character)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">\&lt;</td>
-      <td style="text-align: left">Matches the beginning of a word.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">\&gt;</td>
-      <td style="text-align: left">Matches the end of a word.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">[]</td>
-      <td style="text-align: left">Matches any character specified within the brackets; for example, [a-z] matches any alphabetic character.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">\s, \S</td>
-      <td style="text-align: left">Matches any white space character: space, a newline, a tab, a carriage return, a formfeed, or a backspace; \S matches any character except white space.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">\d, \D</td>
-      <td style="text-align: left">Matches any single digit, 0-9; \D matches any character but a digit.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">\w, \w</td>
-      <td style="text-align: left">Matches any "word" character(upper- and lowercase letters, digits, and the underscore character);\W matches any character but these.</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Regular expression search commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-M-s Enter</td>
-      <td style="text-align: left">re-search-forward</td>
-      <td style="text-align: left">Search for a regular expression forward</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-M-r Enter</td>
-      <td style="text-align: left">re-search-backward</td>
-      <td style="text-align: left">Search for a regular expression backward.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-M-s</td>
-      <td style="text-align: left">isearch-forward-regexp</td>
-      <td style="text-align: left">Search incrementally forward for a regular expression.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-M-r</td>
-      <td style="text-align: left">isearch-backward-regexp</td>
-      <td style="text-align: left">Search incrementally backward for a regular expression.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-M-%</td>
-      <td style="text-align: left">query-replace-regexp</td>
-      <td style="text-align: left">Query-replace a regular expression.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">(none)</td>
-      <td style="text-align: left">replace-regexp</td>
-      <td style="text-align: left">Globally replace a regular expression unconditionally(use with caution).</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="spelling-checking">SPELLING CHECKING</h2>
-
-<ul>
-  <li>Spell-checking commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">M-$</td>
-      <td style="text-align: left">ispell-word</td>
-      <td style="text-align: left">Check the word the cursor is on or the word following the cursor.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">ispell-region</td>
-      <td style="text-align: left">Check spelling of the region.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">ispell-buffer</td>
-      <td style="text-align: left">Check spelling of the buffer.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">ispell-message</td>
-      <td style="text-align: left">Check spelling of the body of a mail message.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">ispell-comments-and-strings</td>
-      <td style="text-align: left">Check spelling of comments and strings in a program.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-u M-$</td>
-      <td style="text-align: left">ispell-continue</td>
-      <td style="text-align: left">Resume Ispell; it works only if stopped Ispell with C-g.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">ispell-kill-ispell</td>
-      <td style="text-align: left">Kill the Ispell process, which continues to run in the background after it is invoked.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-Tab</td>
-      <td style="text-align: left">ispell-complete-word</td>
-      <td style="text-align: left">In text mode, list possible completions for the current word.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">flyspell-mode</td>
-      <td style="text-align: left">Enter the Flyspell minor mode, in which incorrectly spelled words are highlighted</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">flyspell-buffer</td>
-      <td style="text-align: left">Spell-check the current buffer, underlining all misspelled words. Use middle mouse button to correct.</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Word abbreviation commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">M-/</td>
-      <td style="text-align: left">dabbrev-expand</td>
-      <td style="text-align: left">Complete this word based on the nearest word that starts with this string(press M-/ again if that’s not the word you want).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">abbrev-mode</td>
-      <td style="text-align: left">Enter(or exit) word abbreviation mode.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x a - or C-x a i g</td>
-      <td style="text-align: left">inverse-add-global-abbrev</td>
-      <td style="text-align: left">After typing the global abbreviation, type the definition.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x a i l</td>
-      <td style="text-align: left">inverse-add-mode-abbrev</td>
-      <td style="text-align: left">After typing the local abbreviation, type the definition.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">unexpand-abbrev</td>
-      <td style="text-align: left">Undo the last word abbreviation.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">write-abbrev-file</td>
-      <td style="text-align: left">Write the word abbreviation file.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">edit-abbrevs</td>
-      <td style="text-align: left">Edit the word abbreviations.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">list-abbrevs</td>
-      <td style="text-align: left">View the word abbreviations.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">kill-all-abbrevs</td>
-      <td style="text-align: left">Kill abbreviations for this session.</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter03: Search and Replace]]></summary></entry><entry><title type="html">Learning Emacs II</title><link href="http://localhost:4000/2022/09/10/Learning_Emacs_II/" rel="alternate" type="text/html" title="Learning Emacs II" /><published>2022-09-10T12:11:00+08:00</published><updated>2022-09-10T12:11:00+08:00</updated><id>http://localhost:4000/2022/09/10/Learning_Emacs_II</id><content type="html" xml:base="http://localhost:4000/2022/09/10/Learning_Emacs_II/"><![CDATA[<h2 id="chapter-02">Chapter 02</h2>
-<p>All about EDITING.</p>
-
-<ul>
-  <li>Text filling and reformatting
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I want to know what happened if I enable the auto-fill mode. It seems
-that... Oh! It helps me split the long sentence automatically!
-Amazing! Oh! Again, it does the same thing once more. Now I want to
-stop this mode. I should type "M-x auto-fill-mode" to disable the
-minor mode. Now the auto-fill mode has been disabled.
-</code></pre></div>    </div>
-    <p>Some commands</p>
-  </li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">(none)</td>
-      <td style="text-align: left">refill-mode</td>
-      <td style="text-align: left">Toggle refill mode, inwhich Emacs automatically refromats text.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">(none)</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Toggle auto-fill mode, in which Emacs formats paragraphs as you type them.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-q</td>
-      <td style="text-align: left">fill-paragraph</td>
-      <td style="text-align: left">Reformat paragraph.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">(none)</td>
-      <td style="text-align: left">fill-region</td>
-      <td style="text-align: left">Reformat individual paragraphs within a region.</td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>If I type a suuuuuuuper long sentence and don't make line-split manually, then type "M-q", what will happened?
-
-If I type a suuuuuuuper long sentence and don't make line-split
-manually, then type "M-q", what will happened?
-
-The result is the sentence is reformatted.
-
-If I type a suuuuuuuper long sentence and don't make line-split manually, select the latter part and type "M-x fill-region", what will happened?
-
-If I type a suuuuuuuper long sentence and don't make line-split manually, select
-the latter part and type "M-x fill-region", what will happened?
-
-The result is the part being selected is reformatted.
-
-</code></pre></div></div>
-<ul>
-  <li>Cursor movement commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-f</td>
-      <td style="text-align: left">forward-char</td>
-      <td style="text-align: left">Move forward one character(right).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-b</td>
-      <td style="text-align: left">backward-char</td>
-      <td style="text-align: left">Move backward one character(left).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-p</td>
-      <td style="text-align: left">previous-line</td>
-      <td style="text-align: left">Move to previous line(up).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-n</td>
-      <td style="text-align: left">next-line</td>
-      <td style="text-align: left">Move to next line(down).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-f</td>
-      <td style="text-align: left">forward-word</td>
-      <td style="text-align: left">Move one word forward.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-b</td>
-      <td style="text-align: left">backward-word</td>
-      <td style="text-align: left">Move one word backward.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-l</td>
-      <td style="text-align: left">recenter</td>
-      <td style="text-align: left">Redraw screen with current line in the center.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-n</td>
-      <td style="text-align: left">digit-argument</td>
-      <td style="text-align: left">Repeat the next command n times.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-u n</td>
-      <td style="text-align: left">universal-argument</td>
-      <td style="text-align: left">Repeat the next command n times(four times if you omit n).</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>(I don’t want to master all the commands mentioned in the book.)</p>
-
-<ul>
-  <li>Deleting, killing and yanking text</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-d</td>
-      <td style="text-align: left">delete-char</td>
-      <td style="text-align: left">Delete character under cursor.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Del</td>
-      <td style="text-align: left">delete-backward-char</td>
-      <td style="text-align: left">Delete previous character.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-d</td>
-      <td style="text-align: left">kill-word</td>
-      <td style="text-align: left">Delete next word.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-Del</td>
-      <td style="text-align: left">backward-kill-word</td>
-      <td style="text-align: left">Delete previous word.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-k</td>
-      <td style="text-align: left">kill-line</td>
-      <td style="text-align: left">Delete from cursor to end of line.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-k</td>
-      <td style="text-align: left">kill-sentence</td>
-      <td style="text-align: left">Delete next sentence.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x Del</td>
-      <td style="text-align: left">backward-kill-sentence</td>
-      <td style="text-align: left">Delete previous sentence.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-y</td>
-      <td style="text-align: left">yank</td>
-      <td style="text-align: left">Restore what you’ve deleted.a</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-w</td>
-      <td style="text-align: left">kill-region</td>
-      <td style="text-align: left">Delete a markedregion</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">(none)</td>
-      <td style="text-align: left">kill-paragraph</td>
-      <td style="text-align: left">Delete next paragraph</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">(none)</td>
-      <td style="text-align: left">backward-kill-paragraph</td>
-      <td style="text-align: left">Delete previous paragraph</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Commands for working with regions</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-@ or C-Space</td>
-      <td style="text-align: left">set-mark-command</td>
-      <td style="text-align: left">Mark the beginning(or end) of a region</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x C-x</td>
-      <td style="text-align: left">exchange-point-and-mark</td>
-      <td style="text-align: left">Exchange location of cursor and mark.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-w</td>
-      <td style="text-align: left">kill-region</td>
-      <td style="text-align: left">Delete the region.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-y</td>
-      <td style="text-align: left">yank</td>
-      <td style="text-align: left">Paste most recently killed or copied</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-w</td>
-      <td style="text-align: left">Kill-ring-save</td>
-      <td style="text-align: left">Copy the region(so it can be pasted with C-y).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-h</td>
-      <td style="text-align: left">mark-paragraph</td>
-      <td style="text-align: left">Mark paragraph.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x C-p</td>
-      <td style="text-align: left">mark-page</td>
-      <td style="text-align: left">Mark page.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x h</td>
-      <td style="text-align: left">mark-whole-buffer</td>
-      <td style="text-align: left">Mark buffer.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-y</td>
-      <td style="text-align: left">yank-pop</td>
-      <td style="text-align: left">After C-y, pastes earlier deletion.</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Transposition commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-t</td>
-      <td style="text-align: left">transpose-chars</td>
-      <td style="text-align: left">Transpose two letters.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-t</td>
-      <td style="text-align: left">transpose-words</td>
-      <td style="text-align: left">Transpose two words.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x C-t</td>
-      <td style="text-align: left">transpose-lines</td>
-      <td style="text-align: left">Transpose two lines.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">(none)</td>
-      <td style="text-align: left">transpose-sentences</td>
-      <td style="text-align: left">Transpose two Sentences</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">(none)</td>
-      <td style="text-align: left">transpose-paragraphs</td>
-      <td style="text-align: left">Transpose two Paragraphs</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Capitalization commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">M-c</td>
-      <td style="text-align: left">capitalize-word</td>
-      <td style="text-align: left">Capitalizefirst letter of word.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-u</td>
-      <td style="text-align: left">upcase-word</td>
-      <td style="text-align: left">Uppercase word.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">M-l</td>
-      <td style="text-align: left">downcase-word</td>
-      <td style="text-align: left">Downcase word.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Meta - M-c</td>
-      <td style="text-align: left">negative-argument;capitalize-word</td>
-      <td style="text-align: left">Capitalize previous word.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Meta - M-u</td>
-      <td style="text-align: left">negative-argument;upcase-word</td>
-      <td style="text-align: left">Uppercase previous word.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Meta - M-l</td>
-      <td style="text-align: left">negative-argument;downcase-word</td>
-      <td style="text-align: left">Lowercase previous word.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><a href="https://zhengtongdu.github.io/2022/09/07/Learning_Emacs_Overview/">Back To Overview</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter 02 All about EDITING.]]></summary></entry><entry><title type="html">Learning Emacs I</title><link href="http://localhost:4000/2022/09/08/Learning_Emacs_I/" rel="alternate" type="text/html" title="Learning Emacs I" /><published>2022-09-08T10:16:00+08:00</published><updated>2022-09-08T10:16:00+08:00</updated><id>http://localhost:4000/2022/09/08/Learning_Emacs_I</id><content type="html" xml:base="http://localhost:4000/2022/09/08/Learning_Emacs_I/"><![CDATA[<ul>
-  <li>
-    <p>Emacs Basics</p>
-  </li>
-  <li>
-    <p>Learning to use an editor is basically a matter of learning finger habits. Once you’re at this point, you’re home. You can become creative with Emacs and start thinking about how to put its features to work for you. Good finger habits can make you an inredibly fast typist, and reaching from keyboard to mouse only slos you down.</p>
-  </li>
-  <li>
-    <p>Commands covered in this chapter</p>
-  </li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x C-f</td>
-      <td style="text-align: left">find-file</td>
-      <td style="text-align: left">Find file and read it in a new buffer.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x C-v</td>
-      <td style="text-align: left">find-alternate-file</td>
-      <td style="text-align: left">Read an alternate file, replacing the one read with C-x C-f.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x i</td>
-      <td style="text-align: left">insert-file</td>
-      <td style="text-align: left">Insert file at cursor position.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x C-s</td>
-      <td style="text-align: left">save-buffer</td>
-      <td style="text-align: left">Save file.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x C-w</td>
-      <td style="text-align: left">write file</td>
-      <td style="text-align: left">Write buffer contets to file.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x C-c</td>
-      <td style="text-align: left">save-buffers-kill-emacs</td>
-      <td style="text-align: left">Exit Emacs.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-h</td>
-      <td style="text-align: left">help-command</td>
-      <td style="text-align: left">Enter the online help system.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><a href="https://zhengtongdu.github.io/2022/09/07/Learning_Emacs_Overview/">Back To Overview</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Emacs Basics]]></summary></entry><entry><title type="html">Learning Emacs Overview</title><link href="http://localhost:4000/2022/09/07/Learning_Emacs_Overview/" rel="alternate" type="text/html" title="Learning Emacs Overview" /><published>2022-09-07T17:57:00+08:00</published><updated>2022-09-07T17:57:00+08:00</updated><id>http://localhost:4000/2022/09/07/Learning_Emacs_Overview</id><content type="html" xml:base="http://localhost:4000/2022/09/07/Learning_Emacs_Overview/"><![CDATA[<p>Use this post to record what I have learned in book <em>Learning GNU Emacs</em>, as well as training to master <em>markdown</em> :)</p>
-
-<p>And maybe there are some links directing to the study note of each chapter.</p>
-<h2 id="list-of-learning">LIST OF LEARNING</h2>
-<ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Preface</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  <a href="https://zhengtongdu.github.io/2022/09/08/Learning_Emacs_I/">Chapter 1</a></li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  <a href="https://zhengtongdu.github.io/2022/09/10/Learning_Emacs_II/">Chapter 2</a></li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 3</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 4</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 5</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 7</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 8</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 9</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 10</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 11</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 12</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Chapter 14</li>
-</ul>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Use this post to record what I have learned in book Learning GNU Emacs, as well as training to master markdown :)]]></summary></entry></feed>
+<p><a href="https://zhengtongdu.github.io/2022/09/26/Week_003_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My 2nd week’s record during postgraduate period.]]></summary></entry></feed>

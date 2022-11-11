@@ -8,7 +8,7 @@ echo "---" >> $post
 echo "layout: post" >> $post 
 echo "title: Week_$1 Record" >> $post 
 echo "date: $tim +0800" >> $post 
-echo "tags: [rearch_record]" >> $post 
+echo "tags: [research_record]" >> $post 
 echo "toc: true" >> $post 
 echo "---" >> $post
 echo "" >> $post
