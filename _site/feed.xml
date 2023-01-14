@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-11-11T10:44:43+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">Week_009 Record</title><link href="http://localhost:4000/2022/11/07/Week_009_Record/" rel="alternate" type="text/html" title="Week_009 Record" /><published>2022-11-07T19:30:00+08:00</published><updated>2022-11-07T19:30:00+08:00</updated><id>http://localhost:4000/2022/11/07/Week_009_Record</id><content type="html" xml:base="http://localhost:4000/2022/11/07/Week_009_Record/"><![CDATA[<p>My  week’s record during postgraduate period.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-02T17:07:16+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengtong’s blog</title><subtitle>Learning and recording</subtitle><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><entry><title type="html">GAMES101_Notes</title><link href="http://localhost:4000/2023/01/02/GAMES101_notes/" rel="alternate" type="text/html" title="GAMES101_Notes" /><published>2023-01-02T15:59:00+08:00</published><updated>2023-01-02T15:59:00+08:00</updated><id>http://localhost:4000/2023/01/02/GAMES101_notes</id><content type="html" xml:base="http://localhost:4000/2023/01/02/GAMES101_notes/"><![CDATA[<h1 id="lesson-02-review-of-linear-algebra-向量与线性代数">Lesson 02 Review of Linear Algebra 向量与线性代数</h1>
+
+<h2 id="图形学依赖">图形学依赖：</h2>
+
+<ol>
+  <li>基础数学：线性代数 微积分 统计学；</li>
+  <li>基础物理学：光学 力学；</li>
+  <li>其他： 信号处理 数值分析</li>
+</ol>
+
+<h2 id="线性代数">线性代数</h2>
+
+<p>向量 矩阵 。。。</p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="GAMES101" /><summary type="html"><![CDATA[Lesson 02 Review of Linear Algebra 向量与线性代数]]></summary></entry><entry><title type="html">Week_011 Record</title><link href="http://localhost:4000/2022/11/21/Week_011_Record/" rel="alternate" type="text/html" title="Week_011 Record" /><published>2022-11-21T21:15:00+08:00</published><updated>2022-11-21T21:15:00+08:00</updated><id>http://localhost:4000/2022/11/21/Week_011_Record</id><content type="html" xml:base="http://localhost:4000/2022/11/21/Week_011_Record/"><![CDATA[<p>My week’s record during postgraduate period.</p>
+
+<ul>
+  <li>
+    <p>Monday</p>
+  </li>
+  <li>
+    <p>Tuesday</p>
+  </li>
+</ul>
+
+<p>leetcode top100: 8/100</p>
+
+<ul>
+  <li>Wednesday</li>
+</ul>
+
+<p>leetcode top100: 11/100</p>
+
+<ul>
+  <li>Thursday</li>
+</ul>
+
+<p>leetcode top100: 13/100</p>
+
+<ul>
+  <li>
+    <p>Friday</p>
+  </li>
+  <li>
+    <p>Saturday</p>
+  </li>
+  <li>
+    <p>Sunday</p>
+  </li>
+  <li>
+    <p>Summary</p>
+  </li>
+</ul>
+
+<p><a href="https://zhengtongdu.github.io/2022/11/14/Week_010_Record/">See last week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Week_010 Record</title><link href="http://localhost:4000/2022/11/14/Week_010_Record/" rel="alternate" type="text/html" title="Week_010 Record" /><published>2022-11-14T00:38:00+08:00</published><updated>2022-11-14T00:38:00+08:00</updated><id>http://localhost:4000/2022/11/14/Week_010_Record</id><content type="html" xml:base="http://localhost:4000/2022/11/14/Week_010_Record/"><![CDATA[<p>My  week’s record during postgraduate period.</p>
+
+<ul>
+  <li>Monday</li>
+</ul>
+
+<p>Running 5.02 km in 33m25s</p>
+
+<p>6.046 Recitation 01</p>
+
+<p>6.046 Recitation 02</p>
+
+<ul>
+  <li>
+    <p>Tuesday</p>
+  </li>
+  <li>
+    <p>Wednesday</p>
+  </li>
+</ul>
+
+<p>6.046 Problem Set 01</p>
+
+<p>6.046 Problem Set 02</p>
+
+<p>Choosing what emacs configuration.</p>
+
+<ul>
+  <li>Thursday</li>
+</ul>
+
+<p>leetcode top100: 4/100</p>
+
+<ul>
+  <li>Friday</li>
+</ul>
+
+<p>leetcode top100: 6/100</p>
+
+<ul>
+  <li>Saturday</li>
+</ul>
+
+<p>Relaxing</p>
+
+<p>Running 5.06 km in 31m15s</p>
+
+<ul>
+  <li>Sunday</li>
+</ul>
+
+<p>Writing design document</p>
+
+<p>Running 5.03 km in 30m13s</p>
+
+<ul>
+  <li>Summary</li>
+</ul>
+
+<p><a href="https://zhengtongdu.github.io/2022/11/07/Week_009_Record/">See last week’s record</a></p>
+
+<p><a href="https://zhengtongdu.github.io/2022/11/21/Week_011_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Week_009 Record</title><link href="http://localhost:4000/2022/11/07/Week_009_Record/" rel="alternate" type="text/html" title="Week_009 Record" /><published>2022-11-07T19:30:00+08:00</published><updated>2022-11-07T19:30:00+08:00</updated><id>http://localhost:4000/2022/11/07/Week_009_Record</id><content type="html" xml:base="http://localhost:4000/2022/11/07/Week_009_Record/"><![CDATA[<p>My  week’s record during postgraduate period.</p>
 
 <ul>
   <li>Monday</li>
@@ -21,24 +134,37 @@ Running 5.07 km in 31m35s</T></p>
 (3h) ConvexHull(by “Divide and Conquer”): finishing(but have no document)!</p>
 
 <ul>
-  <li>
-    <p>Thursday</p>
-  </li>
-  <li>
-    <p>Friday</p>
-  </li>
-  <li>
-    <p>Saturday</p>
-  </li>
-  <li>
-    <p>Sunday</p>
-  </li>
-  <li>
-    <p>Summary</p>
-  </li>
+  <li>Thursday</li>
 </ul>
 
-<p><a href="https://zhengtongdu.github.io/2022/10/31/Week_008_Record/">See last week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Week_008 Record</title><link href="http://localhost:4000/2022/10/31/Week_008_Record/" rel="alternate" type="text/html" title="Week_008 Record" /><published>2022-10-31T09:51:00+08:00</published><updated>2022-10-31T09:51:00+08:00</updated><id>http://localhost:4000/2022/10/31/Week_008_Record</id><content type="html" xml:base="http://localhost:4000/2022/10/31/Week_008_Record/"><![CDATA[<p>My  week’s record during postgraduate period.</p>
+<p>Welcome my new laptop!</p>
+
+<ul>
+  <li>Friday</li>
+</ul>
+
+<p>Installing double systems and applications for working.
+Running 5.01 km in 37m48s</p>
+
+<ul>
+  <li>Saturday</li>
+</ul>
+
+<p>6.046 Lecture 03: Divide and Conquer FFT</p>
+
+<ul>
+  <li>Sunday</li>
+</ul>
+
+<p>6.046 Lecture 04: Divide and Conquer van Emde Boas Tree</p>
+
+<ul>
+  <li>Summary</li>
+</ul>
+
+<p><a href="https://zhengtongdu.github.io/2022/10/31/Week_008_Record/">See last week’s record</a></p>
+
+<p><a href="https://zhengtongdu.github.io/2022/11/14/Week_010_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Week_008 Record</title><link href="http://localhost:4000/2022/10/31/Week_008_Record/" rel="alternate" type="text/html" title="Week_008 Record" /><published>2022-10-31T09:51:00+08:00</published><updated>2022-10-31T09:51:00+08:00</updated><id>http://localhost:4000/2022/10/31/Week_008_Record</id><content type="html" xml:base="http://localhost:4000/2022/10/31/Week_008_Record/"><![CDATA[<p>My  week’s record during postgraduate period.</p>
 
 <ul>
   <li>Monday</li>
@@ -302,551 +428,4 @@ Running 5.11 km in 35m15s</p>
 
 <p><strong>So I decide to skip this chapter!</strong></p>
 
-<h1 id="chapter08-markup-language-support">Chapter08 Markup Language Support</h1>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter05 Emacs as a Work Environment]]></summary></entry><entry><title type="html">Week_003 Record</title><link href="http://localhost:4000/2022/09/26/Week_003_Record/" rel="alternate" type="text/html" title="Week_003 Record" /><published>2022-09-26T21:24:00+08:00</published><updated>2022-09-26T21:24:00+08:00</updated><id>http://localhost:4000/2022/09/26/Week_003_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/26/Week_003_Record/"><![CDATA[<p>My 3rd week’s record during postgraduate period.</p>
-
-<ul>
-  <li>Monday</li>
-</ul>
-
-<p>Leetcode*2</p>
-
-<p>Start pbrt learning</p>
-
-<p>Finish reading &lt;Advice for early-stage Ph.D. students&gt;</p>
-
-<ul>
-  <li>Tuesday</li>
-</ul>
-
-<p>PBRT: Stop at System Overview</p>
-
-<p>Suffers from installing Chinese input method :(</p>
-
-<p>Running 5.02 km in 32m53s</p>
-
-<ul>
-  <li>Wednesday</li>
-</ul>
-
-<p>PBRT: Stop at Data Races and Coordination</p>
-
-<p>Leetcode*2</p>
-
-<ul>
-  <li>Thursday</li>
-</ul>
-
-<p>PBRT: Stop at Chapter01 Exercise</p>
-
-<p>Leetcode*2</p>
-
-<ul>
-  <li>Friday</li>
-</ul>
-
-<p>Thinking in CPP Volume1 Chapter10</p>
-
-<p>Leetcode*2</p>
-
-<ul>
-  <li>Saturday</li>
-</ul>
-
-<p>Thinking in CPP Volume1 Chapter10</p>
-
-<p>Leetcode*2</p>
-
-<ul>
-  <li>Sunday</li>
-</ul>
-
-<p>PBRT: Stop at Chapter02 Points</p>
-
-<p>Leetcode*3</p>
-
-<ul>
-  <li>Summary</li>
-</ul>
-
-<p>The first week I start learning PBRT.</p>
-
-<p><a href="https://zhengtongdu.github.io/2022/09/19/Week_002_Record/">See last week’s record</a></p>
-
-<p><a href="https://zhengtongdu.github.io/2022/10/3/Week_004_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My 3rd week’s record during postgraduate period.]]></summary></entry><entry><title type="html">Learning Emacs IV</title><link href="http://localhost:4000/2022/09/25/Learning_Emacs_IV/" rel="alternate" type="text/html" title="Learning Emacs IV" /><published>2022-09-25T14:29:00+08:00</published><updated>2022-09-25T14:29:00+08:00</updated><id>http://localhost:4000/2022/09/25/Learning_Emacs_IV</id><content type="html" xml:base="http://localhost:4000/2022/09/25/Learning_Emacs_IV/"><![CDATA[<h1 id="chapter-04-using-buffers-windows-and-frames">Chapter 04: Using Buffers, Windows, and Frames</h1>
-
-<p>This chapter focuses on topics of frames, windows and bookmarks, teaching you how to use them for convenience. So interesting!</p>
-
-<ul>
-  <li>Frame commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-x 5 o</td>
-      <td style="text-align: left">other-frame</td>
-      <td style="text-align: left">Move to other frame.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x 5 0</td>
-      <td style="text-align: left">delete-frame</td>
-      <td style="text-align: left">Delete current frame.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x 5 2</td>
-      <td style="text-align: left">make-frame</td>
-      <td style="text-align: left">Create a new frame on the current buffer.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x 5 f</td>
-      <td style="text-align: left">find-file-other-frame</td>
-      <td style="text-align: left">Find file in a new frame.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x 5 r</td>
-      <td style="text-align: left">find-file-read-only-other-frame</td>
-      <td style="text-align: left">Find a file in a new frame, but it is read-only.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x 5 b</td>
-      <td style="text-align: left">switch-to-buffer-other-frame</td>
-      <td style="text-align: left">Make frame and display other buffer in it.</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Buffer manipulation commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-x b</td>
-      <td style="text-align: left">switch-to-buffer</td>
-      <td style="text-align: left">Move to the buffer specified.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x \right-arrow</td>
-      <td style="text-align: left">next-buffer</td>
-      <td style="text-align: left">Move to the next buffer in the buffer list.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x \left-arrow</td>
-      <td style="text-align: left">previous-buffer</td>
-      <td style="text-align: left">Move to the previous buffer in the buffer list.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x C-b</td>
-      <td style="text-align: left">list-buffers</td>
-      <td style="text-align: left">Display the buffer list.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x k</td>
-      <td style="text-align: left">kill-buffer</td>
-      <td style="text-align: left">Delete the buffer specified</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">kill-some-buffers</td>
-      <td style="text-align: left">Ask about deleting each buffer.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">rename-buffer</td>
-      <td style="text-align: left">Change the buffer’s name to the name specified.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x s</td>
-      <td style="text-align: left">save-some-buffers</td>
-      <td style="text-align: left">Ask whether you want to save each modified buffer.</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Buffer list commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Action</th>
-      <th style="text-align: left">Occurs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-n, Space, n, or \down-arrow</td>
-      <td style="text-align: left">Move to the next buffers in the list(i.e., down one line).</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-p, p, or \up-arrow</td>
-      <td style="text-align: left">Move to the previous buffer in the list(i.e., up one line).</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">d, or k</td>
-      <td style="text-align: left">Mark buffer for deletion.</td>
-      <td style="text-align: left">When you press x</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">s</td>
-      <td style="text-align: left">Save buffer.</td>
-      <td style="text-align: left">When you press x</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">u</td>
-      <td style="text-align: left">Unmark buffer.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">x</td>
-      <td style="text-align: left">Execute other one-letter commands on all marked buffers.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Del</td>
-      <td style="text-align: left">Unmark the previous buffer in the list; if there is no mark, move up one line.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">~</td>
-      <td style="text-align: left">Mark buffer as unmodified.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">%</td>
-      <td style="text-align: left">Toggle read-only status of buffer.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">Display buffer in a full screen.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">Display this buffer and the next one in horizontal windows.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">f</td>
-      <td style="text-align: left">Replace buffer list with this buffer.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">o</td>
-      <td style="text-align: left">Replace other window with this buffer.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">m</td>
-      <td style="text-align: left">Mark buffers to be displayed in windows.</td>
-      <td style="text-align: left">When you press v</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">v</td>
-      <td style="text-align: left">Display buffers marked with m; Emacs makes as many windows as needed.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">q</td>
-      <td style="text-align: left">Quit buffer list.</td>
-      <td style="text-align: left">Immediately</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Window commands</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-x 2</td>
-      <td style="text-align: left">split-window-vertically</td>
-      <td style="text-align: left">Divide current window into two Windows, one above the other.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x 3</td>
-      <td style="text-align: left">split-window-horizontally</td>
-      <td style="text-align: left">Divide current window into two side-by-side windows.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x o</td>
-      <td style="text-align: left">other-window</td>
-      <td style="text-align: left">Move to the other window; if there are several, move to the next window.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x 0</td>
-      <td style="text-align: left">delete-window</td>
-      <td style="text-align: left">Delete the current window.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x 1</td>
-      <td style="text-align: left">delete-other-windows</td>
-      <td style="text-align: left">Delete all windows but this one.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x ^</td>
-      <td style="text-align: left">enlarge-window</td>
-      <td style="text-align: left">Make window taller.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">shrink-window</td>
-      <td style="text-align: left">Make window shorter.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x }</td>
-      <td style="text-align: left">enlarge-window-horizontally</td>
-      <td style="text-align: left">Make window wider.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x {</td>
-      <td style="text-align: left">shrink-window-horizontally</td>
-      <td style="text-align: left">Make window narrower.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x +</td>
-      <td style="text-align: left">balance-windows</td>
-      <td style="text-align: left">Make windows the same size.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x 4 f</td>
-      <td style="text-align: left">find-file-other-window</td>
-      <td style="text-align: left">Find a file in the other window.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x 4 b</td>
-      <td style="text-align: left">switch-to-buffer-other-window</td>
-      <td style="text-align: left">Select a buffer in the other window.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Commands for editing the bookmark list</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Enter, f, or j</td>
-      <td style="text-align: left">Go to the bookmark on the current line.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-o or o</td>
-      <td style="text-align: left">Open the bookmark on the current line in another window;o moves the cursor to that window; C-o keeps the cursor in the current window.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">d, C-d, or k</td>
-      <td style="text-align: left">Flag bookmark for deletion.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">r</td>
-      <td style="text-align: left">Rename bookmark.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">s</td>
-      <td style="text-align: left">Save all bookmarks listed.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">m</td>
-      <td style="text-align: left">Mark bookmarks to be displayed in multiple windows.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">v</td>
-      <td style="text-align: left">Display marked bookmarks or the one the cursor is on if none are marked.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">t</td>
-      <td style="text-align: left">Toggle display of paths to files associated with bookmarks.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">w</td>
-      <td style="text-align: left">In the minibuffer, display location of file associated with bookmarks.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">x</td>
-      <td style="text-align: left">Delete bookmarks flagged for deletion.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">u</td>
-      <td style="text-align: left">Remove mark from bookmark.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Del</td>
-      <td style="text-align: left">Remove mark from bookmark on previous line or move to the previous line(if there is no mark).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">q</td>
-      <td style="text-align: left">Exit bookmark list.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Space or n</td>
-      <td style="text-align: left">Move down a line.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">p</td>
-      <td style="text-align: left">Move up a line.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">|</td>
-      <td style="text-align: left">Load a bookmark file(other than the default).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">A</td>
-      <td style="text-align: left">Display all annotations.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">a</td>
-      <td style="text-align: left">Display annotation for current bookmark.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">e</td>
-      <td style="text-align: left">Edit(or create)annotation for the current bookmark.</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keystrokes</th>
-      <th style="text-align: left">Command name</th>
-      <th style="text-align: left">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">C-x r m</td>
-      <td style="text-align: left">bookmark-set</td>
-      <td style="text-align: left">Set a bookmark at the current cursor position.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x r b</td>
-      <td style="text-align: left">bookmark-jump</td>
-      <td style="text-align: left">Jump to a bookmark.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">bookmark-rename</td>
-      <td style="text-align: left">Rename a bookmark.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">bookmark-delete</td>
-      <td style="text-align: left">Delete a bookmark.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">bookmark-save</td>
-      <td style="text-align: left">Save all bookmarks in default file.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">C-x r l</td>
-      <td style="text-align: left">bookmark-menu-list</td>
-      <td style="text-align: left">Move to *Bookmark List*buffer.</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter 04: Using Buffers, Windows, and Frames]]></summary></entry><entry><title type="html">Week_002 Record</title><link href="http://localhost:4000/2022/09/19/Week_002_Record/" rel="alternate" type="text/html" title="Week_002 Record" /><published>2022-09-19T21:49:00+08:00</published><updated>2022-09-19T21:49:00+08:00</updated><id>http://localhost:4000/2022/09/19/Week_002_Record</id><content type="html" xml:base="http://localhost:4000/2022/09/19/Week_002_Record/"><![CDATA[<p>My 2nd week’s record during postgraduate period.</p>
-
-<ul>
-  <li>Monday</li>
-</ul>
-
-<p>Leetcode problems*2</p>
-
-<p>Words*60</p>
-
-<p>Installing washing machine</p>
-
-<p>Running 5.02 km in 31m25s</p>
-
-<ul>
-  <li>Tuesday</li>
-</ul>
-
-<p>Leetcode problems*3</p>
-
-<p>Words*60</p>
-
-<p>A little Learning GNU Emacs(last position: Query-Replace)</p>
-
-<ul>
-  <li>Wednesday</li>
-</ul>
-
-<p>Leetcode problems*2</p>
-
-<p>Words*60</p>
-
-<p>A little Learning GNU Emacs(last position: Spell-checking)</p>
-
-<ul>
-  <li>Thursday</li>
-</ul>
-
-<p>Leetcode problems*3</p>
-
-<p>Thinking in CPP Chapter08</p>
-
-<p>Configuring two routers</p>
-
-<ul>
-  <li>Friday</li>
-</ul>
-
-<p>Leetcode problems*2</p>
-
-<p>Learning GNU Emacs Chapter03</p>
-
-<p>Configuring lab’s printer</p>
-
-<ul>
-  <li>Satursday</li>
-</ul>
-
-<p>Leetcode problems*2</p>
-
-<ul>
-  <li>Sunday</li>
-</ul>
-
-<p>Leetcode problems*5</p>
-
-<p>Learning GNU Emacs Chapter04</p>
-
-<p>Positive Psychology Lesson03</p>
-
-<p><a href="https://zhengtongdu.github.io/2022/09/26/Week_003_Record/">See next week’s record</a></p>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="research_record" /><summary type="html"><![CDATA[My 2nd week’s record during postgraduate period.]]></summary></entry></feed>
+<h1 id="chapter08-markup-language-support">Chapter08 Markup Language Support</h1>]]></content><author><name>zhengtongdu</name><email>zhengtongdu_at_zju.edu.cn</email></author><category term="learning" /><category term="emacs" /><summary type="html"><![CDATA[Chapter05 Emacs as a Work Environment]]></summary></entry></feed>
