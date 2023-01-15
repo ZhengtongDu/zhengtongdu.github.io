@@ -12,8 +12,8 @@
 <meta property="og:title" content="GAMES101_notes_01" />
 <meta name="author" content="zhengtongdu" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Learning and recording" />
-<meta property="og:description" content="Learning and recording" />
+<meta name="description" content="GAMES101学习系列笔记01" />
+<meta property="og:description" content="GAMES101学习系列笔记01" />
 <link rel="canonical" href="http://localhost:4000/2023/01/02/GAMES101_notes_01/" />
 <meta property="og:url" content="http://localhost:4000/2023/01/02/GAMES101_notes_01/" />
 <meta property="og:site_name" content="Zhengtong’s blog" />
@@ -22,9 +22,22 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="GAMES101_notes_01" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"zhengtongdu","url":"https://github.com/zhengtongdu"},"dateModified":"2023-01-02T15:59:00+08:00","datePublished":"2023-01-02T15:59:00+08:00","description":"Learning and recording","headline":"GAMES101_notes_01","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2023/01/02/GAMES101_notes_01/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/avapig.jpg"},"name":"zhengtongdu"},"url":"http://localhost:4000/2023/01/02/GAMES101_notes_01/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"zhengtongdu","url":"https://github.com/zhengtongdu"},"dateModified":"2023-01-02T15:59:00+08:00","datePublished":"2023-01-02T15:59:00+08:00","description":"GAMES101学习系列笔记01","headline":"GAMES101_notes_01","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2023/01/02/GAMES101_notes_01/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/avapig.jpg"},"name":"zhengtongdu"},"url":"http://localhost:4000/2023/01/02/GAMES101_notes_01/"}</script>
 <!-- End Jekyll SEO tag -->
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Zhengtong's blog" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } });
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+                       });
+  </script>
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
 </head>
 
 
@@ -65,21 +78,13 @@
   <h1 class="post-title">GAMES101_notes_01</h1>
   <div class="post-meta"><time datetime="2023-01-02T15:59:00+08:00" itemprop="datePublished">2 Jan 2023</time></div>
 
-  <head>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            inlineMath: [['$','$']]
-            }
-        });
-    </script>
-</head>
+  <blockquote>
+  <p>GAMES101学习系列笔记01</p>
+</blockquote>
 
-<h1 id="lesson-02-review-of-linear-algebra-向量与线性代数">Lesson 02 Review of Linear Algebra 向量与线性代数</h1>
+<h2 id="lesson-02-review-of-linear-algebra-向量与线性代数">Lesson 02 Review of Linear Algebra 向量与线性代数</h2>
 
-<h2 id="图形学依赖">图形学依赖：</h2>
+<h3 id="图形学依赖">图形学依赖</h3>
 
 <ol>
   <li>基础数学：线性代数 微积分 统计学；</li>
@@ -87,13 +92,13 @@
   <li>其他： 信号处理 数值分析</li>
 </ol>
 
-<h2 id="线性代数">线性代数</h2>
+<h3 id="线性代数">线性代数</h3>
 
 <p>向量 矩阵 。。。</p>
 
-<h1 id="lesson-03-transformation-变换">Lesson 03 Transformation 变换</h1>
+<h2 id="lesson-03-transformation-变换">Lesson 03 Transformation 变换</h2>
 
-<h2 id="为什么研究变换">为什么研究变换</h2>
+<h3 id="为什么研究变换">为什么研究变换</h3>
 
 <ul>
   <li>Modeling 模型变换</li>
@@ -102,38 +107,38 @@
 
 <p>广泛应用</p>
 
-<h2 id="二维变换旋转-放缩-裁剪">二维变换：旋转 放缩 裁剪</h2>
+<h3 id="二维变换旋转-放缩-裁剪">二维变换：旋转 放缩 裁剪</h3>
 
 <ul>
   <li>
     <p>缩放变换(Scale)：</p>
 
-\[\begin{bmatrix}x'\\ y'\end{bmatrix} 
-  = 
+\[\begin{bmatrix}x'\\ y'\end{bmatrix}
+  =
   \begin{bmatrix}s_x &amp; 0 \\ 0 &amp; s_y\end{bmatrix}
   \begin{bmatrix}x\\ y\end{bmatrix}\]
   </li>
   <li>
     <p>反射变换(Reflection):</p>
 
-\[\begin{bmatrix}x'\\ y'\end{bmatrix} 
-  = 
+\[\begin{bmatrix}x'\\ y'\end{bmatrix}
+  =
   \begin{bmatrix}-1 &amp; 0 \\ 0 &amp; 1\end{bmatrix}
   \begin{bmatrix}x\\ y\end{bmatrix}\]
   </li>
   <li>
     <p>切变(Shear)</p>
 
-\[\begin{bmatrix}x'\\ y'\end{bmatrix} 
-  = 
+\[\begin{bmatrix}x'\\ y'\end{bmatrix}
+  =
   \begin{bmatrix}1 &amp; a \\ 0 &amp; 1\end{bmatrix}
   \begin{bmatrix}x\\ y\end{bmatrix}\]
   </li>
   <li>
     <p>旋转变换(Rotate)：默认关于原点逆时针旋转。</p>
 
-\[\begin{bmatrix}x'\\ y'\end{bmatrix} 
-  = 
+\[\begin{bmatrix}x'\\ y'\end{bmatrix}
+  =
   \begin{bmatrix}\cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta\end{bmatrix}
   \begin{bmatrix}x\\ y\end{bmatrix}\]
   </li>
@@ -141,20 +146,20 @@
 
 <p>以上变换的共同点：线性变换（可以通过矩阵来表示）：</p>
 
-\[\begin{bmatrix}x'\\ y'\end{bmatrix} 
-    = 
+\[\begin{bmatrix}x'\\ y'\end{bmatrix}
+    =
     \begin{bmatrix}a &amp; b \\ c &amp; d\end{bmatrix}
     \begin{bmatrix}x\\ y\end{bmatrix}\]
 
-<h2 id="齐次坐标">齐次坐标</h2>
+<h3 id="齐次坐标">齐次坐标</h3>
 
 <p>平移变换(Transition)：无法通过上述形式的线性变换矩阵来表示。</p>
 
-\[\begin{bmatrix}x'\\ y'\end{bmatrix} 
-    = 
+\[\begin{bmatrix}x'\\ y'\end{bmatrix}
+    =
     \begin{bmatrix}a &amp; b \\ c &amp; d\end{bmatrix}
     \begin{bmatrix}x\\ y\end{bmatrix}
-     + 
+     +
      \begin{bmatrix}t_x\\ t_y\end{bmatrix}\]
 
 <p>由此引入了 <strong>齐次坐标(Homogenous Coordinates)</strong> 这个概念：
@@ -167,12 +172,13 @@
 
 <p>由此平移操作可以用一个矩阵乘法的形式表示：</p>
 
-\[\begin{bmatrix}x'\\ y' \\ w'\end{bmatrix} 
-    = 
+\[\begin{bmatrix}x'\\ y' \\ w'\end{bmatrix}
+    =
     \begin{bmatrix}1 &amp; 0 &amp; t_x \\ 0 &amp; 1 &amp; t_y \\ 0 &amp; 0 &amp; 1\end{bmatrix}
     \begin{bmatrix}x\\ y \\ w\end{bmatrix}\]
 
 <p>向量的$w$分量为$0$的原因：因为向量具有 <strong>平移不变性</strong></p>
+
 <ul>
   <li>vector + vector = vector</li>
   <li>point - point = vector</li>
@@ -181,7 +187,7 @@
 </ul>
 
 <p>$
-    \begin{pmatrix}x\ y \ w\end{pmatrix} 
+    \begin{pmatrix}x\ y \ w\end{pmatrix}
 $
 对应二维点
 $
@@ -190,32 +196,32 @@ $</p>
 
 <p>由此两个齐次坐标点的相加可以视为两点的 <strong>加权平均</strong></p>
 
-<h2 id="仿射变换">仿射变换</h2>
+<h3 id="仿射变换">仿射变换</h3>
 
-\[\begin{pmatrix}x'\\ y' \\ 1\end{pmatrix} 
-    = 
+\[\begin{pmatrix}x'\\ y' \\ 1\end{pmatrix}
+    =
     \begin{pmatrix}a &amp; b &amp; t_x \\ c &amp; d &amp; t_y \\ 0 &amp; 0 &amp; 1\end{pmatrix}
     \begin{pmatrix}x\\ y \\ 1\end{pmatrix}\]
 
 <p>Scale:</p>
 
 \[S(s_x, s_y)
-    = 
+    =
     \begin{pmatrix}s_x &amp; 0 &amp; 0 \\ 0 &amp; s_y &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix}\]
 
 <p>Rotation:</p>
 
 \[R(\alpha)
-    = 
+    =
     \begin{pmatrix}\cos \alpha &amp; -\sin \alpha &amp; 0 \\ \sin \alpha &amp; \cos \alpha &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix}\]
 
 <p>Translation:</p>
 
 \[T(t_x, t_y)
-    = 
+    =
     \begin{pmatrix}1 &amp; 0 &amp; t_x \\ 0 &amp; 1 &amp; t_y \\ 0 &amp; 0 &amp; 1\end{pmatrix}\]
 
-<h2 id="逆变换变换组合变换分解">逆变换、变换组合、变换分解</h2>
+<h3 id="逆变换变换组合变换分解">逆变换、变换组合、变换分解</h3>
 
 \[A_n(\dots A_2(A_1 (x))) = \mathbf{A}_n \cdots \mathbf{A}_2\cdot \mathbf{A}_1 \cdot
 \begin{pmatrix}x \\ y \\ 1\end{pmatrix}\]
@@ -234,9 +240,10 @@ $</p>
 
 \[\mathbf{M} = \mathbf{T}(c)\cdot \mathbf{R}(\alpha) \cdot \mathbf{T}(-c)\]
 
-<h2 id="三维变换">三维变换</h2>
+<h3 id="三维变换">三维变换</h3>
 
 <p>仍然利用齐次坐标系统：</p>
+
 <ul>
   <li>三维点坐标： $(x, y, z, 1)^\mathrm{T}$</li>
   <li>三维向量坐标： $(x, y, z, 0)^\mathrm{T}$</li>
@@ -247,28 +254,28 @@ $</p>
 
 <p>三维空间中仿射变换矩阵：
 \(\begin{pmatrix}x'\\ y' \\ z'\\ 1\end{pmatrix}
-    = 
+    =
     \begin{pmatrix}a &amp; b &amp; c &amp; t_x \\ d &amp; e &amp; f &amp; t_y \\ g &amp; h &amp; i &amp; t_z \\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}
     \begin{pmatrix}x\\ y \\ z\\ 1\end{pmatrix}\)
 上述形式的仿射变换矩阵可以视作 <strong>先进行线性变换再进行平移变换</strong></p>
 
-<h1 id="lesson-04-transformation-cont">Lesson 04 Transformation Cont.</h1>
+<h2 id="lesson-04-transformation-cont">Lesson 04 Transformation Cont</h2>
 
-<h2 id="对上节课的补充旋转变换的逆变换矩阵形式">对上节课的补充：旋转变换的逆变换矩阵形式：</h2>
+<h3 id="对上节课的补充旋转变换的逆变换矩阵形式">对上节课的补充：旋转变换的逆变换矩阵形式</h3>
 
 \[R(\alpha)
-    = 
+    =
     \begin{pmatrix}\cos \alpha &amp; -\sin \alpha &amp; 0 \\ \sin \alpha &amp; \cos \alpha &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix}\]
 
 \[R(-\alpha)
-    = 
+    =
     \begin{pmatrix}\cos \alpha &amp; \sin \alpha &amp; 0 \\ -\sin \alpha &amp; \cos \alpha &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix}
     =
     R(\alpha)^{-1}
     =
     R(\alpha)^\mathrm{T}\]
 
-<h2 id="三维变换-1">三维变换</h2>
+<h3 id="三维坐标系下的变换">三维坐标系下的变换</h3>
 
 <ul>
   <li>三维点坐标： $(x, y, z, 1)^\mathrm{T}$</li>
@@ -276,24 +283,24 @@ $</p>
 </ul>
 
 <p>Scale
-\(\mathbf{S}(s_x, s_y, s_z)= 
+\(\mathbf{S}(s_x, s_y, s_z)=
     \begin{pmatrix}s_x &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; s_y &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; s_z &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}\)</p>
 
 <p>Translation
-\(\mathbf{T}(t_x, t_y, t_z)= 
+\(\mathbf{T}(t_x, t_y, t_z)=
     \begin{pmatrix}1 &amp; 0 &amp; 0 &amp; t_x \\ 0 &amp; 1 &amp; 0 &amp; t_y \\ 0 &amp; 0 &amp; 1 &amp; t_z \\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}\)</p>
 
 <p>Rotation</p>
 
-\[\mathbf{R}_x(\alpha)= 
+\[\mathbf{R}_x(\alpha)=
     \begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; \cos\alpha &amp; -\sin\alpha &amp; 0 \\ 0 &amp; \sin\alpha &amp; \cos\alpha &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}\]
 
-\[\mathbf{R}_y(\alpha)= 
+\[\mathbf{R}_y(\alpha)=
     \begin{pmatrix}\cos\alpha &amp; 0 &amp; \sin\alpha &amp; 0 \\
      0 &amp; 1 &amp; 0 &amp; 0 \\
       -\sin\alpha &amp; 0 &amp; \cos\alpha &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}\]
 
-\[\mathbf{R}_z(\alpha)= 
+\[\mathbf{R}_z(\alpha)=
     \begin{pmatrix}\cos\alpha &amp; -\sin\alpha &amp; 0 &amp; 0 \\ \sin\alpha &amp; \cos\alpha &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}\]
 
 <p>如何考虑复杂的三维旋转变换？</p>
@@ -308,7 +315,7 @@ $</p>
 
 \[\mathbf{R}(\mathbf{n}, \alpha) = \cos(\alpha) \mathbf{I} + (1-\cos(\alpha))\mathbf{n}\mathbf{n}^\mathrm{T} + \sin \alpha     \begin{pmatrix}0 &amp; -n_z &amp; n_y \\ n_z &amp; 0 &amp; -n_x \\  -n_y &amp; n_x &amp; 0\end{pmatrix}\]
 
-<h2 id="viewing-transformation">Viewing transformation</h2>
+<h3 id="viewing-transformation">Viewing transformation</h3>
 
 <ul>
   <li>View/Camera transformation 观测变换/视图变换</li>
@@ -321,6 +328,7 @@ $</p>
 </ul>
 
 <p>如何拍一张照片？MVP Transformations</p>
+
 <ul>
   <li>model transformation 模型变换</li>
   <li><strong>view transformation 视图变换</strong></li>
@@ -328,15 +336,17 @@ $</p>
 </ul>
 
 <p>如何确定相机位置？</p>
+
 <ul>
   <li>Position $\vec{e}$</li>
   <li>Look-at/ gaze direction $\hat{g}$</li>
   <li>Up direction $\hat{t}$</li>
 </ul>
 
-<h3 id="约定相机始终位于原点永远向-z方向看永远以y轴为固定向上方向改变其他物体的位置而不改变相机的标准位置">约定：相机始终位于<strong>原点</strong>，永远向$-z$方向看，永远以$y$轴为固定向上方向，改变其他物体的位置而不改变相机的标准位置。</h3>
+<h4 id="约定相机始终位于__原点__永远向-z方向看永远以y轴为固定向上方向改变其他物体的位置而不改变相机的标准位置">约定：相机始终位于__原点__，永远向$-z$方向看，永远以$y$轴为固定向上方向，改变其他物体的位置而不改变相机的标准位置</h4>
 
 <p>在数学上通过矩阵变换将相机移到标准位置：</p>
+
 <ul>
   <li>将位置 $\vec{e}$ 移到原点;</li>
   <li>旋转 $\hat{g}$ 到 $-z$ 方向；</li>
@@ -349,40 +359,43 @@ $</p>
 
 <p>其中</p>
 
-<p>-
-\(\mathbf{T}_{view}= 
-    \begin{pmatrix}
-    1 &amp; 0 &amp; 0 &amp; -x_e \\
-    0 &amp; 1 &amp; 0 &amp; -y_e \\ 
-    0 &amp; 0 &amp; 1 &amp; -z_e \\ 
-    0 &amp; 0 &amp; 0 &amp; 1
-    \end{pmatrix}\)</p>
 <ul>
-  <li>由于对于 $\mathbf{R}_{view}$ 的逆矩阵，是将 $x$ 轴旋转到 $\hat{g}\times \hat{t}$，将 $y$ 轴旋转到 $\hat{t}$ ，将 $z$ 轴旋转到 $-\hat{g}$ 上，故
-\(\mathbf{R}_{view}^{-1}= 
+  <li>
+\[\mathbf{T}_{view}=
   \begin{pmatrix}
-  x_{\hat{g}\times\hat{t}} &amp; x_{\hat{t}} &amp; x_{-\hat{g}} &amp; 0 
-  \\ y_{\hat{g}\times\hat{t}} &amp; y_{\hat{t}} &amp; y_{-\hat{g}} &amp; 0 
-  \\ z_{\hat{g}\times\hat{t}} &amp; z_{\hat{t}} &amp; z_{-\hat{g}} &amp; 0 
+  1 &amp; 0 &amp; 0 &amp; -x_e \\
+  0 &amp; 1 &amp; 0 &amp; -y_e \\
+  0 &amp; 0 &amp; 1 &amp; -z_e \\
+  0 &amp; 0 &amp; 0 &amp; 1
+  \end{pmatrix}\]
+  </li>
+  <li>由于对于 $\mathbf{R}_{view}$ 的逆矩阵，是将 $x$ 轴旋转到 $\hat{g}\times \hat{t}$，将 $y$ 轴旋转到 $\hat{t}$ ，将 $z$ 轴旋转到 $-\hat{g}$ 上，故
+\(\mathbf{R}_{view}^{-1}=
+  \begin{pmatrix}
+  x_{\hat{g}\times\hat{t}} &amp; x_{\hat{t}} &amp; x_{-\hat{g}} &amp; 0
+  \\ y_{\hat{g}\times\hat{t}} &amp; y_{\hat{t}} &amp; y_{-\hat{g}} &amp; 0
+  \\ z_{\hat{g}\times\hat{t}} &amp; z_{\hat{t}} &amp; z_{-\hat{g}} &amp; 0
   \\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}\)</li>
   <li>因此
-\(\mathbf{R}_{view}= (\mathbf{R}_{view}^{-1})^\mathrm{T} = 
+\(\mathbf{R}_{view}= (\mathbf{R}_{view}^{-1})^\mathrm{T} =
   \begin{pmatrix}
-  x_{\hat{g}\times\hat{t}} &amp; y_{\hat{g}\times\hat{t}} &amp; z_{\hat{g}\times\hat{t}} &amp; 0 
-  \\ x_{\hat{t}} &amp; y_{\hat{t}} &amp; z_{\hat{t}} &amp; 0 
-  \\ x_{-\hat{g}} &amp; y_{-\hat{g}} &amp; z_{-\hat{g}} &amp; 0 
+  x_{\hat{g}\times\hat{t}} &amp; y_{\hat{g}\times\hat{t}} &amp; z_{\hat{g}\times\hat{t}} &amp; 0
+  \\ x_{\hat{t}} &amp; y_{\hat{t}} &amp; z_{\hat{t}} &amp; 0
+  \\ x_{-\hat{g}} &amp; y_{-\hat{g}} &amp; z_{-\hat{g}} &amp; 0
   \\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}\)</li>
 </ul>
 
-<h2 id="projection-transformation">Projection Transformation</h2>
+<h3 id="projection-transformation">Projection Transformation</h3>
+
 <ul>
   <li>正交投影</li>
   <li>透视投影</li>
 </ul>
 
-<h3 id="正交投影">正交投影</h3>
+<h4 id="正交投影">正交投影</h4>
 
 <p>简单理解正交投影：</p>
+
 <ul>
   <li>将照相机固定在原点，看向 $-z$ 方向，上方为 $y$ 方向；</li>
   <li>抛掉所有 $z$ 方向坐标；</li>
@@ -390,10 +403,11 @@ $</p>
 </ul>
 
 <p>约定俗成的方法：</p>
+
 <ul>
   <li>将包裹全部物体的长方体 $[l, r]\times[b, t]\times[f, n]$ 映射到标准立方体(canonical cube) $[-1, 1]^3$ ，先做平移，将中心移到原点之后再进行放缩。</li>
   <li>变换矩阵为：
-\(\mathbf{M}_{ortho}  = 
+\(\mathbf{M}_{ortho}  =
 \begin{pmatrix}
 \frac{2}{r - l} &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; \frac{2}{t - b} &amp; 0 &amp; 0 \\
@@ -408,14 +422,16 @@ $</p>
 \end{pmatrix}\)</li>
 </ul>
 
-<h3 id="透视投影">透视投影</h3>
+<h4 id="透视投影">透视投影</h4>
 
 <p>回顾数学基础：</p>
+
 <ul>
   <li>对于齐次坐标系， $(x, y, z, 1)$ 和 $(kx, ky, kz, k), k \ne 0$ 都表示三维空间中 $(x, y, z)$ 这个点</li>
 </ul>
 
 <p>如何做透视投影：</p>
+
 <ul>
   <li>首先，将棱台的远平面压缩成和近平面相同大小的长方形 ($\mathbf{M_{persp\rightarrow ortho}}$)</li>
   <li>将压缩后的远平面通过正交投影 ($\mathbf{M}_{ortho}$)</li>
@@ -426,6 +442,7 @@ $</p>
 <p>根据相似三角形的理论，如果近平面到原点的距离是 $n$，那么点 $(x, y, z)$ 通过相似变换映射到近平面上的点 $(x’, y’, z’)$ 应当满足
 \(y' = \frac{n}{z}y,\quad x' = \frac{n}{z} x.\)
 由于这样的相似变换总是会非线性的改变在棱台内点的 $z$ 分量，因此我们希望能够在这些变换中找到满足如下两点性质的一类变换：</p>
+
 <ul>
   <li>对位于近平面，即 $z = n$ 的所有点，在相似变换后仍然保持 $z’ = n$；</li>
   <li>对位于远平面，即 $z = f$ 的所有店，在相似变换后仍然保持 $z’ = f$.</li>
@@ -434,7 +451,7 @@ $</p>
 <p>由此我们可以通过逐行凑矩阵的方式，推得透视投影变换矩阵 $\mathbf{M}_{persp\rightarrow ortho}$ 应当为</p>
 
 \[\mathbf{M}_{persp\rightarrow ortho}
- = 
+ =
 \begin{pmatrix}
 n &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; n &amp; 0 &amp; 0 \\
@@ -442,25 +459,27 @@ n &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 1 &amp; 0
 \end{pmatrix}\]
 
-<p>可以验证：
-\(\mathbf{M}_{persp\rightarrow ortho}
+<p>可以验证</p>
+
+\[\mathbf{M}_{persp\rightarrow ortho}
 \begin{pmatrix}
 x \\ y \\ n \\ 1
 \end{pmatrix}
- = 
+ =
+
 \begin{pmatrix}
 nx \\ ny \\ n^2 \\ n
 \end{pmatrix}
 \Leftrightarrow
 \begin{pmatrix}
 x \\ y \\ n \\ 1
-\end{pmatrix}\)</p>
+\end{pmatrix}\]
 
 \[\mathbf{M}_{persp\rightarrow ortho}
 \begin{pmatrix}
 x \\ y \\ f \\ 1
 \end{pmatrix}
- = 
+ =
 \begin{pmatrix}
 nx \\ ny \\ f^2 \\ f
 \end{pmatrix}
@@ -471,13 +490,16 @@ nx \\ ny \\ f^2 \\ f
 
 <p>满足我们最开始的要求。</p>
 
-<p>最后，我们结合正交投影部分的结论，可以推出
-\(\mathbf{M}_{persp}
- = 
-\mathbf{M}_{othro} 
-\mathbf{M}_{persp\rightarrow ortho}\)</p>
+<p>最后，我们结合正交投影部分的结论，可以推出</p>
 
-<h1 id="lesson-05-rasterization-光栅化-1triangles">Lesson 05 Rasterization 光栅化 1(Triangles)</h1>
+\[\mathbf{M}_{persp}
+ =
+
+\mathbf{M}_{othro}
+\mathbf{M}_{persp\rightarrow ortho}\]
+
+<h2 id="lesson-05-rasterization-光栅化-1triangles">Lesson 05 Rasterization 光栅化 1(Triangles)</h2>
+
 <ul>
   <li>Viewport transformation</li>
   <li>Rasterization
@@ -488,9 +510,10 @@ nx \\ ny \\ f^2 \\ f
   </li>
 </ul>
 
-<h2 id="viewport-transformation">Viewport transformation</h2>
+<h3 id="viewport-transformation">Viewport transformation</h3>
 
 <p>关于视锥的更多定义：</p>
+
 <ul>
   <li>近平面的宽高比 aspect ratio = width/height</li>
   <li>垂直可视角度 vertical field-of-view(fovY) 近平面上下边中点和原点张成的角度
@@ -500,8 +523,10 @@ aspect = \frac{r}{t}\)</li>
 
 <p>What’s after MVP? -&gt; $[-1, 1]^3$的立方体</p>
 
-<h2 id="from-canonical-cube-to-screen-rasterization光栅化">From Canonical Cube to Screen: Rasterization(光栅化)</h2>
+<h3 id="from-canonical-cube-to-screen-rasterization光栅化">From Canonical Cube to Screen: Rasterization(光栅化)</h3>
+
 <p>What is a screen?</p>
+
 <ul>
   <li>An array of pixels</li>
   <li>Size of the array: resolution</li>
@@ -509,11 +534,13 @@ aspect = \frac{r}{t}\)</li>
 </ul>
 
 <p>Raster = screen in German</p>
+
 <ul>
   <li>Rasterize = drawing onto the screen</li>
 </ul>
 
 <p>Pixel (FYI, short for “picture element”)</p>
+
 <ul>
   <li>For now: A pixel is a little square with uniform color</li>
   <li>Color is a mixture of (red, green, blue)</li>
@@ -521,6 +548,7 @@ aspect = \frac{r}{t}\)</li>
 
 <p>定义屏幕空间：
 左下角为原点，向右为$x$轴正方向，向上为$y$轴正方向，并做如下约定：</p>
+
 <ul>
   <li>像素坐标由 $(x, y)$ 的形式组成，其中 $x, y$ 均为整数；</li>
   <li>像素坐标取值从 $(0, 0)$ 到 $(width - 1, height - 1)$;</li>
@@ -529,25 +557,30 @@ aspect = \frac{r}{t}\)</li>
 </ul>
 
 <p>接下来如何处理？</p>
+
 <ul>
   <li>对于 $z$ 方向的值：先不管；</li>
   <li>对于 $x-y$ 平面：将平面 $[-1, 1]^2$ 映射到 $[0, width]\times [0, height]$</li>
 </ul>
 
-<p>视口变换：
-\(\mathbf{M}_{viewport}
- = 
+<p>视口变换</p>
+
+\[\mathbf{M}_{viewport}
+ =
+
 \begin{pmatrix}
 \frac{width}{2} &amp; 0 &amp; 0 &amp; \frac{width}{2} \\
-0 &amp; \frac{height}{2} &amp; 0 \frac{height}{2} \\
+0 &amp; \frac{height}{2} &amp; 0 &amp; \frac{height}{2} \\
 0 &amp; 0 &amp; 1 &amp; 0\\
 0 &amp; 0 &amp; 0 &amp; 1
-\end{pmatrix}\)</p>
+\end{pmatrix}\]
 
 <p>接下来：通过光栅化，将三角形转化成像素</p>
 
-<h3 id="三角形基本图形元素">三角形：基本图形元素：</h3>
+<h4 id="三角形基本图形元素">三角形：基本图形元素</h4>
+
 <p>Why triangles?</p>
+
 <ul>
   <li>Most basic polygon
     <ul>
@@ -564,6 +597,7 @@ aspect = \frac{r}{t}\)</li>
 </ul>
 
 <p>What Pixel Values Arrpoximate a Triangle?</p>
+
 <ul>
   <li>Input: position of triangle vertices projected on screen</li>
   <li>Output: set of pixel values approximating triangle</li>
@@ -572,13 +606,14 @@ aspect = \frac{r}{t}\)</li>
 <p>A simple approach: Sampling(采样)</p>
 
 <p>Sampling is a core idea in graphics.</p>
+
 <ul>
   <li>We sample time(1D), area(2D), directin(2D), volume(3D)…</li>
 </ul>
 
-<h3 id="sample-if-each-pixel-center-is-inside-triangle">Sample If Each Pixel Center is Inside Triangle</h3>
+<h4 id="sample-if-each-pixel-center-is-inside-triangle">Sample If Each Pixel Center is Inside Triangle</h4>
 
-\[inside(t, x, y) = 
+\[inside(t, x, y) =
 \left\{
 \begin{array}{lr}
 1 &amp; \mathrm{Point(x, y)\ is\ in\ triangle\ t}\\
@@ -586,9 +621,9 @@ aspect = \frac{r}{t}\)</li>
 \end{array}
 \right.\]
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (int x = 0; x &lt; xmax; ++x)
-    for(int y = 0; y &lt; ymax; ++y)
-        image[x][y] = inside(tri, x + 0.5, y + 0.5);
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">xmax</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">ymax</span><span class="p">;</span> <span class="o">++</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">image</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">inside</span><span class="p">(</span><span class="n">tri</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>应当如何实现 $inside(tri, x, y)$ ? -&gt; 利用向量叉积。</p>
@@ -599,17 +634,19 @@ aspect = \frac{r}{t}\)</li>
   <li>如果三个结果符号相同，则认为P在三角形ABC内；否则认为P在三角形ABC外。</li>
 </ul>
 
-<h3 id="进一步的优化">进一步的优化：</h3>
+<h4 id="进一步的优化">进一步的优化</h4>
+
 <ul>
   <li>(Axis-Aligned )Bounding Box(包围盒，AABB)，可以减少检测像素的数量。</li>
   <li>Incremental Triangle Traversal：可以优化应用AABB效果不好的情况。</li>
 </ul>
 
-<h3 id="光栅化中的一个问题aliasing走样jaggies锯齿">光栅化中的一个问题：Aliasing(走样)–Jaggies(锯齿)</h3>
+<h4 id="光栅化中的一个问题aliasing走样jaggies锯齿">光栅化中的一个问题：Aliasing(走样)–Jaggies(锯齿)</h4>
 
-<h1 id="lesson-06-rasterization-2-antialiasing-and-z-buffering">Lesson 06 Rasterization 2 (Antialiasing and Z-buffering)</h1>
+<h2 id="lesson-06-rasterization-2-antialiasing-and-z-buffering">Lesson 06 Rasterization 2 (Antialiasing and Z-buffering)</h2>
 
-<h2 id="采样理论">采样理论</h2>
+<h3 id="采样理论">采样理论</h3>
+
 <ul>
   <li>Sampling is Ubiquitous in Computer Graphics
     <ul>
@@ -628,14 +665,15 @@ aspect = \frac{r}{t}\)</li>
   <li>Behind the Aliasing Artifacts: Signals are changing too fast(high frequency) but sampled too slowly.</li>
 </ul>
 
-<h2 id="antialiasing-idea-blurringpre-filtering-before-sampling">Antialiasing Idea: Blurring(Pre-Filtering) Before Sampling</h2>
+<h3 id="antialiasing-idea-blurringpre-filtering-before-sampling">Antialiasing Idea: Blurring(Pre-Filtering) Before Sampling</h3>
+
 <p>举例：对三角形光栅化的时候，在采样之前对边缘进行模糊，之后再进行采样，可以使得边缘更加平滑。</p>
 
 <p>Blurred aliasing: Sample then filter -&gt; WRONG!</p>
 
 <p>Filter then sample -&gt; RIGHT!</p>
 
-<h2 id="frequency-domain">Frequency Domain</h2>
+<h3 id="frequency-domain">Frequency Domain</h3>
 
 <p>Fourier Transform</p>
 
@@ -649,17 +687,20 @@ aspect = \frac{r}{t}\)</li>
 
 <p>Two frequencies that are indistinguishable at a given sampling rate are called “aliass”.</p>
 
-<h2 id="filtering--getting-rid-of-certain-frequency-contents">Filtering = Getting rid of certain frequency contents</h2>
-<h2 id="filtering--convolution--averaging">Filtering = Convolution (= Averaging)</h2>
+<h3 id="filtering--getting-rid-of-certain-frequency-contents">Filtering = Getting rid of certain frequency contents</h3>
+
+<h3 id="filtering--convolution--averaging">Filtering = Convolution (= Averaging)</h3>
 
 <p>Convolution Theorem</p>
 
 <p>Convolution in the spatial domain is equal to multiplication in the frequency domain, and vice versa</p>
 
-<h2 id="sampling--repeating-frequency-contents">Sampling = Repeating Frequency Contents</h2>
-<h2 id="aliasing--mixed-frequency-contents">Aliasing = Mixed Frequency Contents</h2>
+<h3 id="sampling--repeating-frequency-contents">Sampling = Repeating Frequency Contents</h3>
 
-<h2 id="how-can-we-reduce-aliasing-error">How Can We Reduce Aliasing Error?</h2>
+<h3 id="aliasing--mixed-frequency-contents">Aliasing = Mixed Frequency Contents</h3>
+
+<h3 id="how-can-we-reduce-aliasing-error">How Can We Reduce Aliasing Error?</h3>
+
 <ul>
   <li>Option 1: Increase samplint rate
     <ul>
@@ -676,8 +717,10 @@ aspect = \frac{r}{t}\)</li>
   </li>
 </ul>
 
-<h2 id="antialiasing-by-averaging-values-in-pixel-area">Antialiasing By Averaging Values in Pixel Area</h2>
+<h3 id="antialiasing-by-averaging-values-in-pixel-area">Antialiasing By Averaging Values in Pixel Area</h3>
+
 <p>Solution:</p>
+
 <ul>
   <li><strong>Convolve</strong> f(x,y) by a 1-pixel box-blur
     <ul>
@@ -687,12 +730,14 @@ aspect = \frac{r}{t}\)</li>
   <li><strong>Then Sample</strong> at every pixel’s center</li>
 </ul>
 
-<h2 id="antialiasing-by-supersamplingmsaa-multisampling-antialiasing">Antialiasing By Supersampling(MSAA, multisampling antialiasing)</h2>
+<h3 id="antialiasing-by-supersamplingmsaa-multisampling-antialiasing">Antialiasing By Supersampling(MSAA, multisampling antialiasing)</h3>
+
 <p><strong>Supersampling</strong>: Approximate the effect of the 1-pixel box filter by sampling multiple locations within a pixel and averaing their values</p>
 
 <p>MSAA解决的是对信号的模糊的操作，而采样的操作其实与MSAA没有关系（并不是直接提高屏幕的分辨率）</p>
 
-<h2 id="antialiasing-today">Antialiasing Today!</h2>
+<h3 id="antialiasing-today">Antialiasing Today</h3>
+
 <ul>
   <li>No free lunch!
     <ul>
@@ -713,9 +758,6 @@ aspect = \frac{r}{t}\)</li>
     </ul>
   </li>
 </ul>
-
-<h1 id="lesson-07-shading-1illumination-shading-and-graphics-pipeline">Lesson 07 Shading 1(Illumination, Shading and Graphics Pipeline)</h1>
-
 
 
   
@@ -775,51 +817,52 @@ aspect = \frac{r}{t}\)</li>
   <h2 class="toc-title">Table of Contents</h2>
     <nav class="toc-nav">
       <ul class="toc">
-  <li><a href="#图形学依赖">图形学依赖：</a></li>
-  <li><a href="#线性代数">线性代数</a></li>
-  <li><a href="#为什么研究变换">为什么研究变换</a></li>
-  <li><a href="#二维变换旋转-放缩-裁剪">二维变换：旋转 放缩 裁剪</a></li>
-  <li><a href="#齐次坐标">齐次坐标</a></li>
-  <li><a href="#仿射变换">仿射变换</a></li>
-  <li><a href="#逆变换变换组合变换分解">逆变换、变换组合、变换分解</a></li>
-  <li><a href="#三维变换">三维变换</a></li>
-  <li><a href="#对上节课的补充旋转变换的逆变换矩阵形式">对上节课的补充：旋转变换的逆变换矩阵形式：</a></li>
-  <li><a href="#三维变换-1">三维变换</a>
+  <li><a href="#lesson-02-review-of-linear-algebra-向量与线性代数">Lesson 02 Review of Linear Algebra 向量与线性代数</a>
     <ul>
+      <li><a href="#图形学依赖">图形学依赖</a></li>
+      <li><a href="#线性代数">线性代数</a></li>
+    </ul>
+  </li>
+  <li><a href="#lesson-03-transformation-变换">Lesson 03 Transformation 变换</a>
+    <ul>
+      <li><a href="#为什么研究变换">为什么研究变换</a></li>
+      <li><a href="#二维变换旋转-放缩-裁剪">二维变换：旋转 放缩 裁剪</a></li>
+      <li><a href="#齐次坐标">齐次坐标</a></li>
+      <li><a href="#仿射变换">仿射变换</a></li>
+      <li><a href="#逆变换变换组合变换分解">逆变换、变换组合、变换分解</a></li>
+      <li><a href="#三维变换">三维变换</a></li>
+    </ul>
+  </li>
+  <li><a href="#lesson-04-transformation-cont">Lesson 04 Transformation Cont</a>
+    <ul>
+      <li><a href="#对上节课的补充旋转变换的逆变换矩阵形式">对上节课的补充：旋转变换的逆变换矩阵形式</a></li>
+      <li><a href="#三维坐标系下的变换">三维坐标系下的变换</a></li>
       <li><a href="#rodrigues-rotation-formula">Rodrigues’ Rotation Formula</a></li>
+      <li><a href="#viewing-transformation">Viewing transformation</a></li>
+      <li><a href="#projection-transformation">Projection Transformation</a></li>
     </ul>
   </li>
-  <li><a href="#viewing-transformation">Viewing transformation</a>
+  <li><a href="#lesson-05-rasterization-光栅化-1triangles">Lesson 05 Rasterization 光栅化 1(Triangles)</a>
     <ul>
-      <li><a href="#约定相机始终位于原点永远向-z方向看永远以y轴为固定向上方向改变其他物体的位置而不改变相机的标准位置">约定：相机始终位于<strong>原点</strong>，永远向$-z$方向看，永远以$y$轴为固定向上方向，改变其他物体的位置而不改变相机的标准位置。</a></li>
+      <li><a href="#viewport-transformation">Viewport transformation</a></li>
+      <li><a href="#from-canonical-cube-to-screen-rasterization光栅化">From Canonical Cube to Screen: Rasterization(光栅化)</a></li>
     </ul>
   </li>
-  <li><a href="#projection-transformation">Projection Transformation</a>
+  <li><a href="#lesson-06-rasterization-2-antialiasing-and-z-buffering">Lesson 06 Rasterization 2 (Antialiasing and Z-buffering)</a>
     <ul>
-      <li><a href="#正交投影">正交投影</a></li>
-      <li><a href="#透视投影">透视投影</a></li>
+      <li><a href="#采样理论">采样理论</a></li>
+      <li><a href="#antialiasing-idea-blurringpre-filtering-before-sampling">Antialiasing Idea: Blurring(Pre-Filtering) Before Sampling</a></li>
+      <li><a href="#frequency-domain">Frequency Domain</a></li>
+      <li><a href="#filtering--getting-rid-of-certain-frequency-contents">Filtering = Getting rid of certain frequency contents</a></li>
+      <li><a href="#filtering--convolution--averaging">Filtering = Convolution (= Averaging)</a></li>
+      <li><a href="#sampling--repeating-frequency-contents">Sampling = Repeating Frequency Contents</a></li>
+      <li><a href="#aliasing--mixed-frequency-contents">Aliasing = Mixed Frequency Contents</a></li>
+      <li><a href="#how-can-we-reduce-aliasing-error">How Can We Reduce Aliasing Error?</a></li>
+      <li><a href="#antialiasing-by-averaging-values-in-pixel-area">Antialiasing By Averaging Values in Pixel Area</a></li>
+      <li><a href="#antialiasing-by-supersamplingmsaa-multisampling-antialiasing">Antialiasing By Supersampling(MSAA, multisampling antialiasing)</a></li>
+      <li><a href="#antialiasing-today">Antialiasing Today</a></li>
     </ul>
   </li>
-  <li><a href="#viewport-transformation">Viewport transformation</a></li>
-  <li><a href="#from-canonical-cube-to-screen-rasterization光栅化">From Canonical Cube to Screen: Rasterization(光栅化)</a>
-    <ul>
-      <li><a href="#三角形基本图形元素">三角形：基本图形元素：</a></li>
-      <li><a href="#sample-if-each-pixel-center-is-inside-triangle">Sample If Each Pixel Center is Inside Triangle</a></li>
-      <li><a href="#进一步的优化">进一步的优化：</a></li>
-      <li><a href="#光栅化中的一个问题aliasing走样jaggies锯齿">光栅化中的一个问题：Aliasing(走样)–Jaggies(锯齿)</a></li>
-    </ul>
-  </li>
-  <li><a href="#采样理论">采样理论</a></li>
-  <li><a href="#antialiasing-idea-blurringpre-filtering-before-sampling">Antialiasing Idea: Blurring(Pre-Filtering) Before Sampling</a></li>
-  <li><a href="#frequency-domain">Frequency Domain</a></li>
-  <li><a href="#filtering--getting-rid-of-certain-frequency-contents">Filtering = Getting rid of certain frequency contents</a></li>
-  <li><a href="#filtering--convolution--averaging">Filtering = Convolution (= Averaging)</a></li>
-  <li><a href="#sampling--repeating-frequency-contents">Sampling = Repeating Frequency Contents</a></li>
-  <li><a href="#aliasing--mixed-frequency-contents">Aliasing = Mixed Frequency Contents</a></li>
-  <li><a href="#how-can-we-reduce-aliasing-error">How Can We Reduce Aliasing Error?</a></li>
-  <li><a href="#antialiasing-by-averaging-values-in-pixel-area">Antialiasing By Averaging Values in Pixel Area</a></li>
-  <li><a href="#antialiasing-by-supersamplingmsaa-multisampling-antialiasing">Antialiasing By Supersampling(MSAA, multisampling antialiasing)</a></li>
-  <li><a href="#antialiasing-today">Antialiasing Today!</a></li>
 </ul>
 
   </nav>
