@@ -12,7 +12,7 @@ toc: true
 
 ### Introduction
 
-
+(unfinished)
 
 ### Triangulations of Planar Point Sets
 
@@ -127,11 +127,107 @@ __Theorem 9.7__ 令$P$是平面上的点集，$\mathcal{T}$是$P$的一个三角
 
 __Theorem 9.8__ 令$P$是平面上的点集。$P$的一个三角剖分$\mathcal{T}$是Delaunay三角剖分当且仅当它是合规的。（证明见附录）
 
+由于任意角度最优的三角剖分必然是合规的，因此定理9.8说明任意角度最优三角剖分也是Delaunay三角剖分。对于一般情况，由于只存在一个Delaunay三角剖分，故合规的三角剖分也只有一个，其自然就是唯一的角度最优三角剖分，于是我们借助Delaunay三角剖分将三角剖分的合规性和角度最优联系起来。
+
+对于特殊情况，即存在$P$中超过3点共圆，且圆中不包含$P$中其它点，此时$P$的Delaunay三角剖分仍然都是合规的，但是并不都是角度最优的。但是我们仍然能够得到一个相对好的结论：这些三角剖分的角度序列中，最小的角度是相同的，即最小的角度与Delaunay图生成Delaunay三角剖分的方式无关。
+
+上述结论可以总结为如下定理，通过泰勒斯定理即初等几何知识可以证明：
+
+__Theorem 9.9__ 令$P$是平面上的点集。$P$的任意一个角度最优三角剖分都是Delaunay三角剖分。进一步地，任意$P$的Delaunay三角剖分的角度序列中，最小的角度大于等于$P$的任意一个三角剖分的角度序列中最小的角度。
+
 ### Computing the Delaunay Triangulation
+
+通过第7章构造Voronoi图的形式，我们可以简单获得$\mathcal{DG}(P)$，之后通过对图中构造大于3的多边形进行合规的三角剖分便可以得到Delaunay三角剖分。本章将介绍一个不借助Voronoi图的方法：我们将通过 _随机增量法(Randomized incremental approach)_ 直接构造Delaunay三角剖分。我们已经在第四章和第六章中采取过一样的方法。
+
+#### The Idea of Algorithm
+
+1. 通过向$P$中添加额外两个点，与$P$中纵坐标最大的点构成可以包围其余点的三角形；
+2. 以该三角形为基础剖分，每次向其中添加一个$P$中的点形成新剖分，并且通过维护保持剖分的合规性；
+3. 在所有点添加完毕后，撤除额外的两个点及其它与之有连接的边。
+
+#### Algorithm DelaunayTriangulation
+
+```c++
+Algorithm: DelaunayTriangulation(P)
+/***
+Input: A set P of n+1 points in the plane
+Output: A Delaunay triangulation of P
+***/
+
+    //Initialization
+    Shuffle P, and let P[0] be the lexicographically highest point of P 
+    // That is, the rightmost among the points with largest y-coordinate
+2   Let P[-1] and P[-2] be two point in the plane sufficiently far away 
+    // Such that P is contained in the triangle tri(P[0], P[-1], P[-2])
+    T <- tri(P[0], P[-1], P[-2])
+
+    for r = 1 : n                       // Insert P[r] into P per loop
+
+1       [i, j, k] = find(T, P, r)       // Find a triangle containing P[r]
+
+        if P[r] is in tri(P[i], P[j], P[k])
+            // Split tri(P[i], P[j], P[k]) into three triangles
+            T <- tri(P[i], P[j], P[r])
+            T <- tri(P[j], P[k], P[r])
+            T <- tri(P[k], P[i], P[r])
+            remove(T, tri(P[i], P[j], P[k]))
+
+            // Legalization new edges
+            LegalizeEdge(P[r], edge(P[i], P[j]), T);
+            LegalizeEdge(P[r], edge(P[j], P[k]), T);
+            LegalizeEdge(P[r], edge(P[k], P[i]), T);
+
+        else    // P[r] lies on an edge of tri(T[i], T[j], T[k])
+
+            // Assume that P[r] lies on edge(P[i], P[j]) and P[l] be
+            // the third vertex of the other triangle containing edge(P[i], P[j])
+
+            // Split tri(P[i], P[j], P[k]) into four triangles
+            T <- tri(P[j], P[k], P[r])
+            T <- tri(P[k], P[i], P[r])
+            T <- tri(P[j], P[l], P[r])
+            T <- tri(P[l], P[i], P[r])
+            remove(T, tri(P[i], P[j], P[k]))
+            remove(T, tri(P[i], P[j], P[l]))
+
+            // Legalization new edges
+            LegalizeEdge(P[r], edge(P[i], P[l]), T);
+            LegalizeEdge(P[r], edge(P[i], P[k]), T);
+            LegalizeEdge(P[r], edge(P[j], P[l]), T);
+            LegalizeEdge(P[r], edge(P[j], P[k]), T);
+                
+    Discard P[-1] and P[-2] and associated edges from T 
+
+    return T
+```
+
+```c++
+LegalizeEdge(P[r], edge(P[i], P[j]), T)
+// The point being inserted is P[r], and edge(P[i], P[j]) is the edge 
+// of T that may need to be flipped
+    if edge(P[i], P[j]) is illegal
+        // Assume that tri(P[i], P[j], P[k]) be the other triangle
+        // containing edge(P[i], P[j])
+        Replace edge(P[i], P[j]) with edge(P[r], P[k])  // Edge flip
+        LegalizeEdge(P[r], edge(P[i], P[k]), T)
+        LegalizeEdge(P[r], edge(P[j], P[k]), T)
+```
+
+#### Algorithm Detail 1: How can LegalizeEdge() stop in Finite steps?
+
+#### Algorithm Detail 2: How to find tri(P[i], P[j], P[k]) containing P[r]?
+
+> 对应主算法伪代码中标记1的位置
+
+#### Algorithm Detail 3: How to choose P[-1] and P[-2] appropriately?
+
+> 对应主算法伪代码中标记2的位置
 
 ### The Analysis
 
-### Appendix: The proof of theorems
+(unfinished)
+
+### Appendix: The Proof of Theorems
 
 #### Theorem 9.2 泰勒斯定理(Thales's Theorem):
 
@@ -159,4 +255,6 @@ Theorem 9.5 平面点集的Delaunay图是平面图
 
 Theorem 9.8 令$P$是平面上的点集。$P$的一个三角剖分$\mathcal{T}$是Delaunay三角剖分当且仅当它是合规的。
 
-证明：
+证明：通过定理9.2及定理9.7，易得Delaunay三角剖分是合规的。下面利用反证法说明任意合规的三角剖分是Delaunay三角剖分。
+
+(unfinished)
