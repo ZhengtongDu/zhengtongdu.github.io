@@ -84,13 +84,56 @@ Algorithm Legal_Triangulation(T)
 
 ### The Delaunay Triangulation
 
+在介绍Delaunay三角剖分之前，我们先介绍Voronoi图的对偶图——Delaunay图。
+
+#### Delaunay Graph
+
+回顾第七章的内容，对于平面上包含$n$个点的点集$P$，可以生成它的Voronoi图：将平面分为$n$个区域，每个区域包含$P$中的一个点。Voronoi图可以保证在该其划分下，平面上任意一点到$P$中最近的一点即为该区域包含的那个点，对于包含$p\in P$的区域，我们称之为 _Voronoi元胞(Voronoi cell)_，记作$\mathcal{V}(p)$。
+
+如果对于$P$的Voronoi图，我们考虑构造满足如下条件的图$\mathcal{G}$：
+
+- $\mathcal{G}$的每个顶点对应一个Voronoi元胞；
+- 如果两个相邻的Voronoi元胞共享Voronoi图中的一条边，那么$\mathcal{G}$就有一条连接对应这两个元胞顶点的边。
+
+如果这样定义的$\mathcal{G}$中，每条边都是直线段，我们就称其为嵌入$P$中的 _Delaunay 图_，记为$\mathcal{DG}(P)$。
+
+#### Delaunay Triangulation
+
+借助Delaunay图，我们可以得到$P$的合规的，并且在一定条件下也是角度最优的三角剖分。Delaunay图具有如下几条性质。
+
+- 平面点集的Delaunay图是平面图（证明见附录）
+- 如果Voronoi图中，$k$条边相交于同一顶点（或者说这个顶点的度数是$k$），那么对应元胞中包含的$P$中的点$p_1, p_2, \dots, p_k$，共圆，进而在Delaunay图中构成一个$k$边形（证明在第七章）
+
+由此我们可以将Delaunay分为两种情况，第一种情况为一般情况，此时所有Voronoi图中顶点的度数都是3，则此时Delaunay图$\mathcal{DG}(P)$即为$P$的一个三角剖分；第二种情况下，存在Voronoi图中度数大于3的顶点，则此时我们需要通过继续添加边，来将Delaunay图转化为三角剖分。
+
+由此，对于通过对Delaunay图添加边得到的三角剖分，我们将其称为 _Delaunay 三角剖分(Delaunay Triangulation)_。
+
+由于Delaunay图中的多边形都是凸的，因此通过添加边获得Delaunay三角剖分简单；此外，对于一般情况，由于$\mathcal{DG}(P)$是三角剖分，此时的Delaunay三角剖分也是唯一的。
+
+我们重新从Delaunay图的角度来叙述第七章中定理7.4的内容：
+
+__Theorem 9.6__ 令$P$是平面上的点集。
+
+- $P$上的三个点$p_i, p_j, p_k$为$\mathcal{DG}(P)$中同一个多边形的顶点当且仅当$p_i, p_j, p_k$三点同在的圆中不包含$P$上的其它点；
+- $\overline{p_ip_j}$是$\mathcal{DG}(P)$的边当且仅当存在一个圆盘$C_{ij}$，$p_i, p_j$在其边界上，且其它$P$上的点不在圆盘上。
+
+定理9.6隐含了Delaunay三角剖分的如下性质：
+
+__Theorem 9.7__ 令$P$是平面上的点集，$\mathcal{T}$是$P$的一个三角剖分。则$\mathcal{T}$是$P$的Delaunay三角剖分当且仅当它的任一三角形的外接圆内不包含$P$中的其它点。
+
+#### The Legality of Delaunay Triangulation
+
+接下来我们讨论Delaunay三角剖分在合规性方面的优越。
+
+__Theorem 9.8__ 令$P$是平面上的点集。$P$的一个三角剖分$\mathcal{T}$是Delaunay三角剖分当且仅当它是合规的。（证明见附录）
+
 ### Computing the Delaunay Triangulation
 
 ### The Analysis
 
-### Appendix
+### Appendix: The proof of theorems
 
-#### 泰勒斯定理(Thales's Theorem):
+#### Theorem 9.2 泰勒斯定理(Thales's Theorem):
 
 Theorem 9.2 (Thales's Theorem): 令$C$为一个圆，$l$为与$C$相交的一条直线，两个交点分别为$a, b$。$p, q, r, s$在$l$的同一侧。假设$p, q$在$C$上，$r$在圆内，$s$在圆外，则
 
@@ -99,3 +142,21 @@ $$
 $$
 
 > 注： 这里书上194页给的叙述有误，该定理并不能保证a, r, b组成的最小的角符合上述要求，而是必须是以r为顶点的角，对于其他三个角也是如此。
+
+#### Theorem 9.5
+
+Theorem 9.5 平面点集的Delaunay图是平面图
+
+证明：要证明这一点，需要借助第七章定理7.4的内容。用Delaunay图的形式重新叙述如下：
+
+> $\overline{p_ip_j}$是Delaunay图$\mathcal{DG}(P)$的边，当且仅当存在一个圆盘$C_{ij}$，使得$p_i, p_j$在其边缘上，并且其他$P$上的点不在圆盘上（此时$C_{ij}$的圆心在$\mathcal{V}(p_i)$和$\mathcal{V}(p_j)$的共同边上）。
+
+定义$t_{ij}$为顶点为$p_i, p_j$以及$C_{ij}$的圆心的三角形，注意到$t_{ij}$中连接$p_i$和$C_{ij}$的圆心的边在$\mathcal{V}(p_i)$中，对于$p_j$也有相同的结果。根据之前的假设，这两个边不会同其他$\mathcal{DG}(P)$中的边相交，因此我们只需要考虑$\overline{p_ip_j}$。
+
+假设现在存在$\mathcal{DG}(P)$中的另外一条边$\overline{p_kp_l}$，其与$\overline{p_ip_j}$相交。同之前一样，我们也定义相同的圆$C_{kl}$和三角形$t_{kl}$。根据假设，$p_k, p_l$在圆$C_{ij}$外，必然也在$t_{ij}$外。故$\overline{p_kp_l}$必然还会与$C_{ij}$的圆心和$p_i$或$p_j$的连线之一相交；同样地，$\overline{p_ip_j}$也还会与$C_{kl}$的圆心和$p_k$或$p_l$的连线之一相交。由此可以推出$C_{ij}$的圆心和$p_i$或$p_j$的连线之一会和$C_{kl}$的圆心和$p_k$或$p_l$的连线之一相交，但这些边分别包含在不同的Voronoi元胞中矛盾。
+
+#### Theorem 9.8
+
+Theorem 9.8 令$P$是平面上的点集。$P$的一个三角剖分$\mathcal{T}$是Delaunay三角剖分当且仅当它是合规的。
+
+证明：
