@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Learning Emacs III | Zhengtong’s blog</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Learning Emacs III" />
+<meta name="author" content="zhengtongdu" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Chapter03: Search and Replace" />
+<meta property="og:description" content="Chapter03: Search and Replace" />
+<link rel="canonical" href="http://localhost:4000/2022/09/12/Learning_Emacs_III/" />
+<meta property="og:url" content="http://localhost:4000/2022/09/12/Learning_Emacs_III/" />
+<meta property="og:site_name" content="Zhengtong’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-12T13:37:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Learning Emacs III" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"zhengtongdu","url":"https://github.com/zhengtongdu"},"dateModified":"2022-09-12T13:37:00+08:00","datePublished":"2022-09-12T13:37:00+08:00","description":"Chapter03: Search and Replace","headline":"Learning Emacs III","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2022/09/12/Learning_Emacs_III/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/avapig.jpg"},"name":"zhengtongdu"},"url":"http://localhost:4000/2022/09/12/Learning_Emacs_III/"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Zhengtong's blog" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } });
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+                       });
+  </script>
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
+  <div class="avatar"><img src="/avapig.jpg" class="avatar-image" alt="zhengtongdu">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">Zhengtong's blog</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>Learning and recording</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://zhengtongdu@zju.edu.cn">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/zhengtongdu">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Learning Emacs III</h1>
+  <div class="post-meta"><time datetime="2022-09-12T13:37:00+08:00" itemprop="datePublished">12 Sep 2022</time></div>
+
+  <p>Chapter03: Search and Replace</p>
+
+<ul>
+  <li>Traditional search and replace facilities</li>
+  <li>Incremental searches, regular expression searches and query-replace</li>
+  <li>Spell-checking</li>
+  <li>Some modes</li>
+</ul>
+
+<h2 id="searching">SEARCHING</h2>
+
+<ul>
+  <li>Incremental search commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C-s</td>
+      <td style="text-align: left">isearch-forward</td>
+      <td style="text-align: left">Start incremental search forward; follow by search string. Also, find next occurrence(forward) of search string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-r</td>
+      <td style="text-align: left">isearch-backward</td>
+      <td style="text-align: left">Start incremental search backward; follow by search string. Also, find next occurrence(backward) of search string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Enter</td>
+      <td style="text-align: left">isearch-exit</td>
+      <td style="text-align: left">In an incremental search, exit the search.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-g</td>
+      <td style="text-align: left">keyboard-quit</td>
+      <td style="text-align: left">In an incremental search, cancel the search.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Del</td>
+      <td style="text-align: left">isearch-delete-char</td>
+      <td style="text-align: left">In an incremental search, delete character from search string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-s C-w</td>
+      <td style="text-align: left">isearch-yank-word</td>
+      <td style="text-align: left">Start incremental search with the word the cursor is on as the search string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-s C-y</td>
+      <td style="text-align: left">isearch-yank-line</td>
+      <td style="text-align: left">Start an incremental search with the text from the cursor position to the end of the line as the search string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-s M-y</td>
+      <td style="text-align: left">isearch-yank-kill</td>
+      <td style="text-align: left">Start an incremental search with text from the kill ring as the search string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-s C-s</td>
+      <td style="text-align: left">isearch-repeat-forward</td>
+      <td style="text-align: left">Repeat previous search.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-r C-r</td>
+      <td style="text-align: left">isearch-repeat-backward</td>
+      <td style="text-align: left">Repeat previous search.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Simple search commands(nonincremental search)</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C-s Enter <em>SEARCH STRING</em> Enter</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Start nonincremental search forward</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-s</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Repeat search forward</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-r Enter <em>SEARCH STRING</em> Enter</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Start nonincremental search backward</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-r</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Repeat search backward</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="replacing">REPLACING</h2>
+
+<ul>
+  <li>Query-replace</li>
+</ul>
+
+<p>Responses during query-replace(Type M-% to go into query-replace)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Space or y</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Replace <em>search string</em> with <em>new string</em> and go to the next instance of the string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Del or n</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Don’t replace; move to next instance.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Replace the current instance and quit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">,</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Replace and let me see the result before moving on.(Press Space or y to move on.)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">!</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Replace all the rest and don’t ask.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">^</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Back up to the previous instance.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Enter or q</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Exit query-replace.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Modify the replacement string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-r</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Enter a recursive edit.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-w</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Delete this instance and enter a recursive edit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-M-c</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Exit recursive edit and resume query-replace.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-]</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Exit recursive edit and query-replace</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>Regular Expressions for Search and Replacement Operations</p>
+  </li>
+  <li>
+    <p>Characters for regular expressions</p>
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Character(s)</th>
+      <th style="text-align: left">Match</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">^</td>
+      <td style="text-align: left">Matches the beginning of a line.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$</td>
+      <td style="text-align: left">Matches the end of a line.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.</td>
+      <td style="text-align: left">Matches any single character(like ? in filenames).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.*</td>
+      <td style="text-align: left">Matches any group of zero or more characters(. matches any character and * matches zero or more of the previous character)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\&lt;</td>
+      <td style="text-align: left">Matches the beginning of a word.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\&gt;</td>
+      <td style="text-align: left">Matches the end of a word.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">[]</td>
+      <td style="text-align: left">Matches any character specified within the brackets; for example, [a-z] matches any alphabetic character.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\s, \S</td>
+      <td style="text-align: left">Matches any white space character: space, a newline, a tab, a carriage return, a formfeed, or a backspace; \S matches any character except white space.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\d, \D</td>
+      <td style="text-align: left">Matches any single digit, 0-9; \D matches any character but a digit.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\w, \w</td>
+      <td style="text-align: left">Matches any "word" character(upper- and lowercase letters, digits, and the underscore character);\W matches any character but these.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Regular expression search commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C-M-s Enter</td>
+      <td style="text-align: left">re-search-forward</td>
+      <td style="text-align: left">Search for a regular expression forward</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-M-r Enter</td>
+      <td style="text-align: left">re-search-backward</td>
+      <td style="text-align: left">Search for a regular expression backward.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-M-s</td>
+      <td style="text-align: left">isearch-forward-regexp</td>
+      <td style="text-align: left">Search incrementally forward for a regular expression.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-M-r</td>
+      <td style="text-align: left">isearch-backward-regexp</td>
+      <td style="text-align: left">Search incrementally backward for a regular expression.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-M-%</td>
+      <td style="text-align: left">query-replace-regexp</td>
+      <td style="text-align: left">Query-replace a regular expression.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">(none)</td>
+      <td style="text-align: left">replace-regexp</td>
+      <td style="text-align: left">Globally replace a regular expression unconditionally(use with caution).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="spelling-checking">SPELLING CHECKING</h2>
+
+<ul>
+  <li>Spell-checking commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">M-$</td>
+      <td style="text-align: left">ispell-word</td>
+      <td style="text-align: left">Check the word the cursor is on or the word following the cursor.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-region</td>
+      <td style="text-align: left">Check spelling of the region.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-buffer</td>
+      <td style="text-align: left">Check spelling of the buffer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-message</td>
+      <td style="text-align: left">Check spelling of the body of a mail message.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-comments-and-strings</td>
+      <td style="text-align: left">Check spelling of comments and strings in a program.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-u M-$</td>
+      <td style="text-align: left">ispell-continue</td>
+      <td style="text-align: left">Resume Ispell; it works only if stopped Ispell with C-g.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">ispell-kill-ispell</td>
+      <td style="text-align: left">Kill the Ispell process, which continues to run in the background after it is invoked.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">M-Tab</td>
+      <td style="text-align: left">ispell-complete-word</td>
+      <td style="text-align: left">In text mode, list possible completions for the current word.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">flyspell-mode</td>
+      <td style="text-align: left">Enter the Flyspell minor mode, in which incorrectly spelled words are highlighted</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">flyspell-buffer</td>
+      <td style="text-align: left">Spell-check the current buffer, underlining all misspelled words. Use middle mouse button to correct.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Word abbreviation commands</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keystrokes</th>
+      <th style="text-align: left">Command name</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">M-/</td>
+      <td style="text-align: left">dabbrev-expand</td>
+      <td style="text-align: left">Complete this word based on the nearest word that starts with this string(press M-/ again if that’s not the word you want).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">abbrev-mode</td>
+      <td style="text-align: left">Enter(or exit) word abbreviation mode.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x a - or C-x a i g</td>
+      <td style="text-align: left">inverse-add-global-abbrev</td>
+      <td style="text-align: left">After typing the global abbreviation, type the definition.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C-x a i l</td>
+      <td style="text-align: left">inverse-add-mode-abbrev</td>
+      <td style="text-align: left">After typing the local abbreviation, type the definition.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">unexpand-abbrev</td>
+      <td style="text-align: left">Undo the last word abbreviation.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">write-abbrev-file</td>
+      <td style="text-align: left">Write the word abbreviation file.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">edit-abbrevs</td>
+      <td style="text-align: left">Edit the word abbreviations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">list-abbrevs</td>
+      <td style="text-align: left">View the word abbreviations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">kill-all-abbrevs</td>
+      <td style="text-align: left">Kill abbreviations for this session.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#learning">learning</a></li><li>
+        <a class="post-tag" href="/tags/#emacs">emacs</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2023/01/14/Computational_Geometry_notes_01/">
+          Computational_Geometry_notes_01
+          <small><time datetime="2023-01-14T23:49:00+08:00">14 Jan 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2023/01/14/GAMES101_notes_02/">
+          GAMES101_notes_02
+          <small><time datetime="2023-01-14T23:44:00+08:00">14 Jan 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2023/01/14/6_046_notes_01/">
+          6.046_notes_01
+          <small><time datetime="2023-01-14T23:44:00+08:00">14 Jan 2023</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2022&nbsp;-&nbsp;2023 <a href="https://github.com/zhengtongdu">zhengtongdu</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+<div  class="toc-wrapper">
+  <h2 class="toc-title">Table of Contents</h2>
+    <nav class="toc-nav">
+      <ul class="toc">
+  <li><a href="#searching">SEARCHING</a></li>
+  <li><a href="#replacing">REPLACING</a></li>
+  <li><a href="#spelling-checking">SPELLING CHECKING</a></li>
+</ul>
+
+  </nav>
+</div>
+
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>
