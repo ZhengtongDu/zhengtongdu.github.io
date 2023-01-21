@@ -213,11 +213,21 @@ LegalizeEdge(P[r], edge(P[i], P[j]), T)
         LegalizeEdge(P[r], edge(P[j], P[k]), T)
 ```
 
-#### Algorithm Detail 1: How can LegalizeEdge() stop in Finite steps?
+#### Algorithm Detail 1: Is The Algorithm Correct?
+
+为了说明算法的正确性（可以通过其生成Delaunay三角剖分），首先介绍如下引理：
+
+Lemma 9.10 对于插入$P[r]$的循环，算法DelaunayTriangulation()与LegalizeEdge()添加的新边都在点集$\{P[-2], P[-1], P[0],\dots, P[r]\}$生成的Delaunay图中。（证明见附录）
+
+借助这个引理，我们可以很轻松地利用数学归纳法证明算法的正确性：插入$P[r]$后，如果一条边$e$是不合规的，那么说明$e$必然在一个以$P[r]$为顶点的三角形中（否则$e$在插入$P[r]$之前就是不合规的）。且每个通过DelaunayTriangulation()或LegalizeEdge()得到的新三角形，其中未经确认的边都会被执行LegalizeEdge()，这样就保证了所有不合规的边都会通过边翻转操作转为合规边，算法的正确性也就被证明了。
 
 #### Algorithm Detail 2: How to find tri(P[i], P[j], P[k]) containing P[r]?
 
 > 对应主算法伪代码中标记1的位置
+
+这里我们用了类似第六章中的处理办法：引入一个类似树的结构$\mathcal{D}$，其中每个节点为一个三角形，整体上$\mathcal{D}$一个有向无环图。利用这样的数据结构，我们可以快速确定$P[r]$所在的最小单位三角形。由于在算法执行过程中存在边翻转操作，因此这里详细解释一下当发生边翻转操作时，应当如何维护$\mathcal{D}$：
+
+
 
 #### Algorithm Detail 3: How to choose P[-1] and P[-2] appropriately?
 
@@ -258,3 +268,10 @@ Theorem 9.8 令$P$是平面上的点集。$P$的一个三角剖分$\mathcal{T}$�
 证明：通过定理9.2及定理9.7，易得Delaunay三角剖分是合规的。下面利用反证法说明任意合规的三角剖分是Delaunay三角剖分。
 
 (unfinished)
+
+#### Lemma 9.10
+
+Lemma 9.10 LegalizeEdge()添加的新边都在点集$\{P[-2], P[-1], P[0],\dots, P[r]\}$生成的Delaunay图中。
+
+证明：
+
