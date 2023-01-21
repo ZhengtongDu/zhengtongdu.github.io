@@ -85,6 +85,10 @@
 <lastmod>2023-01-02T15:59:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2023/01/14/Computational_Geometry_notes_01/</loc>
+<lastmod>2023-01-14T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/2023/01/14/6_046_notes_01/</loc>
 <lastmod>2023-01-14T23:44:00+08:00</lastmod>
 </url>
@@ -122,5 +126,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/page5/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/about.html</loc>
+<lastmod>2023-01-20T22:17:56+08:00</lastmod>
 </url>
 </urlset>

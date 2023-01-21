@@ -50,7 +50,7 @@
     <a href="/" title="Home">Zhengtong's blog</a>
   </div>
   <div class="masthead-tagline">
-    <small>Learning and recording</small>
+    <small>learn&record&share</small>
   </div><nav class="navigation">
     <ul class="navigation-list"><li class="navigation-item">
         <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
@@ -85,6 +85,8 @@
 </blockquote>
 
 <h3 id="introduction">Introduction</h3>
+
+<p>(unfinished)</p>
 
 <h3 id="triangulations-of-planar-point-sets">Triangulations of Planar Point Sets</h3>
 
@@ -149,13 +151,170 @@
 
 <h3 id="the-delaunay-triangulation">The Delaunay Triangulation</h3>
 
+<p>在介绍Delaunay三角剖分之前，我们先介绍Voronoi图的对偶图——Delaunay图。</p>
+
+<h4 id="delaunay-graph">Delaunay Graph</h4>
+
+<p>回顾第七章的内容，对于平面上包含$n$个点的点集$P$，可以生成它的Voronoi图：将平面分为$n$个区域，每个区域包含$P$中的一个点。Voronoi图可以保证在该其划分下，平面上任意一点到$P$中最近的一点即为该区域包含的那个点，对于包含$p\in P$的区域，我们称之为 <em>Voronoi元胞(Voronoi cell)</em>，记作$\mathcal{V}(p)$。</p>
+
+<p>如果对于$P$的Voronoi图，我们考虑构造满足如下条件的图$\mathcal{G}$：</p>
+
+<ul>
+  <li>$\mathcal{G}$的每个顶点对应一个Voronoi元胞；</li>
+  <li>如果两个相邻的Voronoi元胞共享Voronoi图中的一条边，那么$\mathcal{G}$就有一条连接对应这两个元胞顶点的边。</li>
+</ul>
+
+<p>如果这样定义的$\mathcal{G}$中，每条边都是直线段，我们就称其为嵌入$P$中的 <em>Delaunay 图</em>，记为$\mathcal{DG}(P)$。</p>
+
+<h4 id="delaunay-triangulation">Delaunay Triangulation</h4>
+
+<p>借助Delaunay图，我们可以得到$P$的合规的，并且在一定条件下也是角度最优的三角剖分。Delaunay图具有如下几条性质。</p>
+
+<ul>
+  <li>平面点集的Delaunay图是平面图（证明见附录）</li>
+  <li>如果Voronoi图中，$k$条边相交于同一顶点（或者说这个顶点的度数是$k$），那么对应元胞中包含的$P$中的点$p_1, p_2, \dots, p_k$，共圆，进而在Delaunay图中构成一个$k$边形（证明在第七章）</li>
+</ul>
+
+<p>由此我们可以将Delaunay分为两种情况，第一种情况为一般情况，此时所有Voronoi图中顶点的度数都是3，则此时Delaunay图$\mathcal{DG}(P)$即为$P$的一个三角剖分；第二种情况下，存在Voronoi图中度数大于3的顶点，则此时我们需要通过继续添加边，来将Delaunay图转化为三角剖分。</p>
+
+<p>由此，对于通过对Delaunay图添加边得到的三角剖分，我们将其称为 <em>Delaunay 三角剖分(Delaunay Triangulation)</em>。</p>
+
+<p>由于Delaunay图中的多边形都是凸的，因此通过添加边获得Delaunay三角剖分简单；此外，对于一般情况，由于$\mathcal{DG}(P)$是三角剖分，此时的Delaunay三角剖分也是唯一的。</p>
+
+<p>我们重新从Delaunay图的角度来叙述第七章中定理7.4的内容：</p>
+
+<p><strong>Theorem 9.6</strong> 令$P$是平面上的点集。</p>
+
+<ul>
+  <li>$P$上的三个点$p_i, p_j, p_k$为$\mathcal{DG}(P)$中同一个多边形的顶点当且仅当$p_i, p_j, p_k$三点同在的圆中不包含$P$上的其它点；</li>
+  <li>$\overline{p_ip_j}$是$\mathcal{DG}(P)$的边当且仅当存在一个圆盘$C_{ij}$，$p_i, p_j$在其边界上，且其它$P$上的点不在圆盘上。</li>
+</ul>
+
+<p>定理9.6隐含了Delaunay三角剖分的如下性质：</p>
+
+<p><strong>Theorem 9.7</strong> 令$P$是平面上的点集，$\mathcal{T}$是$P$的一个三角剖分。则$\mathcal{T}$是$P$的Delaunay三角剖分当且仅当它的任一三角形的外接圆内不包含$P$中的其它点。</p>
+
+<h4 id="the-legality-of-delaunay-triangulation">The Legality of Delaunay Triangulation</h4>
+
+<p>接下来我们讨论Delaunay三角剖分在合规性方面的优越。</p>
+
+<p><strong>Theorem 9.8</strong> 令$P$是平面上的点集。$P$的一个三角剖分$\mathcal{T}$是Delaunay三角剖分当且仅当它是合规的。（证明见附录）</p>
+
+<p>由于任意角度最优的三角剖分必然是合规的，因此定理9.8说明任意角度最优三角剖分也是Delaunay三角剖分。对于一般情况，由于只存在一个Delaunay三角剖分，故合规的三角剖分也只有一个，其自然就是唯一的角度最优三角剖分，于是我们借助Delaunay三角剖分将三角剖分的合规性和角度最优联系起来。</p>
+
+<p>对于特殊情况，即存在$P$中超过3点共圆，且圆中不包含$P$中其它点，此时$P$的Delaunay三角剖分仍然都是合规的，但是并不都是角度最优的。但是我们仍然能够得到一个相对好的结论：这些三角剖分的角度序列中，最小的角度是相同的，即最小的角度与Delaunay图生成Delaunay三角剖分的方式无关。</p>
+
+<p>上述结论可以总结为如下定理，通过泰勒斯定理即初等几何知识可以证明：</p>
+
+<p><strong>Theorem 9.9</strong> 令$P$是平面上的点集。$P$的任意一个角度最优三角剖分都是Delaunay三角剖分。进一步地，任意$P$的Delaunay三角剖分的角度序列中，最小的角度大于等于$P$的任意一个三角剖分的角度序列中最小的角度。</p>
+
 <h3 id="computing-the-delaunay-triangulation">Computing the Delaunay Triangulation</h3>
+
+<p>通过第7章构造Voronoi图的形式，我们可以简单获得$\mathcal{DG}(P)$，之后通过对图中构造大于3的多边形进行合规的三角剖分便可以得到Delaunay三角剖分。本章将介绍一个不借助Voronoi图的方法：我们将通过 <em>随机增量法(Randomized incremental approach)</em> 直接构造Delaunay三角剖分。我们已经在第四章和第六章中采取过一样的方法。</p>
+
+<h4 id="the-idea-of-algorithm">The Idea of Algorithm</h4>
+
+<ol>
+  <li>通过向$P$中添加额外两个点，与$P$中纵坐标最大的点构成可以包围其余点的三角形；</li>
+  <li>以该三角形为基础剖分，每次向其中添加一个$P$中的点形成新剖分，并且通过维护保持剖分的合规性；</li>
+  <li>在所有点添加完毕后，撤除额外的两个点及其它与之有连接的边。</li>
+</ol>
+
+<h4 id="algorithm-delaunaytriangulation">Algorithm DelaunayTriangulation</h4>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">Algorithm:</span> <span class="n">DelaunayTriangulation</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="cm">/***
+Input: A set P of n+1 points in the plane
+Output: A Delaunay triangulation of P
+***/</span>
+
+    <span class="c1">//Initialization</span>
+    <span class="n">Shuffle</span> <span class="n">P</span><span class="p">,</span> <span class="n">and</span> <span class="n">let</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">be</span> <span class="n">the</span> <span class="n">lexicographically</span> <span class="n">highest</span> <span class="n">point</span> <span class="n">of</span> <span class="n">P</span> 
+    <span class="c1">// That is, the rightmost among the points with largest y-coordinate</span>
+<span class="mi">2</span>   <span class="n">Let</span> <span class="n">P</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="n">and</span> <span class="n">P</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="n">be</span> <span class="n">two</span> <span class="n">point</span> <span class="n">in</span> <span class="n">the</span> <span class="n">plane</span> <span class="n">sufficiently</span> <span class="n">far</span> <span class="n">away</span> 
+    <span class="c1">// Such that P is contained in the triangle tri(P[0], P[-1], P[-2])</span>
+    <span class="n">T</span> <span class="o">&lt;-</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">n</span>                       <span class="c1">// Insert P[r] into P per loop</span>
+
+<span class="mi">1</span>       <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>       <span class="c1">// Find a triangle containing P[r]</span>
+
+        <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="n">is</span> <span class="n">in</span> <span class="nf">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            <span class="c1">// Split tri(P[i], P[j], P[k]) into three triangles</span>
+            <span class="n">T</span> <span class="o">&lt;-</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">T</span> <span class="o">&lt;-</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">T</span> <span class="o">&lt;-</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">remove</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
+
+            <span class="c1">// Legalization new edges</span>
+            <span class="n">LegalizeEdge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">]),</span> <span class="n">T</span><span class="p">);</span>
+            <span class="n">LegalizeEdge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span> <span class="n">T</span><span class="p">);</span>
+            <span class="n">LegalizeEdge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">T</span><span class="p">);</span>
+
+        <span class="k">else</span>    <span class="c1">// P[r] lies on an edge of tri(T[i], T[j], T[k])</span>
+
+            <span class="c1">// Assume that P[r] lies on edge(P[i], P[j]) and P[l] be</span>
+            <span class="c1">// the third vertex of the other triangle containing edge(P[i], P[j])</span>
+
+            <span class="c1">// Split tri(P[i], P[j], P[k]) into four triangles</span>
+            <span class="n">T</span> <span class="o">&lt;-</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">T</span> <span class="o">&lt;-</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">T</span> <span class="o">&lt;-</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">T</span> <span class="o">&lt;-</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">remove</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
+            <span class="n">remove</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">tri</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">l</span><span class="p">]))</span>
+
+            <span class="c1">// Legalization new edges</span>
+            <span class="n">LegalizeEdge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">l</span><span class="p">]),</span> <span class="n">T</span><span class="p">);</span>
+            <span class="n">LegalizeEdge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span> <span class="n">T</span><span class="p">);</span>
+            <span class="n">LegalizeEdge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">l</span><span class="p">]),</span> <span class="n">T</span><span class="p">);</span>
+            <span class="n">LegalizeEdge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span> <span class="n">T</span><span class="p">);</span>
+                
+    <span class="n">Discard</span> <span class="n">P</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="n">and</span> <span class="n">P</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="n">and</span> <span class="n">associated</span> <span class="n">edges</span> <span class="n">from</span> <span class="n">T</span> 
+
+    <span class="k">return</span> <span class="n">T</span>
+</code></pre></div></div>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">LegalizeEdge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">]),</span> <span class="n">T</span><span class="p">)</span>
+<span class="c1">// The point being inserted is P[r], and edge(P[i], P[j]) is the edge </span>
+<span class="c1">// of T that may need to be flipped</span>
+    <span class="k">if</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="n">is</span> <span class="n">illegal</span>
+        <span class="c1">// Assume that tri(P[i], P[j], P[k]) be the other triangle</span>
+        <span class="c1">// containing edge(P[i], P[j])</span>
+        <span class="n">Replace</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="n">with</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>  <span class="c1">// Edge flip</span>
+        <span class="n">LegalizeEdge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span> <span class="n">T</span><span class="p">)</span>
+        <span class="n">LegalizeEdge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">edge</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span> <span class="n">T</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="algorithm-detail-1-is-the-algorithm-correct">Algorithm Detail 1: Is The Algorithm Correct?</h4>
+
+<p>为了说明算法的正确性（可以通过其生成Delaunay三角剖分），首先介绍如下引理：</p>
+
+<p>Lemma 9.10 对于插入$P[r]$的循环，算法DelaunayTriangulation()与LegalizeEdge()添加的新边都在点集${P[-2], P[-1], P[0],\dots, P[r]}$生成的Delaunay图中。（证明见附录）</p>
+
+<p>借助这个引理，我们可以很轻松地利用数学归纳法证明算法的正确性：插入$P[r]$后，如果一条边$e$是不合规的，那么说明$e$必然在一个以$P[r]$为顶点的三角形中（否则$e$在插入$P[r]$之前就是不合规的）。且每个通过DelaunayTriangulation()或LegalizeEdge()得到的新三角形，其中未经确认的边都会被执行LegalizeEdge()，这样就保证了所有不合规的边都会通过边翻转操作转为合规边，算法的正确性也就被证明了。</p>
+
+<h4 id="algorithm-detail-2-how-to-find-tripi-pj-pk-containing-pr">Algorithm Detail 2: How to find tri(P[i], P[j], P[k]) containing P[r]?</h4>
+
+<blockquote>
+  <p>对应主算法伪代码中标记1的位置</p>
+</blockquote>
+
+<p>这里我们用了类似第六章中的处理办法：引入一个类似树的结构$\mathcal{D}$，其中每个节点为一个三角形，整体上$\mathcal{D}$一个有向无环图。利用这样的数据结构，我们可以快速确定$P[r]$所在的最小单位三角形。由于在算法执行过程中存在边翻转操作，因此这里详细解释一下当发生边翻转操作时，应当如何维护$\mathcal{D}$：</p>
+
+<h4 id="algorithm-detail-3-how-to-choose-p-1-and-p-2-appropriately">Algorithm Detail 3: How to choose P[-1] and P[-2] appropriately?</h4>
+
+<blockquote>
+  <p>对应主算法伪代码中标记2的位置</p>
+</blockquote>
 
 <h3 id="the-analysis">The Analysis</h3>
 
-<h3 id="appendix">Appendix</h3>
+<p>(unfinished)</p>
 
-<h4 id="泰勒斯定理thaless-theorem">泰勒斯定理(Thales’s Theorem):</h4>
+<h3 id="appendix-the-proof-of-theorems">Appendix: The Proof of Theorems</h3>
+
+<h4 id="theorem-92-泰勒斯定理thaless-theorem">Theorem 9.2 泰勒斯定理(Thales’s Theorem):</h4>
 
 <p>Theorem 9.2 (Thales’s Theorem): 令$C$为一个圆，$l$为与$C$相交的一条直线，两个交点分别为$a, b$。$p, q, r, s$在$l$的同一侧。假设$p, q$在$C$上，$r$在圆内，$s$在圆外，则</p>
 
@@ -164,6 +323,35 @@
 <blockquote>
   <p>注： 这里书上194页给的叙述有误，该定理并不能保证a, r, b组成的最小的角符合上述要求，而是必须是以r为顶点的角，对于其他三个角也是如此。</p>
 </blockquote>
+
+<h4 id="theorem-95">Theorem 9.5</h4>
+
+<p>Theorem 9.5 平面点集的Delaunay图是平面图</p>
+
+<p>证明：要证明这一点，需要借助第七章定理7.4的内容。用Delaunay图的形式重新叙述如下：</p>
+
+<blockquote>
+  <p>$\overline{p_ip_j}$是Delaunay图$\mathcal{DG}(P)$的边，当且仅当存在一个圆盘$C_{ij}$，使得$p_i, p_j$在其边缘上，并且其他$P$上的点不在圆盘上（此时$C_{ij}$的圆心在$\mathcal{V}(p_i)$和$\mathcal{V}(p_j)$的共同边上）。</p>
+</blockquote>
+
+<p>定义$t_{ij}$为顶点为$p_i, p_j$以及$C_{ij}$的圆心的三角形，注意到$t_{ij}$中连接$p_i$和$C_{ij}$的圆心的边在$\mathcal{V}(p_i)$中，对于$p_j$也有相同的结果。根据之前的假设，这两个边不会同其他$\mathcal{DG}(P)$中的边相交，因此我们只需要考虑$\overline{p_ip_j}$。</p>
+
+<p>假设现在存在$\mathcal{DG}(P)$中的另外一条边$\overline{p_kp_l}$，其与$\overline{p_ip_j}$相交。同之前一样，我们也定义相同的圆$C_{kl}$和三角形$t_{kl}$。根据假设，$p_k, p_l$在圆$C_{ij}$外，必然也在$t_{ij}$外。故$\overline{p_kp_l}$必然还会与$C_{ij}$的圆心和$p_i$或$p_j$的连线之一相交；同样地，$\overline{p_ip_j}$也还会与$C_{kl}$的圆心和$p_k$或$p_l$的连线之一相交。由此可以推出$C_{ij}$的圆心和$p_i$或$p_j$的连线之一会和$C_{kl}$的圆心和$p_k$或$p_l$的连线之一相交，但这些边分别包含在不同的Voronoi元胞中矛盾。</p>
+
+<h4 id="theorem-98">Theorem 9.8</h4>
+
+<p>Theorem 9.8 令$P$是平面上的点集。$P$的一个三角剖分$\mathcal{T}$是Delaunay三角剖分当且仅当它是合规的。</p>
+
+<p>证明：通过定理9.2及定理9.7，易得Delaunay三角剖分是合规的。下面利用反证法说明任意合规的三角剖分是Delaunay三角剖分。</p>
+
+<p>(unfinished)</p>
+
+<h4 id="lemma-910">Lemma 9.10</h4>
+
+<p>Lemma 9.10 LegalizeEdge()添加的新边都在点集${P[-2], P[-1], P[0],\dots, P[r]}$生成的Delaunay图中。</p>
+
+<p>证明：</p>
+
 
 
   
@@ -200,9 +388,9 @@
       </li>
     
       <li>
-        <a href="/2023/01/02/GAMES101_notes_01/">
-          GAMES101_notes_01
-          <small><time datetime="2023-01-02T15:59:00+08:00">02 Jan 2023</time></small>
+        <a href="/2023/01/14/Computational_Geometry_notes_01/">
+          Computational_geometry_notes_01
+          <small><time datetime="2023-01-14T00:00:00+08:00">14 Jan 2023</time></small>
         </a>
       </li>
     
@@ -230,7 +418,7 @@
       <li><a href="#the-delaunay-triangulation">The Delaunay Triangulation</a></li>
       <li><a href="#computing-the-delaunay-triangulation">Computing the Delaunay Triangulation</a></li>
       <li><a href="#the-analysis">The Analysis</a></li>
-      <li><a href="#appendix">Appendix</a></li>
+      <li><a href="#appendix-the-proof-of-theorems">Appendix: The Proof of Theorems</a></li>
     </ul>
   </li>
 </ul>
