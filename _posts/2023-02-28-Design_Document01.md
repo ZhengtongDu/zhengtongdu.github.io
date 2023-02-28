@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Design_Documentation
+title: Design_Documentation01
 date: 2023-02-28 13:46 +0800
 tags: ["Learning Notes", "Design Document"]
 toc: true
 ---
 [delaunaytriangulation]:https://zhengtongdu.github.io/2023/01/14/Computational_Geometry_notes_01/
 
-[fig01]:https://github.com/ZhengtongDu/zhengtongdu.github.io/blob/main/_figs/23-02-28-fig01.png
+[fig01]:/zhengtongdu.github.io/_figs/23-02-28-fig01.png
 
 > 整理了自己写的一些算法实现的设计思路
 
@@ -15,7 +15,7 @@ toc: true
 
 > 理论及算法的介绍：请参见[这里][delaunaytriangulation]
 
-![][fig01]
+![invalid fig][/zhengtongdu.github.io/_figs/23-02-28-fig01.png]
 
 ### 设计1：底层类的设计
 
