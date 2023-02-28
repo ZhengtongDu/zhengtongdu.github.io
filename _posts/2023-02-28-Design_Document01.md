@@ -7,7 +7,7 @@ toc: true
 ---
 [delaunaytriangulation]:https://zhengtongdu.github.io/2023/01/14/Computational_Geometry_notes_01/
 
-[fig01]:/zhengtongdu.github.io/_figs/23-02-28-fig01.png
+[fig01]:https://github.com/ZhengtongDu/zhengtongdu.github.io/blob/main/_figs/23-02-28-fig01.png
 
 > 整理了自己写的一些算法实现的设计思路
 
