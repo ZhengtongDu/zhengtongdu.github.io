@@ -15,7 +15,7 @@ toc: true
 
 > 理论及算法的介绍：请参见[这里][delaunaytriangulation]
 
-![invalid fig](/zhengtongdu.github.io/_figs/23-02-28-fig01.png)
+![invalid fig](/assets/23-02-28-fig01.png)
 
 ### 设计1：底层类的设计
 
