@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>GAMES101_notes_05 | Zhengtong’s blog</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="GAMES101_notes_05" />
+<meta name="author" content="zhengtongdu" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="GAMES101: 现代计算机图形学入门 笔记05:" />
+<meta property="og:description" content="GAMES101: 现代计算机图形学入门 笔记05:" />
+<link rel="canonical" href="http://localhost:4000/2023/02/13/GAMES101_notes_05/" />
+<meta property="og:url" content="http://localhost:4000/2023/02/13/GAMES101_notes_05/" />
+<meta property="og:site_name" content="Zhengtong’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-13T19:55:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="GAMES101_notes_05" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"zhengtongdu","url":"https://github.com/zhengtongdu"},"dateModified":"2023-02-13T19:55:00+08:00","datePublished":"2023-02-13T19:55:00+08:00","description":"GAMES101: 现代计算机图形学入门 笔记05:","headline":"GAMES101_notes_05","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2023/02/13/GAMES101_notes_05/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/avapig.jpg"},"name":"zhengtongdu"},"url":"http://localhost:4000/2023/02/13/GAMES101_notes_05/"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Zhengtong's blog" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } });
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+                       });
+  </script>
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
+  <div class="avatar"><img src="/avapig.jpg" class="avatar-image" alt="zhengtongdu">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">Zhengtong's blog</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>learn&record&share</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://zhengtongdu@zju.edu.cn">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/zhengtongdu">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">GAMES101_notes_05</h1>
+  <div class="post-meta"><time datetime="2023-02-13T19:55:00+08:00" itemprop="datePublished">13 Feb 2023</time></div>
+
+  <blockquote>
+  <p>GAMES101: 现代计算机图形学入门</p>
+
+  <p>笔记05:</p>
+</blockquote>
+
+<h2 id="lecture-17-materials-and-appearances">Lecture 17: Materials and Appearances</h2>
+
+<p>What is Material in Computer Graphics?</p>
+
+<h3 id="material--brdf">Material == BRDF</h3>
+
+<h4 id="diffuse--lambertian-material-漫反射材质">Diffuse / Lambertian Material 漫反射材质</h4>
+
+<p>Light is equally reflected in each output direction</p>
+
+<ul>
+  <li>Suppose the incident lighting is uniform:</li>
+  <li>$L_o(\omega_o) = \int_{H^2}f_rL_i(\omega_i)\cos\theta_i\mathrm{d}\omega_i = f_rL_i\int_{H^2}\cos\theta_i\mathrm{d}\omega_i = \pi f_r L_i$</li>
+  <li>$f_r = \frac{\rho}{\pi}$, 反射率$\rho$</li>
+</ul>
+
+<h4 id="glossy-material-类似金属的光滑材质">Glossy Material 类似金属的光滑材质</h4>
+
+<h4 id="ideal-reflective--refractive-materialbsdf">Ideal reflective / refractive material(BSDF)</h4>
+
+<p>Perfect Specular Reflection</p>
+
+<ul>
+  <li>$\omega_o + \omega_i = 2\cos\theta\vec{n} = 2 (\omega_i\cdot \vec{n})\vec{n}\quad \Rightarrow \quad \omega_o = -\omega_i + 2(\omega_i \cdot \vec{n})\vec{n}$</li>
+</ul>
+
+<p>Specular Refraction</p>
+
+<ul>
+  <li>In addition to reflecting off surface, light may be transmitted through surface.</li>
+  <li>Light refracts when it enters a new medium</li>
+</ul>
+
+<p>Snell’s Law</p>
+
+<ul>
+  <li>Transmitted angle depends on
+    <ul>
+      <li>index of refraction(IOR) for incident ray</li>
+      <li>IOR for exiting ray</li>
+    </ul>
+  </li>
+  <li>$\eta_i\sin\theta_i = \eta_t\sin\theta_t$</li>
+  <li>$\cos\theta_t = \sqrt{1 - (\frac{\eta_i}{\eta_t})^2(1 - \cos^2\theta_i)}$ 当入射介质折射率大于折射介质时，可能会发生全反射现象（Snell’s Window/Circle）</li>
+</ul>
+
+<p>Fresnel Reflection / Term 菲涅耳项</p>
+
+<ul>
+  <li>Reflectance depends on incident angle(and polarization of light)</li>
+  <li>对于绝缘体，当入射角角度非常小的时候，反射的能量就非常小，当入射角接近90度时，几乎没有折射发生（大部分能量被反射）</li>
+  <li>对于导体，其菲涅耳项与绝缘体不同，无论入射角方向如何，反射的能量都占大多数</li>
+  <li>Approximate: Schlick’s approximation 对两种介质都有较好的近似
+    <ul>
+      <li>$R(\theta) = R_0 + (1 - R_0)(1 - \cos\theta)^5$</li>
+      <li>$R_0 = \left(\frac{n_1 - n_2}{n_1 + n_2}\right)^2$ 基准反射率</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="microfacet-material">Microfacet Material</h4>
+
+<p>Microfacet Theory</p>
+
+<ul>
+  <li>Rough surface
+    <ul>
+      <li>Macroscale: flat &amp; rough 从远处看是材质</li>
+      <li>Microscale: bumpy &amp; specular 从近处看是几何</li>
+    </ul>
+  </li>
+  <li>Individual elements of surface act like mirrors
+    <ul>
+      <li>Known as Microfacets</li>
+      <li>Each microfacet has its own normal</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Microfacet BRDF</p>
+
+<ul>
+  <li>如果微表面各处法线在宏观上差别不大，那么就得到了glossy材质</li>
+  <li>如果微表面各处法线在宏观上区别很大，那么就得到了漫反射材质</li>
+</ul>
+
+\[f(\mathbf{i}, \mathbf{o}) = \frac{\mathbf{F}(\mathbf{i}, \mathbf{h})\mathbf{G}(\mathbf{i}, \mathbf{o}, \mathbf{h})\mathbf{D}(\mathbf{h})}{4(\mathbf{n}, \mathbf{i})(\mathbf{n}, \mathbf{o})}\]
+
+<h4 id="isotropicanisotropic-materialsbrdfs-各向同性各向异性">Isotropic/Anisotropic Materials(BRDFs) 各向同性/各向异性</h4>
+
+<p>Key: <strong>directionality</strong> of underlying surface</p>
+
+<h4 id="properties-of-brdfs">Properties of BRDFs</h4>
+
+<ul>
+  <li>Non-negativity
+    <ul>
+      <li>$f_r(\omega_i\rightarrow\omega_r)\ge 0$</li>
+    </ul>
+  </li>
+  <li>Linearity
+    <ul>
+      <li>$L_r(p, \omega_r) = \int_{H^2}f_r(p, \omega_i\rightarrow \omega_r)L_i(p, \omega_i) \cos \theta_i\mathrm{d}\omega_i$</li>
+    </ul>
+  </li>
+  <li>Reciprocity principle
+    <ul>
+      <li>$f_r(\omega_r\rightarrow\omega_i) = f_r(\omega_i\rightarrow \omega_r)$</li>
+    </ul>
+  </li>
+  <li>Energy conservation
+    <ul>
+      <li>$\forall \omega_r,\quad \int_{H^2}f_r(p, \omega_i\rightarrow \omega_r)L_i(p, \omega_i) \cos \theta_i\mathrm{d}\omega_i \le 1$</li>
+    </ul>
+  </li>
+  <li>Isotropic vs. anisotropic
+    <ul>
+      <li>If isotropic, $f_r(\theta_i, \phi_i; \theta_r, \phi_r) = f_r(\theta_i, \theta_r, \phi_r - \phi_i)$</li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>Then, from reciprocity, $f_r(\theta_i, \theta_r, \phi_r - \phi_i) = f_r(\theta_i, \theta_r, \phi_i - \phi_r) = f_r(\theta_i, \theta_r,</td>
+              <td>\phi_r - \phi_i</td>
+              <td>)$</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="measuring-brdfs">Measuring BRDFs</h3>
+
+<h2 id="lecture-18-advanced-topics-in-rendering">Lecture 18: Advanced Topics in Rendering</h2>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#learning-notes">learning-notes</a></li><li>
+        <a class="post-tag" href="/tags/#games101">games101</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2023/02/28/Design_Document01/">
+          Design_Documentation01
+          <small><time datetime="2023-02-28T13:46:00+08:00">28 Feb 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2023/02/28/Design_Document01/">
+          Design_document01
+          <small><time datetime="2023-02-28T00:00:00+08:00">28 Feb 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2023/02/11/Computational_Geometry_notes_02/">
+          Computational_Geometry_notes_02
+          <small><time datetime="2023-02-11T15:23:00+08:00">11 Feb 2023</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2022&nbsp;-&nbsp;2023 <a href="https://github.com/zhengtongdu">zhengtongdu</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+<div  class="toc-wrapper">
+  <h2 class="toc-title">Table of Contents</h2>
+    <nav class="toc-nav">
+      <ul class="toc">
+  <li><a href="#lecture-17-materials-and-appearances">Lecture 17: Materials and Appearances</a>
+    <ul>
+      <li><a href="#material--brdf">Material == BRDF</a></li>
+      <li><a href="#measuring-brdfs">Measuring BRDFs</a></li>
+    </ul>
+  </li>
+  <li><a href="#lecture-18-advanced-topics-in-rendering">Lecture 18: Advanced Topics in Rendering</a></li>
+</ul>
+
+  </nav>
+</div>
+
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

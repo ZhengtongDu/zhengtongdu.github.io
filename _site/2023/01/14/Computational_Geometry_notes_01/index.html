@@ -403,11 +403,25 @@ Output: A Delaunay triangulation of P
 
 <h4 id="analysis-3-time-complexity">Analysis 3 Time Complexity</h4>
 
-<p><strong>Theorem 9.12.ii</strong> 平面点集$P$包含$n$个点，则其Delaunay三角剖分时间复杂度的期望为$O(n\log n)$。</p>
+<p><strong>Theorem 9.12.ii</strong> 平面点集$P$包含$n$个点，其Delaunay三角剖分时间复杂度的期望为$O(n\log n)$。</p>
+
+<p>我们通过分别计算算法中不同操作的时间开销和来得到定理中的结论。算法中涉及到的可能为非线性时间开销的有两部分，第一部分是判断$P[r]$所在三角形；第二部分是产生三角形（因为每产生一个新的三角形，都对应一次LegalizeEdge()操作）。</p>
+
+<p>对于第二部分，因为前面我们证明了产生的新三角形数量的期望是$O(n)$的，因此其时间开销的期望也是线性的。</p>
+
+<p>接下面只剩下判断在$n$次循环中判断新插入的点所在三角形位置需要查找的三角形所花费的时间总和。</p>
+
+<p>由于我们有额外定义的数据结构$\mathcal{D}$，从根节点$tri(P[0], P[-1]， P[-2])$出发，不断搜索子结构，最后便可以确定$P[r]$的位置。因此，对于$P[r]$，确定其位置的时间开销为对当前三角剖分的三角形判断位置花费$O(1)$的常数时间与$O(1)$乘在$\mathcal{D}$中访问的节点数量。</p>
+
+<p>反过来对于每个三角形来说，如果一个三角形不再是$\mathcal{D}$中的子节点，则说明它已经从三角剖分中被删除，而被删除的原因总是因为新加入的$P[r]$在其外接圆内。因此，我们可以将“确定$P[r]$过程中一个三角形的节点被访问”以“这个三角形因为$P[r]$的插入而被删除”而替代。我们记一个三角形$\triangle$的外接圆与$P$的交集为$K(\triangle)$，通过上面的分析，我们知道一个三角形$\triangle$对应到$\mathcal{D}$中的节点，最多只会被$K(\triangle)$中的每个点访问一次，因此判断点位置的操作所花费的时间总和为
+\(O(n+ \sum_{\triangle}\mathrm{card}(K(\triangle))),\)
+其中的$\triangle$取遍所有算法产生的Delaunay三角形。</p>
+
+<p>接下来我们将证明从期望的角度，$\mathrm{card}(K(\triangle)) = O(n\log n)$（见附录中引理9.13），于是我们就证明了原结论：含有$n$个点的平面点集$P$，其Delaunay三角剖分时间复杂度的期望为$O(n\log n)$。</p>
 
 <h3 id="appendix-the-proof-of-theorems">Appendix: The Proof of Theorems</h3>
 
-<h4 id="theorem-92-泰勒斯定理thaless-theorem">Theorem 9.2 泰勒斯定理(Thales’s Theorem):</h4>
+<h4 id="theorem-92-泰勒斯定理thaless-theorem">Theorem 9.2 泰勒斯定理(Thales’s Theorem)</h4>
 
 <p>Theorem 9.2 (Thales’s Theorem): 令$C$为一个圆，$l$为与$C$相交的一条直线，两个交点分别为$a, b$。$p, q, r, s$在$l$的同一侧。假设$p, q$在$C$上，$r$在圆内，$s$在圆外，则</p>
 
@@ -483,6 +497,68 @@ Output: A Delaunay triangulation of P
   <li>总结1和2，算法产生三角形的数量期望最多为$9n+1$。</li>
 </ol>
 
+<h4 id="lemma-913">Lemma 9.13</h4>
+
+<p>Lemma 9.13 如果$P$是常规情况下含有$n$个点的平面点集，于是</p>
+
+\[\mathrm{card}(K(\triangle)) = O(n\log n)\]
+
+<p>其中$\triangle$取遍算法中产生的Delaunay三角形。</p>
+
+<p>证明：由于$P$为常规情况，因此每个$P_r$也是常规情况，故$\mathcal{DG}<em>r$都是唯一的。定义$\mathcal{DG}_r$中的三角形为$\mathcal{T}_r$，因此在第$r$次循环中产生的三角形为$\mathcal{T}_r\backslash\mathcal{T}</em>{r-1}$。用这个定义，我们可以重新将和写作</p>
+
+\[\mathrm{card}(K(\triangle)) = \sum_{r = 1}^{n}\left(\sum_{\triangle\in \mathcal{T}_r\backslash\mathcal{T}_{r-1}}\mathrm{card}(K(\triangle))\right)\]
+
+<p>除此之外，我们定义$k(P_r, q)$为全部$\triangle\in\mathcal{T}<em>r$中满足点$q\in\triangle$的三角形数量；定义$k(P_r, q, P[r])$为全部$\triangle\in\mathcal{T}_r$中不仅满足点$q\in\triangle$，同时还有一个顶点为$P[r]$的三角形数量。由于$\mathcal{T}_r\backslash\mathcal{T}</em>{r-1}$中的每个三角形都必然有一个顶点为$P[r]$，所以我们可以再做一次转化：</p>
+
+\[\sum_{\triangle\in \mathcal{T}_r\backslash\mathcal{T}_{r-1}}\mathrm{card}(K(\triangle))
+    =
+    \sum_{q\in P\backslash P_r}k(P_r, q, P[r])\]
+
+<p>到此我们先将$P_r$固定，所谓固定，就是我们考虑所有$P$的重排中满足$P_r = P_r^<em>$的情况。那么$k(P_r, q, P[r])$仅依赖于$P[r]$的选取。因为一个三角形$\triangle\in\mathcal{T}_r$的顶点为$p\in P_r^</em>$的的概率最高为$3/r$，因此</p>
+
+\[E[k(P_r, q, P[r])] \le \frac{3k(P_r, q)}{r}\]
+
+<p>将这个期望代入前面的累加和，就有</p>
+
+\[E\left[\sum_{\triangle\in \mathcal{T}_r\backslash\mathcal{T}_{r-1}}\mathrm{card}(K(\triangle))\right]
+    \le
+    \frac{3}{r}\sum_{q\in P\backslash P_r}k(P_r, q).\]
+
+<p>又因为每个$q\in P\backslash P_r$都可以视作做$P[r+1]$，因此</p>
+
+\[E[k(P_r, P[r+1])] = \frac{1}{n-r}\sum_{q\in P\backslash P_r}k(P_r, q)\]
+
+<p>再次代入累加和的结果，就有</p>
+
+\[E\left[\sum_{\triangle\in \mathcal{T}_r\backslash\mathcal{T}_{r-1}}\mathrm{card}(K(\triangle))\right]
+    \le
+    3\left(\frac{n-r}{r}\right)E[k(P_r, P[r+1])].\]
+
+<p>按开始的定义，$k(P_r, P[r+1])$是指所有$\triangle\in \mathcal{T_r}$中满足$P[r+1]\in K(\triangle)$的数量。然而根据Delaunay三角剖分的算法，这些三角形刚好是在第$r+1$次循环中被删除的三角形，这样，我们就可以重写不等式为</p>
+
+\[E\left[\sum_{\triangle\in \mathcal{T}_r\backslash\mathcal{T}_{r-1}}\mathrm{card}(K(\triangle))\right]
+    \le
+    3\left(\frac{n-r}{r}\right)E[\mathrm{card}(\mathcal{T}_r\backslash\mathcal{T}_{r+1})]\]
+
+<p>对于凸包顶点数固定（该算法中始终为3）的情况，$\mathcal{T}_m$中包含的三角形数量是$2(m+3)-2-3 = 2m+1$个。因此在第$r+1$次循环后，新删除的三角形数量比新产生的三角形数量少2，这样又可以重写不等式为</p>
+
+\[E\left[\sum_{\triangle\in \mathcal{T}_r\backslash\mathcal{T}_{r-1}}\mathrm{card}(K(\triangle))\right]
+    \le
+    3\left(\frac{n-r}{r}\right)\left(E[\mathrm{card}(\mathcal{T}_{r+1}\backslash\mathcal{T}_{r})] - 2\right).\]
+
+<p>到此为止，我们都固定了$P_r = P_r^*$。接下来我们将所有可能的$P_r\subset P$应用到不等式两侧后取平均，发现对于$P$的任意重排，上述不等式都是成立的。</p>
+
+<p>在之前的证明中，我们证明过两件事，第一件事是插入$P[r+1]$后所有新产生的三角形的数量与由$P[r+1]$组成的边的数量相同；第二件事是每个顶点的度数期望最大为6。总结起来，不等式可以重写为</p>
+
+\[E\left[\sum_{\triangle\in \mathcal{T}_r\backslash\mathcal{T}_{r-1}}\mathrm{card}(K(\triangle))\right]
+    \le
+    12\left(\frac{n-r}{r}\right).\]
+
+<p>再对两边从$r = 1$累加到$r = n$，便得到我们想要的结果：</p>
+
+\[\mathrm{card}(K(\triangle)) = O(n\log n).\]
+
 
   
     
@@ -504,23 +580,23 @@ Output: A Delaunay triangulation of P
   <ul class="related-posts">
     
       <li>
-        <a href="/2023/01/14/GAMES101_notes_02/">
-          GAMES101_notes_02
-          <small><time datetime="2023-01-14T23:44:00+08:00">14 Jan 2023</time></small>
+        <a href="/2023/02/28/Design_Document01/">
+          Design_Documentation01
+          <small><time datetime="2023-02-28T13:46:00+08:00">28 Feb 2023</time></small>
         </a>
       </li>
     
       <li>
-        <a href="/2023/01/14/6_046_notes_01/">
-          6.046_notes_01
-          <small><time datetime="2023-01-14T23:44:00+08:00">14 Jan 2023</time></small>
+        <a href="/2023/02/28/Design_Document01/">
+          Design_document01
+          <small><time datetime="2023-02-28T00:00:00+08:00">28 Feb 2023</time></small>
         </a>
       </li>
     
       <li>
-        <a href="/2023/01/14/Computational_Geometry_notes_01/">
-          Computational_geometry_notes_01
-          <small><time datetime="2023-01-14T00:00:00+08:00">14 Jan 2023</time></small>
+        <a href="/2023/02/13/GAMES101_notes_05/">
+          GAMES101_notes_05
+          <small><time datetime="2023-02-13T19:55:00+08:00">13 Feb 2023</time></small>
         </a>
       </li>
     

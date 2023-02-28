@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>GAMES101_notes_03 | Zhengtong’s blog</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="GAMES101_notes_03" />
+<meta name="author" content="zhengtongdu" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="GAMES101: 现代计算机图形学入门 笔记03：Geometry" />
+<meta property="og:description" content="GAMES101: 现代计算机图形学入门 笔记03：Geometry" />
+<link rel="canonical" href="http://localhost:4000/2023/02/04/GAMES101_notes_03/" />
+<meta property="og:url" content="http://localhost:4000/2023/02/04/GAMES101_notes_03/" />
+<meta property="og:site_name" content="Zhengtong’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-04T23:23:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="GAMES101_notes_03" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"zhengtongdu","url":"https://github.com/zhengtongdu"},"dateModified":"2023-02-04T23:23:00+08:00","datePublished":"2023-02-04T23:23:00+08:00","description":"GAMES101: 现代计算机图形学入门 笔记03：Geometry","headline":"GAMES101_notes_03","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2023/02/04/GAMES101_notes_03/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/avapig.jpg"},"name":"zhengtongdu"},"url":"http://localhost:4000/2023/02/04/GAMES101_notes_03/"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Zhengtong's blog" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } });
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+                       });
+  </script>
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
+  <div class="avatar"><img src="/avapig.jpg" class="avatar-image" alt="zhengtongdu">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">Zhengtong's blog</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>learn&record&share</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://zhengtongdu@zju.edu.cn">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/zhengtongdu">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">GAMES101_notes_03</h1>
+  <div class="post-meta"><time datetime="2023-02-04T23:23:00+08:00" itemprop="datePublished">4 Feb 2023</time></div>
+
+  <blockquote>
+  <p>GAMES101: 现代计算机图形学入门</p>
+
+  <p>笔记03：Geometry</p>
+</blockquote>
+
+<h2 id="lesson-10-geometry-1introduction">Lesson 10 Geometry 1(Introduction)</h2>
+
+<p>本讲内容</p>
+
+<ul>
+  <li>Shading 3
+    <ul>
+      <li>Applications of textures(写在第九讲笔记最后)</li>
+    </ul>
+  </li>
+  <li>Introduction to geometry
+    <ul>
+      <li>Examples of geometry</li>
+      <li>Various representations of geometry</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="introduction-to-geometry">Introduction to geometry</h3>
+
+<h4 id="many-ways-to-represent-geometry">Many Ways to Represent Geometry</h4>
+
+<p>几何的显式表示和隐式表示</p>
+
+<ul>
+  <li>Implicit
+    <ul>
+      <li>algebraic surface</li>
+      <li>level sets</li>
+      <li>distance functions</li>
+      <li>…</li>
+    </ul>
+  </li>
+  <li>Explicit
+    <ul>
+      <li>point cloud</li>
+      <li>polygon mesh</li>
+      <li>subdivision, NURBS</li>
+      <li>…</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Each choice best suited to a different task/type of geometry</p>
+
+<p>“Implicit” Representations of Geometry</p>
+
+<ul>
+  <li>Based on classifying points
+    <ul>
+      <li>Point satisfy some specified relationship</li>
+    </ul>
+  </li>
+  <li>Sampling can be hard</li>
+  <li>Inside/Outside tests is easy</li>
+</ul>
+
+<p>“Explicit” Representations of Geometry</p>
+
+<ul>
+  <li>All points are <strong>given directly</strong> or <strong>via parameter mapping</strong></li>
+  <li>Sampling is easy</li>
+  <li>Inside/Outside Test Hard</li>
+</ul>
+
+<p>Conclusion: <strong>Bset representation depends on the task.</strong></p>
+
+<p>More Implicit representations in Computer Graphics</p>
+
+<ul>
+  <li>Algebraic Surfaces
+    <ul>
+      <li>非常不直观，且无法处理复杂几何结构</li>
+    </ul>
+  </li>
+  <li>Constructive Solid Geometry(CSG)
+    <ul>
+      <li>通过对简单几何体进行布尔运算</li>
+      <li>可以得到复杂几何结构的表示</li>
+    </ul>
+  </li>
+  <li>Distance Functions
+    <ul>
+      <li>Instead of Booleans, gradually blend surfaces together using Distance functions:</li>
+      <li>Giving minimum distance(could be signed distance) from anywhere to object</li>
+    </ul>
+  </li>
+  <li>Level Set Method
+    <ul>
+      <li>Closed-form equation are hard to describe complex shapes</li>
+      <li>Alternative: store a grid of values approximating function</li>
+      <li>Surface is found where interpolated values equal zero</li>
+      <li>Provides such more explicit control over shape(like a texture)</li>
+    </ul>
+  </li>
+  <li>Fractals 分形
+    <ul>
+      <li>Exhibit self-similarity, detail at all scales</li>
+      <li>“Language” for describing natural phenomena</li>
+      <li>Hard to control shape</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="implicit-representations---pros--cons">Implicit Representations - Pros &amp; Cons</h4>
+
+<ul>
+  <li>Pros:
+    <ul>
+      <li>compact description(e.g., a function)</li>
+      <li>certain queries easy(inside object, distance to surface)</li>
+      <li>good for ray-to-surface intersection(more later)</li>
+      <li>for simple shapes, exact description / no sampling error</li>
+      <li>easy to handle changes in topology(e.g., fluid)</li>
+    </ul>
+  </li>
+  <li>Cons:
+    <ul>
+      <li>difficult ot model complex shapes</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="explicit-representations-in-computer-graphicslater">Explicit Representations in Computer Graphics(later)</h4>
+
+<h2 id="lesson-11-geometry-2curves-and-surfaces">Lesson 11 Geometry 2(Curves and Surfaces)</h2>
+
+<p>本讲内容：</p>
+
+<ul>
+  <li>Explicit Representations</li>
+  <li>Curves
+    <ul>
+      <li>Bezier curves</li>
+      <li>De Casteljau’s Algorithm</li>
+      <li>B-splines, etc.</li>
+    </ul>
+  </li>
+  <li>Surfaces
+    <ul>
+      <li>Bezier surfaces</li>
+      <li>Triangles &amp; quads
+        <ul>
+          <li>Subdivision, simplification, regularization</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="explicit-representations-in-computer-graphics">Explicit Representations in Computer Graphics</h3>
+
+<p>Many Explicit Representations in Graphics</p>
+
+<ul>
+  <li>triangle meshes</li>
+  <li>Bezier surfaces</li>
+  <li>subdivision surfaces</li>
+  <li>NURBS</li>
+  <li>point cloud</li>
+  <li>…</li>
+</ul>
+
+<h4 id="point-cloud">Point Cloud</h4>
+
+<ul>
+  <li>Easiest representation: list of points $(x, y, z)$</li>
+  <li>Easily represent any kind any kind of geometry</li>
+  <li>Useful for LARGE datasets(»1 point/pixel)</li>
+  <li>Often converted into polygon mesh</li>
+  <li>Difficult to draw in undersampled regions</li>
+</ul>
+
+<h4 id="polygon-mesh">Polygon Mesh</h4>
+
+<ul>
+  <li>Store vertices &amp; polygons(often triangles or quads)</li>
+  <li>Easier to do processing/simulation, adaptive sampling</li>
+  <li>More complicated data structures</li>
+  <li>Perhaps most common representation in graphics</li>
+</ul>
+
+<h4 id="the-wavefront-object-fileobj-format">The wavefront Object File(.obj) Format</h4>
+
+<p>常用的文件存储格式（obj文件）</p>
+
+<ul>
+  <li>Commonly used in Graphics research</li>
+  <li>Just a text file that specifies vertices, normals, texture coordinates and <strong>their connectivities</strong></li>
+</ul>
+
+<h3 id="curves">Curves</h3>
+
+<h4 id="bezier-curve">Bezier Curve</h4>
+
+<p>Defining Cubic Bezier Curve With Tangents</p>
+
+<ul>
+  <li>由四个点$p_0, p_1, p_2, p_3$定义的Bezier曲线，满足曲线的起始点为$p_0$，终点为$p_3$，且$p_0$处切线为$\overline{p_0, p_1}$，$p_3$处切线为$\overline{p_2, p_3}$。</li>
+</ul>
+
+<p>Evaluating Bezier Curves(de Casteljau Algorithm)</p>
+
+<ul>
+  <li>并不是直接得到曲线的表示，而是当假设初始点对应时刻0，结束点对应时刻1，则对于任意时刻$t\in [0, 1]$都可以直接求出该时刻的曲线对应位置（利用插值）。</li>
+</ul>
+
+<p>Evaluating Bezier Curves Algebraic Formula</p>
+
+<ul>
+  <li>de Casteljau algorithm gives a pyramid of coefficients</li>
+  <li>Bernstein form of a Bezier curve of order n:</li>
+</ul>
+
+\[\mathbf{b}^n(t) = \mathbf{b}_0^n(t) = \sum_{j = 0}^n\mathbf{b}_jB_j^n(t),\]
+
+<p>where Bernstein polynomial is</p>
+
+\[B_i^n(t) = \begin{pmatrix}
+        n \\
+        i
+    \end{pmatrix}
+    t^i(1-t)^{n-i}\]
+
+<p>Properties of Bezier Curves:</p>
+
+<ul>
+  <li>Interpolates endpoints
+    <ul>
+      <li>For cubic Bezier: $\mathbf{b}(0) = \mathbf{b}_0; \mathbf{b}(1) = \mathbf{b}_3$</li>
+    </ul>
+  </li>
+  <li>Tangent to end segment
+    <ul>
+      <li>Cubic case: $\mathbf{b}’(0) = 3(\mathbf{b}_1 - \mathbf{b}_0); \mathbf{b}’(1) = 3(\mathbf{b}_3 - \mathbf{b}_2)$</li>
+    </ul>
+  </li>
+  <li>Affine transformation property
+    <ul>
+      <li>Transform curve by transforming control points</li>
+    </ul>
+  </li>
+  <li>Convex hull property
+    <ul>
+      <li>Curve is within convex hull of control points</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Piecewise Bezier Curves</p>
+
+<ul>
+  <li>当控制点数量过多的时候，贝塞尔曲线不能很好刻画控制点的分布情况</li>
+  <li>Therefore, <strong>piecewise cubic Bezier</strong> curve is the most common technique</li>
+</ul>
+
+<p>Piecewise Bezier Curve - Continuity</p>
+
+<ul>
+  <li>$C^0$ continuity</li>
+  <li>$C^1$ continuity</li>
+</ul>
+
+<h4 id="other-types-of-splines">Other types of splines</h4>
+
+<ul>
+  <li>Spline
+    <ul>
+      <li>a continuous curve constructed so as to pass through a given set of points and have a certain number of continuous derivatives</li>
+      <li>In short, a curve under control</li>
+    </ul>
+  </li>
+  <li>B-Splines
+    <ul>
+      <li>Short for basis splines</li>
+      <li>Require more information than Bezier curves</li>
+      <li>Satisfy all important properties that Bezier curves have(i.e. superset)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="surfaces">Surfaces</h3>
+
+<h4 id="bezier-surfaces">Bezier Surfaces</h4>
+
+<p>Extend Bezier curves to surfaces</p>
+
+<p>Evaluating Surface Position For Parameters $(u, v)$</p>
+
+<ul>
+  <li>For bi-cubic Bezier surface patch,
+    <ul>
+      <li>Input: $4\times 4$ control points</li>
+      <li>Output: a 2D surface parameterized by $(u, v)$ in $[0, 1]^2$</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Method: Separable 1D de Casteljau Algorithm</p>
+
+<ul>
+  <li>Use de Casteljau to evaluate point u on each of the 4 Bezier curves in $u$. This gives 4 control points for the “moving” Bezier curve</li>
+  <li>Use 1D de Casteljau to evaluate point $v$ on the “moving” curve</li>
+</ul>
+
+<h4 id="subdivision-surfacestriangles--quads">Subdivision surfaces(triangles &amp; quads)</h4>
+
+<p>Mesh Operations: Geometry Processing</p>
+
+<ul>
+  <li>Mesh subdivision 网格细分</li>
+  <li>Mesh simplification 网格简化</li>
+  <li>Mesh regularization 网格正规化</li>
+</ul>
+
+<h2 id="lecture-12-geometry-3">Lecture 12 Geometry 3</h2>
+
+<h3 id="mesh-operations">Mesh Operations</h3>
+
+<ul>
+  <li>Mesh subdivision : Increase resolution</li>
+  <li>Mesh simplification : Decrease resolution; try to preserve shape/appearance</li>
+  <li>Mesh regularization : Modify sample distribution to improve quality</li>
+</ul>
+
+<h3 id="subdivision">Subdivision</h3>
+
+<h4 id="loop-subdivision">Loop Subdivision</h4>
+
+<ul>
+  <li>Common subdivision rul for triangle meshes.</li>
+</ul>
+
+<p>First, create more triangles(vertices); Second, tune their positions</p>
+
+<ul>
+  <li>Split each triangle into four</li>
+  <li>Assign new vertex positions according to weights
+    <ul>
+      <li>New/old vertices updated differently</li>
+    </ul>
+  </li>
+</ul>
+
+<p>更新规则</p>
+
+<ul>
+  <li>对于待更新的新顶点，利用共享其所在边的三角形上原顶点进行加权平均，得到新顶点的坐标</li>
+  <li>对于待更新的原顶点，其结果为自身位置与相邻原顶点位置加权得到结果</li>
+</ul>
+
+<h4 id="catmull-clark-subdivisiongeneral-mesh">Catmull-Clark Subdivision(General Mesh)</h4>
+
+<ul>
+  <li>可以对非三角形网格进行细分</li>
+</ul>
+
+<p>定义四边形面为 quad face，其余面为 non-quad face，记度数不为4的顶点为extraordinary vertex(奇异点)</p>
+
+<p>Each subdivision step:</p>
+
+<ul>
+  <li>Add vertex in each face</li>
+  <li>Add midpoint on each edge</li>
+  <li>Connect all new vertices</li>
+</ul>
+
+<p>After one subdivision:</p>
+
+<ul>
+  <li>How many extraordinary vertices? 原本的奇异点加上非四边形面中添加的点</li>
+  <li>What are their degrees? 非四边形面的边数</li>
+  <li>How many non-quad faces? 0</li>
+</ul>
+
+<p>相当于将非四边形面全部用奇异点替换了，再做细分的时候，非四边形面数量仍然是0，而且奇异点数量不会增加。</p>
+
+<p>Catmull-Clark Vertex Updates Rules(Quad Mesh)</p>
+
+<ul>
+  <li>新增加的点，根据面中的点和边上的点，利用相邻的点进行加权平均；</li>
+  <li>原有的点，利用周围新添加的点及其本身，进行加权平均。</li>
+</ul>
+
+<h3 id="mesh-simplification">Mesh Simplification</h3>
+
+<p>Goal: reduce number of mesh elements while maintaining the overall shape</p>
+
+<h4 id="collapsing-an-edge-边坍缩">Collapsing An Edge 边坍缩</h4>
+
+<ul>
+  <li>Suppose we simplify a mesh using edge collapsing</li>
+</ul>
+
+<p>Quadric Error Metrics 用来选择需要坍缩的边</p>
+
+<ul>
+  <li>How much geometric error is introduced by simplification?</li>
+  <li>Not a good idea to perform local averaging of vertices</li>
+  <li>Quadric error: New vertex should minimize its <strong>sum of square distance</strong>($L_2$ distance) to previous related triangle planes</li>
+</ul>
+
+<p>Quadric Error of Edge Collapse</p>
+
+<ul>
+  <li>How much does it cost to collapse an edge?</li>
+  <li>Idea: Compute edge midpoint, measure quadric error</li>
+</ul>
+
+<p>Simplification via Quadric Error</p>
+
+<ul>
+  <li>Iteratively collapse edges</li>
+  <li>Which edges? Assign score with quadric error metric
+    <ul>
+      <li>Approximate distance to surface as sum of distances to planes containing triangles</li>
+      <li>Iteratively collapse edge <strong>with smallest score</strong></li>
+      <li>Greedy algorithm… great results!</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="shadows-mappingwith-rasterization">Shadows Mapping(with Rasterization)</h3>
+
+<h4 id="shadow">Shadow</h4>
+
+<ul>
+  <li>How to draw shadows using rasterization?</li>
+  <li><strong>Shadow mapping</strong>!</li>
+</ul>
+
+<h4 id="shadow-mapping只涉及点光源的硬阴影">Shadow Mapping（只涉及点光源的硬阴影）</h4>
+
+<ul>
+  <li>An Image-space Algorithm
+    <ul>
+      <li>no knowledge of scene’s geometry during shadow computation</li>
+      <li>must deal with aliasing artifacts</li>
+    </ul>
+  </li>
+  <li>Key idea:
+    <ul>
+      <li>thepoins NOT in shadow must be seen both <strong>by the light</strong> and <strong>by the camera</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p>具体实现方法：</p>
+
+<ul>
+  <li>Pass 1: Render from Light 记录光源按不同方向到场景得到的深度
+    <ul>
+      <li>Deep image from light source</li>
+    </ul>
+  </li>
+  <li>Pass 2A: Render from Eye 确定从摄像机得到的场景中的具体像素
+    <ul>
+      <li>Standard image(with depth) from eye</li>
+    </ul>
+  </li>
+  <li>Pass 2B: Project to light 从这些像素投影回光源，与之前对照的深度相比查看是否一致
+    <ul>
+      <li>Project visible points in eye view back to light source</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Problems with shadow maps</p>
+
+<ul>
+  <li>Hard shadows(point lights only)</li>
+  <li>Quality depends on shadow map resolution(general problem with image-based techniques)</li>
+  <li>Involves equality comparison of floating point depth values means issues of scale, bias, tolerance</li>
+</ul>
+
+<p>Hard shadows vs. soft shadows</p>
+
+<ul>
+  <li>当阴影位置完全得不到光照，则该点处在本影区域，阴影是最硬的；否则阴影位置可以被部分光照，此时该点位于半影区域，阴影会比较软。</li>
+</ul>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#learning-notes">learning-notes</a></li><li>
+        <a class="post-tag" href="/tags/#games101">games101</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2023/02/28/Design_Document01/">
+          Design_Documentation01
+          <small><time datetime="2023-02-28T13:46:00+08:00">28 Feb 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2023/02/28/Design_Document01/">
+          Design_document01
+          <small><time datetime="2023-02-28T00:00:00+08:00">28 Feb 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2023/02/13/GAMES101_notes_05/">
+          GAMES101_notes_05
+          <small><time datetime="2023-02-13T19:55:00+08:00">13 Feb 2023</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2022&nbsp;-&nbsp;2023 <a href="https://github.com/zhengtongdu">zhengtongdu</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+<div  class="toc-wrapper">
+  <h2 class="toc-title">Table of Contents</h2>
+    <nav class="toc-nav">
+      <ul class="toc">
+  <li><a href="#lesson-10-geometry-1introduction">Lesson 10 Geometry 1(Introduction)</a>
+    <ul>
+      <li><a href="#introduction-to-geometry">Introduction to geometry</a></li>
+    </ul>
+  </li>
+  <li><a href="#lesson-11-geometry-2curves-and-surfaces">Lesson 11 Geometry 2(Curves and Surfaces)</a>
+    <ul>
+      <li><a href="#explicit-representations-in-computer-graphics">Explicit Representations in Computer Graphics</a></li>
+      <li><a href="#curves">Curves</a></li>
+      <li><a href="#surfaces">Surfaces</a></li>
+    </ul>
+  </li>
+  <li><a href="#lecture-12-geometry-3">Lecture 12 Geometry 3</a>
+    <ul>
+      <li><a href="#mesh-operations">Mesh Operations</a></li>
+      <li><a href="#subdivision">Subdivision</a></li>
+      <li><a href="#mesh-simplification">Mesh Simplification</a></li>
+      <li><a href="#shadows-mappingwith-rasterization">Shadows Mapping(with Rasterization)</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </nav>
+</div>
+
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

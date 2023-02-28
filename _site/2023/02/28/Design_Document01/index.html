@@ -7,22 +7,22 @@
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
   <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Zhengtong’s blog | learn&amp;record&amp;share</title>
+<title>Design_Documentation01 | Zhengtong’s blog</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="Zhengtong’s blog" />
+<meta property="og:title" content="Design_Documentation01" />
 <meta name="author" content="zhengtongdu" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="learn&amp;record&amp;share" />
 <meta property="og:description" content="learn&amp;record&amp;share" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
+<link rel="canonical" href="http://localhost:4000/2023/02/28/Design_Document01/" />
+<meta property="og:url" content="http://localhost:4000/2023/02/28/Design_Document01/" />
 <meta property="og:site_name" content="Zhengtong’s blog" />
-<meta property="og:type" content="website" />
-<link rel="next" href="http://localhost:4000/page2" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-28T13:46:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Zhengtong’s blog" />
+<meta property="twitter:title" content="Design_Documentation01" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"zhengtongdu","url":"https://github.com/zhengtongdu"},"description":"learn&amp;record&amp;share","headline":"Zhengtong’s blog","name":"zhengtongdu","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/avapig.jpg"},"name":"zhengtongdu"},"sameAs":["https://github.com/zhengtongdu"],"url":"http://localhost:4000/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"zhengtongdu","url":"https://github.com/zhengtongdu"},"dateModified":"2023-02-28T13:46:00+08:00","datePublished":"2023-02-28T13:46:00+08:00","description":"learn&amp;record&amp;share","headline":"Design_Documentation01","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2023/02/28/Design_Document01/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/avapig.jpg"},"name":"zhengtongdu"},"url":"http://localhost:4000/2023/02/28/Design_Document01/"}</script>
 <!-- End Jekyll SEO tag -->
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Zhengtong's blog" />
 <script type="text/x-mathjax-config">
@@ -74,132 +74,83 @@
 </div>
 
       <div class="content pure-u-1 pure-u-md-1-2"><main>
-  <div class="home-header pure-menu pure-menu-horizontal">
-  <div class="home-header-bar">
+  <article class="post">
+  <h1 class="post-title">Design_Documentation01</h1>
+  <div class="post-meta"><time datetime="2023-02-28T13:46:00+08:00" itemprop="datePublished">28 Feb 2023</time></div>
+
+  
+<blockquote>
+  <p>整理了自己写的一些算法实现的设计思路</p>
+</blockquote>
+
+<h2 id="delaunay-triangulation">Delaunay Triangulation</h2>
+
+<blockquote>
+  <p>理论及算法的介绍：请参见<a href="https://zhengtongdu.github.io/2023/01/14/Computational_Geometry_notes_01/">这里</a></p>
+</blockquote>
+
+<p>程序最后实现了如下目标：对于输入的散点（通过触发鼠标事件或者在main.cpp中设定）：
+<img src="/assets/23-02-28-fig01.png" alt="fig01: scattered points" height="300px" width="300px" /></p>
+
+<p>生成其对应的Delaunay三角剖分网格：
+<img src="/assets/23-02-28-fig02.png" alt="fig02: delaunay triangulation of above points" height="300px" width="300px" /></p>
+
+<h3 id="设计1底层类的设计">设计1：底层类的设计</h3>
+
+<p>底层类中定义了Vector类、Triangle类</p>
+
+<h3 id="设计2画图api的调用">设计2：画图API的调用</h3>
+
+<p>这部分的内容仿照的是GAMES101</p>
+
+<h3 id="代码结构03">代码结构03</h3>
+
+<h3 id="经验教训收获">经验教训收获</h3>
+
+
+  
     
-    <ul class="home-header-menu pure-menu-list">
-      
-        <li class="pure-menu-item">
-          <a href="/dates/" class="pure-menu-link "">Dates</a>
-        </li>
-      
-        <li class="pure-menu-item">
-          <a href="/categories/" class="pure-menu-link "">Categories</a>
-        </li>
-      
-        <li class="pure-menu-item">
-          <a href="/tags/" class="pure-menu-link "">Tags</a>
-        </li>
-      
-    </ul>
-    
-  </div>
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#learning-notes">learning-notes</a></li><li>
+        <a class="post-tag" href="/tags/#design-document">design-document</a></li></ul>
 </div>
 
-
-<div class="posts">
   
-  <section class="post-entry">
-    <h2 class="post-title">
-      <a href="/2023/02/28/Design_Document01/">
-        Design_Documentation01
-      </a>
-    </h2>
 
-    <div class="post-meta">
-      <time datetime="2023-02-28T13:46:00+08:00">28 Feb 2023</time></div>
-
-    <p>
-</p>
-  </section>
   
-  <section class="post-entry">
-    <h2 class="post-title">
-      <a href="/2023/02/28/Design_Document01/">
-        Design_document01
-      </a>
-    </h2>
+</article>
 
-    <div class="post-meta">
-      <time datetime="2023-02-28T00:00:00+08:00">28 Feb 2023</time></div>
 
-    <p>
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
     
+      <li>
+        <a href="/2023/02/28/Design_Document01/">
+          Design_document01
+          <small><time datetime="2023-02-28T00:00:00+08:00">28 Feb 2023</time></small>
+        </a>
+      </li>
     
-        
-        Delaunay Triangulation
-        
-/* From extension vscode.github */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+      <li>
+        <a href="/2023/02/13/GAMES101_notes_05/">
+          GAMES101_notes_05
+          <small><time datetime="2023-02-13T19:55:00+08:00">13 Feb 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2023/02/11/Computational_Geometry_notes_02/">
+          Computational_Geometry_notes_02
+          <small><time datetime="2023-02-11T15:23:00+08:00">11 Feb 2023</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
 
-</p>
-  </section>
-  
-  <section class="post-entry">
-    <h2 class="post-title">
-      <a href="/2023/02/13/GAMES101_notes_05/">
-        GAMES101_notes_05
-      </a>
-    </h2>
-
-    <div class="post-meta">
-      <time datetime="2023-02-13T19:55:00+08:00">13 Feb 2023</time></div>
-
-    <p>
-  GAMES101: 现代计算机图形学入门
-
-  笔记05:
-
-
-</p>
-  </section>
-  
-  <section class="post-entry">
-    <h2 class="post-title">
-      <a href="/2023/02/11/Computational_Geometry_notes_02/">
-        Computational_Geometry_notes_02
-      </a>
-    </h2>
-
-    <div class="post-meta">
-      <time datetime="2023-02-11T15:23:00+08:00">11 Feb 2023</time></div>
-
-    <p>Lecture 07 Voronoi Diagrams
-
-</p>
-  </section>
-  
-  <section class="post-entry">
-    <h2 class="post-title">
-      <a href="/2023/02/06/GAMES101_notes_04/">
-        GAMES101_notes_04
-      </a>
-    </h2>
-
-    <div class="post-meta">
-      <time datetime="2023-02-06T23:32:00+08:00">06 Feb 2023</time></div>
-
-    <p>
-  GAMES101: 现代计算机图形学入门
-
-  笔记04：Ray-Tracing
-
-
-</p>
-  </section>
-  </div>
-
-<div class="pagination">
-  
-    <a class="pagination-item older" href="/page2">Older</a>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
-</div>
 
 </main>
 
@@ -210,6 +161,23 @@
 </footer>
 </div>
       <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+<div  class="toc-wrapper">
+  <h2 class="toc-title">Table of Contents</h2>
+    <nav class="toc-nav">
+      <ul class="toc">
+  <li><a href="#delaunay-triangulation">Delaunay Triangulation</a>
+    <ul>
+      <li><a href="#设计1底层类的设计">设计1：底层类的设计</a></li>
+      <li><a href="#设计2画图api的调用">设计2：画图API的调用</a></li>
+      <li><a href="#代码结构03">代码结构03</a></li>
+      <li><a href="#经验教训收获">经验教训收获</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </nav>
+</div>
+
 </div>
     </div>
 

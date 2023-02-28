@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>GAMES101_notes_04 | Zhengtong’s blog</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="GAMES101_notes_04" />
+<meta name="author" content="zhengtongdu" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="GAMES101: 现代计算机图形学入门 笔记04：Ray-Tracing" />
+<meta property="og:description" content="GAMES101: 现代计算机图形学入门 笔记04：Ray-Tracing" />
+<link rel="canonical" href="http://localhost:4000/2023/02/06/GAMES101_notes_04/" />
+<meta property="og:url" content="http://localhost:4000/2023/02/06/GAMES101_notes_04/" />
+<meta property="og:site_name" content="Zhengtong’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-06T23:32:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="GAMES101_notes_04" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"zhengtongdu","url":"https://github.com/zhengtongdu"},"dateModified":"2023-02-06T23:32:00+08:00","datePublished":"2023-02-06T23:32:00+08:00","description":"GAMES101: 现代计算机图形学入门 笔记04：Ray-Tracing","headline":"GAMES101_notes_04","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2023/02/06/GAMES101_notes_04/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/avapig.jpg"},"name":"zhengtongdu"},"url":"http://localhost:4000/2023/02/06/GAMES101_notes_04/"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Zhengtong's blog" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } });
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+                       });
+  </script>
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
+  <div class="avatar"><img src="/avapig.jpg" class="avatar-image" alt="zhengtongdu">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">Zhengtong's blog</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>learn&record&share</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://zhengtongdu@zju.edu.cn">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/zhengtongdu">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">GAMES101_notes_04</h1>
+  <div class="post-meta"><time datetime="2023-02-06T23:32:00+08:00" itemprop="datePublished">6 Feb 2023</time></div>
+
+  <blockquote>
+  <p>GAMES101: 现代计算机图形学入门</p>
+
+  <p>笔记04：Ray-Tracing</p>
+</blockquote>
+
+<h2 id="lecture-13-ray-tracing-1whitted-style-ray-tracing">Lecture 13 Ray Tracing 1(Whitted-Style Ray Tracing)</h2>
+
+<h3 id="why-ray-tracing">Why Ray Tracing</h3>
+
+<ul>
+  <li>Rasterization couldn’t handle <strong>global</strong> effects well
+    <ul>
+      <li>(soft) shadows</li>
+      <li>especially when the light bounces <strong>more than once</strong></li>
+    </ul>
+  </li>
+  <li>Rasterization is fast, but directions is very slow
+    <ul>
+      <li>Rasterization: real-time, ray tracing: offline</li>
+      <li>~10K CPU core hours to render one frame in production</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="basic-ray-tracing-algorithm">Basic Ray Tracing Algorithm</h3>
+
+<p>Three ideas about light rays</p>
+
+<ol>
+  <li>Light travels in straight lines(though this is wrong)</li>
+  <li>Light rays do not “collide” with each other if they cross(though this is still wrong)</li>
+  <li>Light rays travel from the light sources to the eye(but the physics is invariant under path reversal - reciprocity)</li>
+</ol>
+
+<h4 id="ray-casting">Ray Casting</h4>
+
+<ol>
+  <li>Generate an image by <strong>casting one ray per pixel</strong></li>
+  <li>Check for shadows by <strong>sending a ray to the light</strong></li>
+</ol>
+
+<h4 id="recursivewhitted-style-ray-tracing">Recursive(Whitted-Style) Ray Tracing</h4>
+
+<ul>
+  <li>考虑每个从眼睛出发的光线到每个物体处发生的折射和反射的结果；</li>
+  <li>对于每个折射和反射的结果，分别计算其到光源的点的着色结果，加总后得到最后的着色值</li>
+  <li>每次折射后的结果都会发生一定的能量损耗</li>
+</ul>
+
+<h3 id="ray-surface-intersection">Ray-Surface Intersection</h3>
+
+<p>Ray is defined by its origin and a direction vector</p>
+
+\[\mathbf{r}(t) = \mathbf{o} + t\mathbf{d}, \quad 0 \le t &lt; \infty\]
+
+<h4 id="ray-intersection-with-sphere">Ray Intersection With Sphere</h4>
+
+\[\mathrm{Ray: } \mathbf{r}(t) = \mathbf{o} + t\mathbf{d}, \quad \\
+    \mathrm{Sphere: } \mathbf{p} : (\mathbf{p} - \mathbf{c})^2 - R^2 = 0\]
+
+<h4 id="ray-intersection-with-implicit-surface">Ray Intersection With Implicit Surface</h4>
+
+\[\mathrm{Ray: }\quad \mathbf{r}(t) = \mathbf{o} + t\mathbf{d}, \quad \\
+    \mathrm{General\ implicit\ surface: }\quad \mathbf{p} : f(\mathbf{p}) = 0\\
+    \mathrm{Substitute\ ray\ equation: }\quad f(\mathbf{o} + t\mathbf{d}) = 0\]
+
+<h4 id="ray-intersection-with-triangle-mesh">Ray Intersection With Triangle Mesh</h4>
+
+<p>Why?</p>
+
+<ul>
+  <li>Rendering: visibility, shadows, lighting</li>
+  <li>Geometry: inside/outside test</li>
+</ul>
+
+<p>How?</p>
+
+<ul>
+  <li>Simple idea: just intersect ray with each triangle</li>
+  <li>Simple, but slow(acceleration? – later)</li>
+  <li>Note: can have 0, 1 intersections(ignoring multiple intersections)</li>
+</ul>
+
+<h4 id="ray-intersection-with-triangle">Ray Intersection With Triangle</h4>
+
+<p>Triangle is in a plane</p>
+
+<ul>
+  <li>Ray-plane intersection</li>
+  <li>Test if hit point is inside triangle</li>
+</ul>
+
+<p>Plane is defined by normal vector and a point on plane</p>
+
+\[\mathbf{p}: (\mathbf{p} - \mathbf{p}')\cdot\mathbf{N} = 0\qquad
+    ax + by + cz + d = 0\]
+
+<h4 id="moller-trumbore-algorithm">Moller Trumbore Algorithm</h4>
+
+<p>A fast approach, giving barycentric coordinate directly</p>
+
+<p>Derivation in the discussion section!</p>
+
+\[\mathbf{O} + t\mathbf{D} = (1 - b_1 - b_2)\mathbf{P}_0 + b_1 \mathbf{P}_1 + b_2\mathbf{P}_2\]
+
+<h3 id="accelerating-ray-surface-intersection">Accelerating Ray-Surface Intersection</h3>
+
+<p>Simple ray-scene intersection</p>
+
+<ul>
+  <li>Exhaustively test ray-intersection with every object</li>
+  <li>Find the closest hit(with minimum t)</li>
+</ul>
+
+<h4 id="bounding-volumes">Bounding Volumes</h4>
+
+<p>Quick way to avoid intersections: bound complex object with a simple volume</p>
+
+<ul>
+  <li>Object is fully contained in the volume</li>
+  <li>If it doesn’t hit the volume, it doesn’t hit the object</li>
+  <li>So test BVol first, then test object if it hits</li>
+</ul>
+
+<p>Ray-Intersection with Box</p>
+
+<ul>
+  <li>Understanding: box is the intersection of 3 pairs of slabs</li>
+  <li>Specifically, we often use an Axis-Aligned Bounding Box(AABB)</li>
+</ul>
+
+<p>Key ideas</p>
+
+<ul>
+  <li>The ray enters the box only when it enters all pairs of slabs</li>
+  <li>The ray exits the bos as long as it exits any pair of slabs</li>
+</ul>
+
+<p>具体操作方法：</p>
+
+<ul>
+  <li>考虑光线通过分别通过每个方向的两个平面的时间$t_{\min},\ t_{\max}$</li>
+  <li>如果进入时间的最大值小于射出时间的最小值，则说明光线同包围盒有交点</li>
+  <li>对于时间为负值的情况
+    <ul>
+      <li>如果进入时间为负，离开时间为正，则可以说明光源在盒中；</li>
+      <li>如果离开时间为负，说明盒子沿光路在光源后面</li>
+    </ul>
+  </li>
+  <li>In summary, ray and AABB intersect iff
+    <ul>
+      <li>$t_{enter} &lt; t_{exit}\ \mathrm{and}\ t_{exit} \ge 0$</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="lecture-14-ray-tracing-2acceleration--radiometry">Lecture 14 Ray Tracing 2(Acceleration &amp; Radiometry)</h2>
+
+<p>本讲内容：</p>
+
+<ul>
+  <li>Using AABBs to accelerate ray tracing
+    <ul>
+      <li>Uniform grids</li>
+      <li>Spatial partitions</li>
+    </ul>
+  </li>
+  <li>Basic radiometry(辐射度量学)</li>
+</ul>
+
+<h3 id="uniform-spatial-partitionsgrids">Uniform Spatial Partitions(Grids)</h3>
+
+<p>Preprocess - Build Acceleration Grid</p>
+
+<ul>
+  <li>Find bounding box</li>
+  <li>Create grid</li>
+  <li>Store each object in overlapping cells</li>
+</ul>
+
+<p>Step through grid in ray traversal order, for each grid cell test intersection with all objects stored at that cell.（类似分治的想法）</p>
+
+<p>存在的问题：当场景中的物体分布过于稀疏的时候，会存在冗余运算的情况。</p>
+
+<h3 id="spatial-partitions">Spatial Partitions</h3>
+
+<p>Examples:</p>
+
+<ul>
+  <li>Oct-Tree 每次沿每个维度进行分割</li>
+  <li>KD-Tree 每次只沿一个维度进行分割</li>
+  <li>BSP-Tree 每次沿一个方向进行分割</li>
+</ul>
+
+<p>考虑到AABB的结构，采用KD-Tree是较为合适的解决方法</p>
+
+<p>Data Structure for KD-Trees</p>
+
+<ul>
+  <li>Internal nodes store
+    <ul>
+      <li>split axis: x-, y- or z-axis</li>
+      <li>split position: coordinate of split plane along axis</li>
+      <li>children: pointers to child nodes</li>
+      <li><strong>No objects are stored in internal nodes</strong></li>
+    </ul>
+  </li>
+  <li>Leaf nodes store
+    <ul>
+      <li>list of objects</li>
+    </ul>
+  </li>
+</ul>
+
+<p>对于构建好的数据结构，只要进行遍历，判断光线经过每个结构时是否可能相交，就可以进行下一步的判断。</p>
+
+<p>但是KD-Tree(还有八叉树)来说，还有如下两个问题难以解决：</p>
+
+<ul>
+  <li>同一个物体可能存在多个盒子里</li>
+  <li>判断三角形是否和盒子相交很困难</li>
+</ul>
+
+<p>因此提出了如下的解决方法：</p>
+
+<h3 id="object-partitions--bounding-volume-hierarchybvh">Object Partitions &amp; Bounding Volume Hierarchy(BVH)</h3>
+
+<p>采取和KD-Tree相反的思路，不再对空间进行划分，而是对物体进行划分，然后构建新的子包围盒，这样得到的结构，虽然包围盒可能彼此相交且空间划分并不完全均匀，但是可以保证每个物体只存在于一个包围盒中，且不需要担心盒子和物体的相交问题（因为盒子是由包围关系确定的）</p>
+
+<p>Summary: Building BVHs</p>
+
+<ul>
+  <li>Find bounding box</li>
+  <li>Recursively split set of objects in two subsets</li>
+  <li><strong>Recompute</strong> the bounding box of the subsets</li>
+  <li>Stop when necessary</li>
+  <li>Store objects in each leaf node</li>
+</ul>
+
+<p>细节问题：</p>
+
+<ul>
+  <li>How to subdivide a node?
+    <ul>
+      <li>Choose a dimension to split</li>
+      <li>Heuristic #1: Always choose the longest axis in node（保证盒子尽可能是方的）</li>
+      <li>Heuristic #2: Split node at location of <strong>median</strong> object</li>
+    </ul>
+  </li>
+  <li>Termination criteria?
+    <ul>
+      <li>Heuristic: stop when node contains few elements(e.g. 5)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Data Structure for BVHs</p>
+
+<ul>
+  <li>Internal nodes store
+    <ul>
+      <li>Bounding box</li>
+      <li>Children: pointers to child nodes</li>
+    </ul>
+  </li>
+  <li>Leaf nodes store
+    <ul>
+      <li>Bounding box</li>
+      <li>List of objects</li>
+    </ul>
+  </li>
+  <li>Nodes represent subset of primitives in scene
+    <ul>
+      <li>All objects in subtree</li>
+    </ul>
+  </li>
+</ul>
+
+<p>BVH Traversal(pseudocode)</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Intersect</span><span class="p">(</span><span class="n">Ray</span> <span class="n">ray</span><span class="p">,</span> <span class="n">BVH</span> <span class="n">node</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">ray</span> <span class="n">misses</span> <span class="n">node</span><span class="p">.</span><span class="n">bbox</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="n">is</span> <span class="n">a</span> <span class="n">leaf</span> <span class="n">node</span><span class="p">)</span>
+    <span class="n">test</span> <span class="n">intersection</span> <span class="n">with</span> <span class="n">all</span> <span class="n">objs</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">closest</span> <span class="n">intersection</span><span class="p">;</span>
+
+  <span class="n">hit1</span> <span class="o">=</span> <span class="n">Intersect</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">node</span><span class="p">.</span><span class="n">child1</span><span class="p">);</span>
+  <span class="n">hit2</span> <span class="o">=</span> <span class="n">Intersect</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">node</span><span class="p">.</span><span class="n">child2</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">the</span> <span class="n">closer</span> <span class="n">of</span> <span class="n">hit1</span><span class="p">,</span> <span class="n">hit2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Spatial vs. Object Partitions</p>
+
+<ul>
+  <li>Spatial partition(e.g. KD-Tree)
+    <ul>
+      <li>Partition space into non-overlapping regions</li>
+      <li>An object can be contained in multiple regions</li>
+    </ul>
+  </li>
+  <li>Object partition(e.g. BVH)
+    <ul>
+      <li>Partition set of objects into disjoint subsets</li>
+      <li>Bounding boxes for each set may overlap in space</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="basic-radiometry">Basic Radiometry</h3>
+
+<h4 id="motivation">Motivation</h4>
+
+<p>之前提到的Blinn-Phong模型并没有给出I的物理意义，对于Whitted光线追踪来说，也是缺少一些变量的定义。</p>
+
+<p>All the answers can be found in radiometry!</p>
+
+<h4 id="radiometry">Radiometry</h4>
+
+<ul>
+  <li>Measurement system and unit for illumination</li>
+  <li>Accurately measure the spatial properties of light
+    <ul>
+      <li>New terms: Radiant flux, intensity, irradiance, radiance</li>
+    </ul>
+  </li>
+  <li>Perform lighting calculations <strong>in a physically correct manner</strong></li>
+</ul>
+
+<h4 id="radiant-energy-and-fluxpower">Radiant Energy and Flux(Power)</h4>
+
+<p>Definition: Radiant energy is the energy of electromagnetic radiation. It is measured in units of joules, and denoted by the symbol:</p>
+
+\[Q[\mathrm{J} = \mathrm{Joule}]\]
+
+<p>Definition: Radiant flux(power) is the energy emitted, reflected, transmitted or received, per unit time.</p>
+
+\[\Phi \equiv \frac{\mathrm{d}Q}{\mathrm{d}t}
+  [\mathrm{W} = \mathrm{Watt}] [\mathrm{lm} = \mathrm{lumen}]\]
+
+<p>Flux - # photons flowing through a sensor in unit time</p>
+
+<h4 id="important-light-measurements-of-interest">Important Light Measurements of Interest</h4>
+
+<ul>
+  <li>Radiant Intensity - Light Emitted From A Source</li>
+  <li>Irradiance - Light Falling On A Surface</li>
+  <li>Radiance - Light Traveling Along A ray</li>
+</ul>
+
+<h4 id="radiant-intensity">Radiant Intensity</h4>
+
+<p>Definition: The radiant(luminous) intensity is the power per unit <strong>solid angle</strong>（立体角） emitted by a point light source.</p>
+
+\[I(\omega) \equiv \frac{\mathrm{d}\Phi}{\mathrm{d}\omega}\]
+
+\[\left[\frac{\mathrm{W}}{\mathrm{sr}}\right]\left[\frac{\mathrm{lm}}{\mathrm{sr}} = \mathrm{cd} = \mathrm{candela}\right]\]
+
+<p>Angles and Solid Angles</p>
+
+<ul>
+  <li>Angle: ratio of subtended arc length on circle to radius
+    <ul>
+      <li>$\theta = \frac{l}{r}$</li>
+      <li>Circle has $2\pi$ radians</li>
+    </ul>
+  </li>
+  <li>Solid angle: ratio of subtended area on sphere to radius squared
+    <ul>
+      <li>$\Omega = \frac{A}{r^2}$</li>
+      <li>Sphere has $4\pi$ steradians</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Differential Solid Angles</p>
+
+\[\mathrm{d}A = (r\mathrm{d}\theta)(r\sin\theta\mathrm{d}\phi) = r^2\sin\theta\mathrm{d}\theta\mathrm{d}\phi\]
+
+<p>单位立体角</p>
+
+\[\mathrm{d}\omega = \frac{\mathrm{d}A}{r^2} = \sin\theta\mathrm{d}\theta\mathrm{d}\phi\]
+
+<p>如果对一个球各个方向的单位立体角进行积分，</p>
+
+\[\Omega = \int_{S^2}\mathrm{d}\omega = \int_{0}^{2\pi}\int_{0}^\pi
+\sin\theta \mathrm{d}\theta\mathrm{d}\phi = 4\pi\]
+
+<p>这同之前立体角的定义相符合；对于均匀照射的点光源，我们沿各个单位立体角对Radiant Intensity进行积分，可得</p>
+
+\[\Phi = \int_{S^2}I\mathrm{d}\omega = 4\pi I\\\]
+
+<p>因此对于均匀的点光源而言，</p>
+
+\[I = \frac{\Phi}{4\pi}.\]
+
+<h2 id="lecture-15-ray-tracing-3light-transport--global-illumination">Lecture 15 Ray Tracing 3(Light Transport &amp; Global Illumination)</h2>
+
+<p>本讲内容</p>
+
+<ul>
+  <li>Radiometry cont.</li>
+  <li>Light transport
+    <ul>
+      <li>The reflection equation</li>
+      <li>The rendering equation</li>
+    </ul>
+  </li>
+  <li>Global illumination</li>
+  <li>Probability review</li>
+</ul>
+
+<h3 id="irradiance">Irradiance</h3>
+
+<p>Definition: The irradiance is the power per(perpendicular/projected) unit area incident on a surface point.</p>
+
+\[E(\mathbf{x}) \equiv \frac{\mathrm{d}\Phi(\mathbf{x})}{\mathrm{d}A}\]
+
+\[\left[\frac{\mathrm{W}}{\mathrm{m}^2}\right]\left[\frac{\mathrm{lm}}{\mathrm{m}^2} = \mathrm{lux}\right]\]
+
+<h4 id="lamberts-cosine-law">Lambert’s Cosine Law</h4>
+
+<p>Irradiance at surface is proportional to cosine of angle between light direction and surface normal.</p>
+
+<h4 id="correction-irradiance-falloff">Correction: Irradiance Falloff</h4>
+
+<ul>
+  <li>Assume light is emitting power $\Phi$ in a uniform angular distribution</li>
+  <li>计算从光源出发，沿$\Phi$方向在两个不同距离的球面上的Radiant Intensity，由于其只与单位立体角有关，而其始终是$\Phi$，因此两处的Radiant Intensity是相同的；而由于Irradiance计算的是单位面积上的能量，因此Irradiance会随着距离的增加按距离的平方反比逐渐衰减。</li>
+</ul>
+
+<h3 id="radiance">Radiance</h3>
+
+<p>Radiance is the fundamental field quantity that describes the distribution of light in an environment</p>
+
+<ul>
+  <li>Radiance is the quantity associated with a ray</li>
+  <li>Rendering is all about computing radiance</li>
+</ul>
+
+<p>Definition: The radiance(luminance) is the power emitted, reflected, transmitted or received by a surface, <strong>per unit solid angle</strong>, <em>per projected unit area</em>.</p>
+
+\[L(p, \omega) \equiv \frac{\mathrm{d}^2\Phi(p, \omega)}{\mathrm{d}\omega\mathrm{d}A\cos\theta},\]
+
+<p>where $\cos \theta$ accounts for projected surface area.</p>
+
+\[\left[\frac{\mathrm{W}}{\mathrm{sr}\ \mathrm{m}^2}\right]\left[\frac{\mathrm{cd}}{\mathrm{m}^2} =\frac{\mathrm{lm}}{\mathrm{sr\ m}^2} = \mathrm{nit}\right]\]
+
+<p>Recall</p>
+
+<ul>
+  <li>Irradiance: power per projected unit area</li>
+  <li>Intensity：power per solid angle</li>
+</ul>
+
+<p>So</p>
+
+<ul>
+  <li>Radiance: Irradiance per solid angle</li>
+  <li>Radiance: Intensity per projected unit area</li>
+</ul>
+
+<p>所以可以进一步得到如下新的定义：</p>
+
+<p>Incident Radiance</p>
+
+<ul>
+  <li>Incident radiance is the irradiance per unit solid angle arriving at the surface.</li>
+  <li>i.e., it is the light arriving at the surface along a given ray(point on surface and incident direction)</li>
+</ul>
+
+\[L(p, \omega) = \frac{\mathrm{d}E(p)}{\mathrm{d}\omega \cos \theta}\]
+
+<p>Exiting Radiance</p>
+
+<ul>
+  <li>Exiting radiance is the intensity per unit projected area leaving the surface.</li>
+  <li>e.g., for an area light it is the light emitted along a given ray(point on surface and exit direction).</li>
+</ul>
+
+\[L(p, \omega) = \frac{\mathrm{d}I(p, \omega)}{\mathrm{d}A \cos \theta}\]
+
+<p>这里之所以用的分别是Irradiance和Intensity进行微分，是因为对于一个反射问题，我们需要考虑的两件事分别是</p>
+
+<ul>
+  <li>给定方向的光照打在单位面上吸收多少能量</li>
+  <li>从单位面发出的光照会打到任意方向，落在特定方向上的能量是多少</li>
+</ul>
+
+<p>这两件事就决定了对于Incident Radiance和Exiting Radiance，分别采取不同的格式来定义。</p>
+
+<p>Irradiance vs. Radiance</p>
+
+<ul>
+  <li>Irradiance: total power received by area $\mathrm{d} A$</li>
+  <li>Radiance: power received by area $\mathrm{d} A$ from “direction” $\mathrm{d}\omega$</li>
+</ul>
+
+\[\mathrm{d}E(p, \omega) = L_i(p, \omega) \cos \theta \mathrm{d}\omega\]
+
+\[E(p) = \int_{H^2}L_i(p, omega)\cos\theta\mathrm{d}\omega\]
+
+<p>差别就是一个方向性。</p>
+
+<h4 id="brdf-bidirectional-reflectance-distribution-function-双向反射分布函数">BRDF: Bidirectional Reflectance Distribution Function 双向反射分布函数</h4>
+
+<p>用来说明如果一个能量，从某个方向进来，将会沿指定方向分布多少能量。</p>
+
+<p>Reflection at a Point</p>
+
+<ul>
+  <li>Radiance from direction $\omega_i$ turns into the power $E$ that $\mathrm{d}A$ receives</li>
+  <li>Then the power $E$ will become the radiance to any other direction $\omega_o$</li>
+</ul>
+
+<p>BRDF</p>
+
+<ul>
+  <li>The Bidirectional Reflectance Distribution Function(BRDF) represents how much light is reflected into each outgoing direction $\omega_r$ from each incoming direction</li>
+</ul>
+
+\[f_r(\omega_i\rightarrow \omega_r) = \frac{\mathrm{d}L_r(\omega)}{\mathrm{d}E_i(\omega_i)} = \frac{\mathrm{d}L_r(\omega_r)}{L_i(\omega_i)\cos\theta_i\mathrm{d}\omega_i}\quad \left[\frac{1}{\mathrm{sr}}\right]\]
+
+<p>描述了光线和物体是如何作用的，因此$f$定义了不同的材质</p>
+
+<p>The Reflection Equation</p>
+
+\[L_r(p, \omega_r) = \int_{H^2}f_r(p, \omega\rightarrow \omega_r)L_i(p, \omega_i)\cos\theta_i \mathrm{d}\omega_i\]
+
+<h4 id="the-rendering-equation">The Rendering Equation</h4>
+
+<ul>
+  <li>Re-write the reflection equation by adding an Emission term to make it general:</li>
+</ul>
+
+\[L_o(p, \omega_o) = L_e(p, \omega_o) + \int_{\Omega^+}L_i(p, \omega_i)f_r(p, \omega_i, \omega_o) (n \cdot \omega_i) \mathrm{d}\omega_i\]
+
+<p>Note: now, we assume that all directions are pointing outwards.</p>
+
+<p>对于渲染方程，如果我们仅考虑一次反射，则$L_i$与$L_o$并无关联。但是当我们递归考虑，即经过光源照射后的每个面都会照射其他面，则此时的渲染方程可以写作</p>
+
+\[L_r(x, \omega_r) = L_e(p, \omega_r) + \int_{\Omega}L_r(x', -\omega_i)f_r(x, \omega_i, \omega_r) \cos\theta_i \mathrm{d}\omega_i\]
+
+<p>此时在渲染方程的结构中未知项仅为$L_r$，发现其实际上是一个第二类Fredholm Integral Equation，其一般形式为</p>
+
+\[l(u) = e(u) + \int l(v) K(u, v)\mathrm{d}v\]
+
+<p>如果进一步用算子$L, E, K$来替代上述表示，则有</p>
+
+\[L = E + KL,\]
+
+<p>which can be discretized to a simple matrix equation($L, E$ are vectors, $K$ is the light transport matrix)</p>
+
+<ul>
+  <li>General class numerical Monte Carlo methods</li>
+  <li>Approximate set of all paths of light in scene</li>
+</ul>
+
+\[L = E + KL \Rightarrow (I-K)L = E \\ \Rightarrow L = (I-K)^{-1}E = E + KE + K^2E + \cdots\]
+
+<p>由此得到的便是全局光照结果，具体来说，$E$是光源项，$KE$是直接光照项（一次反射，能够体现阴影），$K^2E$及以后是间接光照项（镜子和其他非光源的反射）。对于光栅化这种方法，对于光源和直接光照会有很好的刻画，对于间接光照部分比较难处理。</p>
+
+<h3 id="probability-review">Probability Review</h3>
+
+<ul>
+  <li>$X$: random variable. Represents a distribution of potential values</li>
+  <li>$X\sim p(x)$: probability density function(PDF). Describes relative probability of a random process choosing value $x$</li>
+  <li>$E[x]$: Expected Value of a Random Variable. The average value that one obtains if repeatedly drawing samples from the random distribution.</li>
+</ul>
+
+\[E[X] = \int xp(x)\mathrm{d}x \\
+  E[f(X)] = \int f(x)p(x)\mathrm{d}x\]
+
+<h2 id="lecture-16-ray-tracing-4monte-carlo-path-tracing">Lecture 16 Ray-Tracing 4(Monte Carlo Path Tracing)</h2>
+
+<p>本讲内容</p>
+
+<ul>
+  <li>A Brief Review</li>
+  <li>Monte Carlo Integration</li>
+  <li>Path Tracing</li>
+</ul>
+
+<h3 id="review">Review</h3>
+
+<h4 id="review---the-rendering-equation">Review - The Rendering Equation</h4>
+
+<p>Describing the light transport</p>
+
+\[L_o(p, \omega_o) = L_e(p, \omega_o) + \int_{\Omega^+}L_i(p, \omega_i)f_r(p, \omega_i, \omega_o) (n \cdot \omega_i) \mathrm{d}\omega_i\]
+
+<h4 id="review---probabilities">Review - Probabilities</h4>
+
+<ul>
+  <li>Continuous Variable and Probability Density Functions</li>
+  <li>Understanding: randomly pick an $X$ –&gt; more likely to be a number closer to 0(in this case)</li>
+</ul>
+
+<h3 id="monte-carlo-integration">Monte Carlo Integration</h3>
+
+<ul>
+  <li>Why: we want to solve an integral, but it can be too difficult to solve analytically.</li>
+  <li>What &amp; How: estimate the integral of a function by averaging random samples of the function’s value.</li>
+</ul>
+
+<p>Let us define the Monte Carlo estimator for the definite integral of given function $f(x)$</p>
+
+<ul>
+  <li>Definite integral: $\int_a^b f(x)\mathrm{d}x$</li>
+  <li>Random variable: $X_i \sim p(x)$</li>
+  <li>Monte Carlo estimator: $F_N = \frac{1}{N}\sum_{i = 1}^N\frac{f(X_i)}{p(X_i)}$</li>
+</ul>
+
+<blockquote>
+  <p>$p$提供了采样${X_i}$的规则，对于概率密度大的位置，可以采样的次数也会变多，因此分母需要除以$p(X_i)$</p>
+</blockquote>
+
+<p>Some notes</p>
+
+<ul>
+  <li>The more samples, the less variance.</li>
+  <li>Sample on x, integrate on x.</li>
+</ul>
+
+<h3 id="path-tracing">Path Tracing</h3>
+
+<p>Motivation: Whitted-Style Ray Tracing:</p>
+
+<ul>
+  <li>Always perform specular reflections/refractions</li>
+  <li>Stop bouncing at diffuse surfaces</li>
+</ul>
+
+<p>which are not absolutely right. Whitted-style ray tracing is wrong. But the rendering equation is correct. But it involves</p>
+
+<ul>
+  <li>Solving an integral over the hemisphere, and</li>
+  <li>Recursive execution</li>
+</ul>
+
+<h4 id="a-simple-monte-carlo-solutiondirect-illumination">A Simple Monte Carlo Solution(Direct Illumination)</h4>
+
+<p>We want to compute the radiance at $p$ towards the camera</p>
+
+\[L_o(p, \omega_o) = \int_{\Omega^+}L_i(p, \omega_i)f_r(p, \omega_i, \omega_o) (n \cdot \omega_i) \mathrm{d}\omega_i\]
+
+<p>Monte Carlo integration:</p>
+
+\[\int_a^b f(x)\mathrm{d}x \approx \frac{1}{N}\sum_{i = 1}^N\frac{f(X_i)}{p(X_k)},\qquad X_i \sim p(x)\]
+
+<p>What’s our “$f(x)$”?</p>
+
+\[L_i(p, \omega_i)f_r(p, \omega_i, \omega_o) (n \cdot \omega_i)\]
+
+<p>What’s our pdf?</p>
+
+\[p(\omega_i) = \frac{1}{2\pi}\]
+
+<p>(assume uniformly sampling the hemisphere)</p>
+
+<p>So, in general</p>
+
+\[L_o(p, \omega_o) = \int_{\Omega^+}L_i(p, \omega_i)f_r(p, \omega_i, \omega_o) (n \cdot \omega_i) \mathrm{d}\omega_i\\
+  \approx \frac{1}{N}\sum_{i = 1}^N\frac{  L_i(p, \omega_i)f_r(p, \omega_i, \omega_o) (n \cdot \omega_i)}{p(\omega_i)}\]
+
+<p>What does it mean? A correct shading algorithm for direct illumination!</p>
+
+<p>Algorithm:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">wo</span><span class="p">)</span>
+  <span class="n">Randomly</span> <span class="n">choose</span> <span class="n">N</span> <span class="n">directions</span> <span class="n">wi</span><span class="o">~</span><span class="n">pdf</span>
+  <span class="n">Lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="n">For</span> <span class="n">each</span> <span class="n">wi</span>
+    <span class="n">Trace</span> <span class="n">a</span> <span class="n">ray</span> <span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">wi</span><span class="p">)</span>
+    <span class="n">If</span> <span class="n">ray</span> <span class="n">r</span> <span class="n">hit</span> <span class="n">the</span> <span class="n">light</span>
+      <span class="n">Lo</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">L_i</span> <span class="o">*</span> <span class="n">f_r</span> <span class="o">*</span> <span class="n">cosine</span> <span class="o">/</span> <span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">)</span>
+  <span class="n">Return</span> <span class="n">Lo</span>
+</code></pre></div></div>
+
+<h4 id="introducing-global-illumination">Introducing Global Illumination</h4>
+
+<p>One more step forward: what if a ray hits an object?</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">wo</span><span class="p">)</span>
+  <span class="n">Randomly</span> <span class="n">choose</span> <span class="n">N</span> <span class="n">directions</span> <span class="n">wi</span><span class="o">~</span><span class="n">pdf</span>
+  <span class="n">Lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="n">For</span> <span class="n">each</span> <span class="n">wi</span>
+    <span class="n">Trace</span> <span class="n">a</span> <span class="n">ray</span> <span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">wi</span><span class="p">)</span>
+    <span class="n">If</span> <span class="n">ray</span> <span class="n">r</span> <span class="n">hit</span> <span class="n">the</span> <span class="n">light</span>
+      <span class="n">Lo</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">L_i</span> <span class="o">*</span> <span class="n">f_r</span> <span class="o">*</span> <span class="n">cosine</span> <span class="o">/</span> <span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">)</span>
+    <span class="n">Else</span> <span class="n">If</span> <span class="n">ray</span> <span class="n">r</span> <span class="n">hit</span> <span class="n">an</span> <span class="n">object</span> <span class="n">at</span> <span class="n">q</span>
+      <span class="n">Lo</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">shade</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="o">-</span><span class="n">wi</span><span class="p">)</span> <span class="o">*</span> <span class="n">f_r</span> <span class="o">*</span> <span class="n">cosine</span> <span class="o">/</span> <span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">)</span>
+  <span class="n">Return</span> <span class="n">Lo</span>
+</code></pre></div></div>
+
+<h4 id="problem-1-explosion-of-rays-as-bounces-go-up">Problem 1: Explosion of #rays as #bounces go up</h4>
+
+<p>From now on, we always assume that one <strong>1 ray</strong> is traced at each shading point:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">wo</span><span class="p">)</span>
+  <span class="n">Randomly</span> <span class="n">choose</span> <span class="n">ONE</span> <span class="n">directions</span> <span class="n">wi</span><span class="o">~</span><span class="n">pdf</span>
+  <span class="n">Lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="n">For</span> <span class="n">each</span> <span class="n">wi</span>
+    <span class="n">Trace</span> <span class="n">a</span> <span class="n">ray</span> <span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">wi</span><span class="p">)</span>
+    <span class="n">If</span> <span class="n">ray</span> <span class="n">r</span> <span class="n">hit</span> <span class="n">the</span> <span class="n">light</span>
+      <span class="n">Lo</span> <span class="o">+=</span> <span class="n">L_i</span> <span class="o">*</span> <span class="n">f_r</span> <span class="o">*</span> <span class="n">cosine</span> <span class="o">/</span> <span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">)</span>
+    <span class="n">Else</span> <span class="n">If</span> <span class="n">ray</span> <span class="n">r</span> <span class="n">hit</span> <span class="n">an</span> <span class="n">object</span> <span class="n">at</span> <span class="n">q</span>
+      <span class="n">Lo</span> <span class="o">+=</span> <span class="n">shade</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="o">-</span><span class="n">wi</span><span class="p">)</span> <span class="o">*</span> <span class="n">f_r</span> <span class="o">*</span> <span class="n">cosine</span> <span class="o">/</span> <span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">)</span>
+  <span class="n">Return</span> <span class="n">Lo</span>
+</code></pre></div></div>
+
+<p>This is <strong>path tracing</strong>(Distributed Ray Tracing if $N != 1$)</p>
+
+<p>But this will be noisy!</p>
+
+<ul>
+  <li>No problem, just trace more paths through each pixel and average their radiance!</li>
+</ul>
+
+<p>Ray Generation</p>
+
+<p>Very similar to ray casting in ray tracing</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ray_generation</span><span class="p">(</span><span class="n">camPos</span><span class="p">,</span> <span class="n">pixel</span><span class="p">)</span>
+  <span class="n">Uniformly</span> <span class="n">choose</span> <span class="n">N</span> <span class="n">sample</span> <span class="n">positions</span> <span class="n">within</span> <span class="n">the</span> <span class="n">pixel</span>
+  <span class="n">pixel_radiance</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="n">For</span> <span class="n">each</span> <span class="n">sample</span> <span class="n">in</span> <span class="n">the</span> <span class="n">pixel</span>
+    <span class="n">Shoot</span> <span class="n">a</span> <span class="n">ray</span> <span class="n">r</span><span class="p">(</span><span class="n">camPos</span><span class="p">,</span> <span class="n">cam_to_sample</span><span class="p">)</span>
+    <span class="n">If</span> <span class="n">ray</span> <span class="n">r</span> <span class="n">hit</span> <span class="n">the</span> <span class="n">scene</span> <span class="n">at</span> <span class="n">p</span>
+      <span class="n">pixel_radiance</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">sample_to_cam</span><span class="p">)</span>
+  <span class="n">Return</span> <span class="n">pixel_radiance</span>
+</code></pre></div></div>
+
+<h4 id="problem-2-the-recursive-algorithm-will-never-stop">Problem 2: The recursive algorithm will never stop</h4>
+
+<p>Solution: Russian Roulette(RR)</p>
+
+<ul>
+  <li>Russian Roulette is all about probability
+    <ul>
+      <li>With probability $0 &lt; P &lt; 1$, you will fine</li>
+      <li>With probability $1 - P$, otherwise</li>
+    </ul>
+  </li>
+  <li>How to do
+    <ul>
+      <li>Previously, we always shoot a ray at a shading point and get the shading result $Lo$</li>
+      <li>Suppose we manually set a probability $P(0 &lt; P &lt; 1)$</li>
+      <li>With probability $P$, shoot a ray and return the shading result divided by $P$: $Lo / P$</li>
+      <li>With probability $1-P$, don’t shoot a ray and you’ll get $0$</li>
+    </ul>
+  </li>
+</ul>
+
+<p>In this way, you can still <strong>expect</strong> to get $Lo$:</p>
+
+\[E = P * (Lo / P) + (1 - P) * 0 = Lo\]
+
+<p>Modified Algorithm</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">wo</span><span class="p">)</span>
+  <span class="n">Manually</span> <span class="n">specify</span> <span class="n">a</span> <span class="n">probability</span> <span class="n">P_RR</span>
+  <span class="n">Randomly</span> <span class="n">select</span> <span class="n">ksi</span> <span class="n">in</span> <span class="n">a</span> <span class="n">uniform</span> <span class="n">dist</span><span class="p">.</span> <span class="n">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+  <span class="n">If</span><span class="p">(</span><span class="n">ksi</span> <span class="o">&gt;</span> <span class="n">P_RR</span><span class="p">)</span> <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
+
+  <span class="n">Randomly</span> <span class="n">choose</span> <span class="n">ONE</span> <span class="n">directions</span> <span class="n">wi</span><span class="o">~</span><span class="n">pdf</span>
+  <span class="n">Lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="n">For</span> <span class="n">each</span> <span class="n">wi</span>
+    <span class="n">Trace</span> <span class="n">a</span> <span class="n">ray</span> <span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">wi</span><span class="p">)</span>
+    <span class="n">If</span> <span class="n">ray</span> <span class="n">r</span> <span class="n">hit</span> <span class="n">the</span> <span class="n">light</span>
+      <span class="n">Lo</span> <span class="o">+=</span> <span class="n">L_i</span> <span class="o">*</span> <span class="n">f_r</span> <span class="o">*</span> <span class="n">cosine</span> <span class="o">/</span> <span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">)</span> <span class="o">/</span> <span class="n">P_RR</span>
+    <span class="n">Else</span> <span class="n">If</span> <span class="n">ray</span> <span class="n">r</span> <span class="n">hit</span> <span class="n">an</span> <span class="n">object</span> <span class="n">at</span> <span class="n">q</span>
+      <span class="n">Lo</span> <span class="o">+=</span> <span class="n">shade</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="o">-</span><span class="n">wi</span><span class="p">)</span> <span class="o">*</span> <span class="n">f_r</span> <span class="o">*</span> <span class="n">cosine</span> <span class="o">/</span> <span class="n">pdf</span><span class="p">(</span><span class="n">wi</span><span class="p">)</span> <span class="o">/</span> <span class="n">P_RR</span>
+  <span class="n">Return</span> <span class="n">Lo</span>
+</code></pre></div></div>
+
+<h4 id="sampling-the-lightpure-math">Sampling the light(pure math)</h4>
+
+<p>Now we already have a correct version of path tracing! But it’s not really efficient.</p>
+
+<p>The reason of being inefficient: A lot of rays are “wasted” if we uniformly sample the hemisphere at the shading point.</p>
+
+<p>Monte Carlo methods allows any sampling methods, so we can sample the light(therefore no rays are “wasted”)</p>
+
+<ul>
+  <li>Assume uniformly sampling on the light:
+    <ul>
+      <li>$pdf = 1 / A$(because $\int pdf \mathrm{d}A = 1$)</li>
+      <li>But the rendering equation integrates on the solid angle: $Lo = \int Li fr \cos \mathrm{d}\omega$</li>
+    </ul>
+  </li>
+  <li>Recall Monte Carlo Integration: Sample on $x$ &amp; integrate on $x$
+    <ul>
+      <li>Can we sample on the light, can we integrate on the light?</li>
+    </ul>
+  </li>
+  <li>Need to make the rendering equation as an integral of $\mathrm{d}A$
+    <ul>
+      <li>Need the relationship between $\mathrm{d}\omega$ and $\mathrm{d}A$</li>
+      <li>Recall the alternative def. of solid angle: Projected area on the unit sphere</li>
+      <li>$\mathrm{d}\omega = \frac{\mathrm{d}A\cos\theta’}{|x’ - x|^2}$</li>
+    </ul>
+  </li>
+  <li>Then we can rewrite teh rendering equation as</li>
+</ul>
+
+\[L_o(p, \omega_o) = \int_{\Omega^+}L_i(p, \omega_i)f_r(p, \omega_i, \omega_o) \cos \theta \mathrm{d}\omega_i \\
+  = \int_A L_i(p, \omega_i)f_r(p, \omega_i, \omega_o) \frac{\cos\theta\cos\theta'}{\|x' - x\|^2} \mathrm{d}A\]
+
+<p>Now the modified Monte Carlo integration:</p>
+
+<ul>
+  <li>“$f(x)$”: everything inside</li>
+  <li>pdf: $1 / A$</li>
+</ul>
+
+<p>Now we consider the radiance coming from two parts:</p>
+
+<ol>
+  <li>light source(direct, no need to have RR)</li>
+  <li>other reflectors(indirect, RR)</li>
+</ol>
+
+<p>Modified Algorithm:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shade</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">wo</span><span class="p">)</span>
+  <span class="c1">// Contribution from the light source.</span>
+
+  <span class="n">Uniformly</span> <span class="n">sample</span> <span class="n">the</span> <span class="n">light</span> <span class="n">at</span> <span class="n">x</span><span class="err">'</span> <span class="p">(</span><span class="n">pdf_light</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">A</span><span class="p">)</span>
+  <span class="n">L_dir</span> <span class="o">=</span> <span class="n">L_i</span> <span class="o">*</span> <span class="n">f_r</span> <span class="o">*</span> <span class="n">cos</span> <span class="n">theta</span> <span class="o">*</span> <span class="n">cos</span> <span class="n">theta</span><span class="err">'</span> <span class="o">/</span> <span class="o">|</span><span class="n">x</span><span class="err">'</span> <span class="o">-</span> <span class="n">p</span><span class="o">|^</span><span class="mi">2</span> <span class="o">/</span> <span class="n">pdf_light</span>
+
+  <span class="c1">// Contribution from other reflectors.</span>
+
+  <span class="n">L_indir</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="n">Test</span> <span class="n">Russian</span> <span class="n">Roulette</span> <span class="n">with</span> <span class="n">probability</span> <span class="n">P_RR</span>
+  <span class="n">Uniformly</span> <span class="n">sample</span> <span class="n">the</span> <span class="n">hemisphere</span> <span class="n">toward</span> <span class="n">wi</span><span class="p">(</span><span class="n">pdf_hemi</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="n">pi</span><span class="p">)</span>
+  <span class="n">Trace</span> <span class="n">a</span> <span class="n">ray</span> <span class="n">r</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">wi</span><span class="p">)</span>
+  <span class="n">If</span> <span class="n">ray</span> <span class="n">r</span> <span class="n">hit</span> <span class="n">a</span> <span class="n">non</span><span class="o">-</span><span class="n">emitting</span> <span class="n">object</span> <span class="n">at</span> <span class="n">q</span>
+    <span class="n">L_indir</span> <span class="o">=</span> <span class="n">shade</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="o">-</span><span class="n">wi</span><span class="p">)</span> <span class="o">*</span> <span class="n">f_r</span> <span class="o">*</span> <span class="n">cos</span> <span class="n">theta</span> <span class="o">/</span> <span class="n">pdf_hemi</span> <span class="o">/</span> <span class="n">P_RR</span>
+
+  <span class="n">Return</span> <span class="n">L_dir</span> <span class="o">+</span> <span class="n">L_indir</span>
+</code></pre></div></div>
+
+<p>One final thing: how do we know if the sample on teh light is not blocked or not?</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">L_dir</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="n">Uniformly</span> <span class="n">sample</span> <span class="n">the</span> <span class="n">light</span> <span class="n">at</span> <span class="n">x</span><span class="err">'</span> <span class="p">(</span><span class="n">pdf_light</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">A</span><span class="p">)</span>
+  <span class="n">Shoot</span> <span class="n">a</span> <span class="n">ray</span> <span class="n">from</span> <span class="n">p</span> <span class="n">to</span> <span class="n">x</span><span class="err">'</span>
+  <span class="n">If</span> <span class="n">the</span> <span class="n">ray</span> <span class="n">is</span> <span class="n">not</span> <span class="n">blocked</span> <span class="n">in</span> <span class="n">the</span> <span class="n">middle</span>
+    <span class="n">L_dir</span> <span class="o">=</span> <span class="p">...</span>
+</code></pre></div></div>
+
+<h4 id="is-path-tracing-correct">Is Path Tracing Correct?</h4>
+
+<p><strong>Yes, almost 100% correct, a.k.a PHOTO-REALISTIC.</strong></p>
+
+<h4 id="is-path-tracing-introductory">Is Path Tracing “Introductory”?</h4>
+
+<p><strong>This time, yes. Fear the science, my friends.</strong></p>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#learning-notes">learning-notes</a></li><li>
+        <a class="post-tag" href="/tags/#games101">games101</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2023/02/28/Design_Document01/">
+          Design_Documentation01
+          <small><time datetime="2023-02-28T13:46:00+08:00">28 Feb 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2023/02/28/Design_Document01/">
+          Design_document01
+          <small><time datetime="2023-02-28T00:00:00+08:00">28 Feb 2023</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2023/02/13/GAMES101_notes_05/">
+          GAMES101_notes_05
+          <small><time datetime="2023-02-13T19:55:00+08:00">13 Feb 2023</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2022&nbsp;-&nbsp;2023 <a href="https://github.com/zhengtongdu">zhengtongdu</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+<div  class="toc-wrapper">
+  <h2 class="toc-title">Table of Contents</h2>
+    <nav class="toc-nav">
+      <ul class="toc">
+  <li><a href="#lecture-13-ray-tracing-1whitted-style-ray-tracing">Lecture 13 Ray Tracing 1(Whitted-Style Ray Tracing)</a>
+    <ul>
+      <li><a href="#why-ray-tracing">Why Ray Tracing</a></li>
+      <li><a href="#basic-ray-tracing-algorithm">Basic Ray Tracing Algorithm</a></li>
+      <li><a href="#ray-surface-intersection">Ray-Surface Intersection</a></li>
+      <li><a href="#accelerating-ray-surface-intersection">Accelerating Ray-Surface Intersection</a></li>
+    </ul>
+  </li>
+  <li><a href="#lecture-14-ray-tracing-2acceleration--radiometry">Lecture 14 Ray Tracing 2(Acceleration &amp; Radiometry)</a>
+    <ul>
+      <li><a href="#uniform-spatial-partitionsgrids">Uniform Spatial Partitions(Grids)</a></li>
+      <li><a href="#spatial-partitions">Spatial Partitions</a></li>
+      <li><a href="#object-partitions--bounding-volume-hierarchybvh">Object Partitions &amp; Bounding Volume Hierarchy(BVH)</a></li>
+      <li><a href="#basic-radiometry">Basic Radiometry</a></li>
+    </ul>
+  </li>
+  <li><a href="#lecture-15-ray-tracing-3light-transport--global-illumination">Lecture 15 Ray Tracing 3(Light Transport &amp; Global Illumination)</a>
+    <ul>
+      <li><a href="#irradiance">Irradiance</a></li>
+      <li><a href="#radiance">Radiance</a></li>
+      <li><a href="#probability-review">Probability Review</a></li>
+    </ul>
+  </li>
+  <li><a href="#lecture-16-ray-tracing-4monte-carlo-path-tracing">Lecture 16 Ray-Tracing 4(Monte Carlo Path Tracing)</a>
+    <ul>
+      <li><a href="#review">Review</a></li>
+      <li><a href="#monte-carlo-integration">Monte Carlo Integration</a></li>
+      <li><a href="#path-tracing">Path Tracing</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </nav>
+</div>
+
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>
