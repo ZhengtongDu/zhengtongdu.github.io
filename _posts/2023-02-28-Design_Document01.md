@@ -11,7 +11,7 @@ toc: true
 
 ## Delaunay Triangulation
 
-> 理论及算法的介绍：请参见[这里][delaunaytriangulation]
+> 理论及算法的介绍：请参见[这里][delaunaytriangulation]，《Computational Geometry》书中第九章的笔记
 
 程序最后实现了如下目标：对于输入的散点（通过触发鼠标事件或者在main.cpp中设定）：
 ![fig01: scattered points](/assets/23-02-28-fig01.png){:height="300px" width="300px"}
@@ -138,9 +138,319 @@ public:
 
 #### 如何处理Bounding Triangle?
 
+这里是按书中算法，设定了两个“观念上的”额外点，用来在定义的时候它们的坐标设定为-1和-2，并且在进入添加点的循环之前，首先创造了一个bounding triangle：
+
+```c++
+    // construct bounding triangle
+    head.reset(new ListNode(-2, -1, 0));
+    TriangleTree tree;
+    tree.root.reset(new TreeNode(-2, -1, 0));
+    linkEdge(head);
+    crossLink(head, tree.root);
+```
+
+在其他几个函数中，因为可能涉及到处理bounding triangle，因此额外添加了对应的解决办法：
+
+- bool isLeft()：用来判断一个点是否在一个三角形中；
+- bool isLegal()：用来判断一条边是否合规（若不合规需要进行边翻转操作）
+
+此外，在定义存储链表节点的邻接矩阵中，也要相应的把规模扩大2。
+
+在结束的时候，记得要把所有带有辅助点的三角形从链表结构中撤除：
+
+```c++
+    // remove unreal triangles
+    std::shared_ptr<ListNode> ptr = head;
+    while(ptr != nullptr) {
+        if(ptr->tri_v0 < 0 || ptr->tri_v1 < 0 || ptr->tri_v2 < 0) {
+            if(ptr == head) {
+                head = head->next;
+                head->pre = nullptr;
+                ptr.reset();
+                ptr = head;
+            }
+            else {
+                std::shared_ptr<ListNode> tmp = ptr->next;
+                ptr->pre->next = ptr->next;
+                if(ptr->next != nullptr)
+                    ptr->next->pre = ptr->pre;
+                ptr.reset();
+                ptr = tmp;
+            }
+        }
+        else
+            ptr = ptr->next;
+    }
+```
+
 #### 如何添加新的点到已有三角形节点链表中？
 
+首先，我们需要判断一个点是否在一个三角形中，采取的方法是通过外积的符号去判断该点与三条边的（在平面上的）位置关系（点在边所处直线划分出的左半平面还是右半平面）：
+
+```c++
+    bool inTriangle(const int indr, const int ind0, const int ind1, const int ind2, const std::vector<Vector2f>& pointSet) {
+    if(isLeft(indr, ind0, ind1, pointSet) == false || isLeft(indr, ind1, ind2, pointSet) == false || isLeft(indr, ind2, ind0, pointSet) == false)
+        return false;
+    return true;
+    }
+```
+
+整体上，我们利用了树结构来处理不同层次的点相互之间的嵌套关系：
+
+```c++
+    void findTriangle(const int indr, const std::shared_ptr<TreeNode> ptr, std::vector<std::shared_ptr<ListNode>>& ptrVec, const std::vector<Vector2f>& pointSet) {
+        if(ptr == nullptr)  return;
+        if(inTriangle(indr, ptr->tri_v0, ptr->tri_v1, ptr->tri_v2, pointSet)) {
+            if(ptr->child0 == nullptr) {
+                for(int i = 0; i < ptrVec.size(); i++)
+                    if(ptrVec[i] == ptr->listnode)    return;
+                ptrVec.push_back(ptr->listnode);
+                return;
+            }
+            else {
+                findTriangle(indr, ptr->child0, ptrVec, pointSet);
+                findTriangle(indr, ptr->child1, ptrVec, pointSet);
+                findTriangle(indr, ptr->child2, ptrVec, pointSet);
+            }
+        }
+        return ;
+    }
+```
+
+为了实现这样的目的，我们还需要在新建每个树节点和链表节点之后，进行一步 __交叉引用__ 的操作：
+
+```c++
+    void crossLink(std::shared_ptr<ListNode> lnode, std::shared_ptr<TreeNode> tnode) {
+        lnode->treenode = tnode;
+        tnode->listnode = lnode;
+    }
+```
+
+在有了上述的基础之后，我们就可以进行添加点的操作，注意到有两种可能的添加点方式：点位于三角形中，就把这个三角形分裂成三个三角形；点位于一条已有边上，就把这条边所在的两个三角形分裂成四个三角形。在每种情况的最后，还要进行边翻转的操作（下一节详细介绍）。具体代码如下：
+
+```c++
+    void TriangleList::addPoint(const std::vector<Vector2f>& pointSet, const int& index, TriangleTree& tree){
+        Vector2f point = pointSet[index];
+        std::vector<std::shared_ptr<ListNode>> ptrVec;
+        findTriangle(index, tree.root, ptrVec, pointSet);
+        if(ptrVec.size() == 1) {
+            std::shared_ptr<ListNode> ptr = ptrVec[0];
+            int ind0 = ptr->tri_v0, ind1 = ptr->tri_v1, ind2 = ptr->tri_v2;
+            std::shared_ptr<TreeNode> current_treenode = ptr->treenode;
+            std::shared_ptr<ListNode> new_listnode0(new ListNode(index, ind0, ind1));
+            std::shared_ptr<ListNode> new_listnode1(new ListNode(index, ind1, ind2));
+            std::shared_ptr<ListNode> new_listnode2(new ListNode(index, ind2, ind0));
+            std::shared_ptr<TreeNode> new_treenode0(new TreeNode(index, ind0, ind1));
+            std::shared_ptr<TreeNode> new_treenode1(new TreeNode(index, ind1, ind2));
+            std::shared_ptr<TreeNode> new_treenode2(new TreeNode(index, ind2, ind0));
+            linkEdge(new_listnode0);
+            linkEdge(new_listnode1);
+            linkEdge(new_listnode2);
+            crossLink(new_listnode0, new_treenode0);
+            crossLink(new_listnode1, new_treenode1);
+            crossLink(new_listnode2, new_treenode2);
+            current_treenode->childNum = 3;
+            current_treenode->child0 = new_treenode0;
+            current_treenode->child1 = new_treenode1;
+            current_treenode->child2 = new_treenode2;
+            if(ptr->pre == nullptr) 
+                head = new_listnode0;
+            else {
+                ptr->pre->next = new_listnode0;
+                new_listnode0->pre = ptr->pre;
+            }
+            new_listnode0->next = new_listnode1;
+            new_listnode1->pre = new_listnode0;
+            new_listnode1->next = new_listnode2;
+            new_listnode2->pre = new_listnode1;
+            new_listnode2->next = ptr->next;
+            if(new_listnode2->next != nullptr)
+                new_listnode2->next->pre = new_listnode2;
+            unlinkEdge(ptr);
+            ptr.reset();
+            legalizeEdge(index, ind0, ind1, pointSet);
+            legalizeEdge(index, ind1, ind2, pointSet);
+            legalizeEdge(index, ind2, ind0, pointSet);
+        }
+        else if(ptrVec.size() == 2) {
+            std::shared_ptr<ListNode> ptr0 = ptrVec[0], ptr1 = ptrVec[1];
+            int ind00 = ptr0->tri_v0, ind01 = ptr0->tri_v1, ind02 = ptr0->tri_v2;
+            int ind10 = ptr1->tri_v0, ind11 = ptr1->tri_v1, ind12 = ptr1->tri_v2;
+            std::vector<int> tmpInd0; // points that are used twice
+            std::vector<int> tmpInd1; // points that are used once
+            if(ind00 == ind10 || ind00 == ind11 || ind00 == ind12)  tmpInd0.push_back(ind00);
+            else tmpInd1.push_back(ind00);
+            if(ind01 == ind10 || ind01 == ind11 || ind01 == ind12)  tmpInd0.push_back(ind01);
+            else tmpInd1.push_back(ind01);
+            if(ind02 == ind10 || ind02 == ind11 || ind02 == ind12)  tmpInd0.push_back(ind02);
+            else tmpInd1.push_back(ind02);
+            if(tmpInd1[0] == ind01)
+                std::swap(tmpInd0[0], tmpInd0[1]);
+            if(ind10 != ind00 && ind10 != ind01 && ind10 != ind02)  tmpInd1.push_back(ind10);
+            else if(ind11 != ind00 && ind11 != ind01 && ind11 != ind02)  tmpInd1.push_back(ind11);
+            else tmpInd1.push_back(ind12);
+            std::shared_ptr<TreeNode> current_treenode0 = ptr0->treenode, current_treenode1 = ptr1->treenode;
+            std::shared_ptr<ListNode> new_listnode00(new ListNode(index, tmpInd1[0], tmpInd0[0]));
+            std::shared_ptr<ListNode> new_listnode01(new ListNode(index, tmpInd0[1], tmpInd1[0]));
+            new_listnode00->next = new_listnode01;
+            new_listnode01->pre = new_listnode00;
+            std::shared_ptr<ListNode> new_listnode10(new ListNode(index, tmpInd0[0], tmpInd1[1]));
+            std::shared_ptr<ListNode> new_listnode11(new ListNode(index, tmpInd1[1], tmpInd0[1]));
+            new_listnode10->next = new_listnode11;
+            new_listnode11->pre = new_listnode10;
+            std::shared_ptr<TreeNode> new_treenode00(new TreeNode(index, tmpInd1[0], tmpInd0[0]));
+            std::shared_ptr<TreeNode> new_treenode01(new TreeNode(index, tmpInd0[1], tmpInd1[0]));
+            std::shared_ptr<TreeNode> new_treenode10(new TreeNode(index, tmpInd0[0], tmpInd1[1]));
+            std::shared_ptr<TreeNode> new_treenode11(new TreeNode(index, tmpInd1[1], tmpInd0[1]));
+            linkEdge(new_listnode00);
+            linkEdge(new_listnode01);
+            linkEdge(new_listnode10);
+            linkEdge(new_listnode11);
+            crossLink(new_listnode00, new_treenode00);
+            crossLink(new_listnode01, new_treenode01);
+            crossLink(new_listnode10, new_treenode10);
+            crossLink(new_listnode11, new_treenode11);
+            current_treenode0->childNum = 2;
+            current_treenode0->child0 = new_treenode00;
+            current_treenode0->child1 = new_treenode01;
+            current_treenode1->childNum = 2;
+            current_treenode1->child0 = new_treenode10;
+            current_treenode1->child1 = new_treenode11;
+            if(ptr0->pre == nullptr)
+                head = new_listnode00;
+            else {
+                ptr0->pre->next = new_listnode00;
+                new_listnode00->pre = ptr0->pre;
+            }
+            if(ptr1->pre == nullptr)
+                head = new_listnode10;
+            else {
+                ptr1->pre->next = new_listnode10;
+                new_listnode10->pre = ptr1->pre;
+            }
+            new_listnode01->next = ptr0->next;
+            if(new_listnode01->next != nullptr)
+                new_listnode01->next->pre = new_listnode01;
+            new_listnode11->next = ptr1->next;
+            if(new_listnode11->next != nullptr)
+                new_listnode11->next->pre = new_listnode11;
+            unlinkEdge(ptr0);
+            unlinkEdge(ptr1);
+            ptr0.reset();
+            ptr1.reset();
+            legalizeEdge(index, tmpInd0[0], tmpInd1[0], pointSet);
+            legalizeEdge(index, tmpInd0[0], tmpInd1[1], pointSet);
+            legalizeEdge(index, tmpInd0[1], tmpInd1[0], pointSet);
+            legalizeEdge(index, tmpInd0[1], tmpInd1[1], pointSet);
+        }
+    }
+```
+
 #### 如何进行边的翻转
+
+在上面addPoint()函数中，添加完点并处理好链表顺序后就需要对新添加的边进行合规化处理。要做到这一点，首先需要利用到记录了每条边存储的三角形链表节点的二维数组edgeTable，在添加边和删除边的时候修改对应位置的元素（因为每条边最多对应两个三角形，所以这里的空间开销是$O(n^2)$大小的）。有了这个结构，我们就可以根据边的顶点得到其所在的三角形，进一步还可以分出属于这条边的两个顶点和另两个顶点。下一步我们要判断这条边是否合规。
+
+首先，如果这条边所在的两个三角形组成的是一个凹四边形，那么是不需要判断的。判断是否为凸四边形的方法也很简单，就是判断两个对角的顶点是否在另一对顶点组成的边的同侧：
+
+```c++
+    bool isConvex(int indr, int ind0, int ind1, int indl, const std::vector<Vector2f>& pointSet){
+        bool flag0, flag1;
+        flag0 = isLeft(ind0, indr, indl, pointSet);
+        flag1 = isLeft(ind1, indr, indl, pointSet);
+        return flag0 == flag1;
+    }
+```
+
+在确认了组成的是凸四边形后，通过比对两个对角的余弦值关系，就可以确定检测的边是否合规：
+
+```c++
+    bool isLegal(int indr, int ind0, int ind1, int indl, const std::vector<Vector2f>& pointSet) {
+        if(ind0 <= 0 && ind1 <= 0) return true;
+        // is convex quadrilateral
+        bool flag0, flag1;
+        flag0 = isLeft(ind0, indr, indl, pointSet);
+        flag1 = isLeft(ind1, indr, indl, pointSet);
+        if(flag0 == flag1) return true;
+
+        if(indr < 0 || ind0 < 0 || ind1 < 0 || indl < 0) {
+            if(indr >= 0 && indl >= 0)  return false;
+            else return true;
+            if(ind0 >= 0 && ind1 >= 0)  return true;
+        }
+
+        Vector2f pr = pointSet[indr], p0 = pointSet[ind0], p1 = pointSet[ind1], pl = pointSet[indl];
+        float angleCosine0 = dotProduct(p0 - pr, p1 - pr) / ((p0 - pr).norm() * (p1 - pr).norm());
+        float angleCosine1 = dotProduct(p0 - pl, p1 - pl) / ((p0 - pl).norm() * (p1 - pl).norm());
+        if(-angleCosine0 > angleCosine1) return false;
+        return true;
+    }
+```
+
+对于需要翻转的边，合规化函数将要完成如下几件事：撤除原有的三角形；添加新的三角形；递归调用本身判断其他边。总体的代码如下：
+
+```c++
+inline void TriangleList::legalizeEdge(const int indr, const int ind0, const int ind1, const std::vector<Vector2f>& pointSet) {
+    if(edgeTable[ind0 + 2][ind1 + 2].size() < 2) return;
+    std::shared_ptr<ListNode> ptr0 = edgeTable[ind0 + 2][ind1 + 2][0], ptr1 = edgeTable[ind0 + 2][ind1 + 2][1];
+    int indl;
+    if(indr != ptr0->tri_v0 && indr != ptr0->tri_v1 && indr != ptr0->tri_v2)
+        std::swap(ptr0, ptr1); // indr is in ptr0->tri
+    if(ptr1->tri_v0 != ind0 && ptr1->tri_v0 != ind1)    indl = ptr1->tri_v0;
+    else if(ptr1->tri_v1 != ind0 && ptr1->tri_v1 != ind1)    indl = ptr1->tri_v1;
+    else    indl = ptr1->tri_v2;
+    if(isLegal(indr, ind0, ind1, indl, pointSet)) return;
+
+    std::shared_ptr<TreeNode> current_treenode0 = ptr0->treenode, current_treenode1 = ptr1->treenode;
+    std::shared_ptr<ListNode> new_listnode0, new_listnode1;
+    std::shared_ptr<TreeNode> new_treenode0, new_treenode1;
+    if(isLeft(ind1, indr, indl, pointSet)) {
+        new_listnode0.reset(new ListNode(indr, indl, ind1));
+        new_listnode1.reset(new ListNode(indl, indr, ind0));
+        new_treenode0.reset(new TreeNode(indr, indl, ind1));
+        new_treenode1.reset(new TreeNode(indl, indr, ind0));
+    }
+    else {
+        new_listnode0.reset(new ListNode(indr, indl, ind0));
+        new_listnode1.reset(new ListNode(indl, indr, ind1));
+        new_treenode0.reset(new TreeNode(indr, indl, ind0));
+        new_treenode1.reset(new TreeNode(indl, indr, ind1));
+    }
+    crossLink(new_listnode0, new_treenode0);
+    crossLink(new_listnode1, new_treenode1);
+    linkEdge(new_listnode0);
+    linkEdge(new_listnode1);
+
+    current_treenode0->childNum = 2, current_treenode1->childNum = 2;
+    current_treenode0->child0 = new_treenode0, current_treenode0->child1 = new_treenode1;
+    current_treenode1->child0 = new_treenode0, current_treenode1->child1 = new_treenode1;
+
+    if(ptr0->pre == nullptr)
+        head = new_listnode0;
+    else {
+        ptr0->pre->next = new_listnode0;
+        new_listnode0->pre = ptr0->pre;
+    }
+    if(ptr1->pre == nullptr)
+        head = new_listnode1;
+    else {
+        ptr1->pre->next = new_listnode1;
+        new_listnode1->pre = ptr1->pre;
+    }
+    new_listnode0->next = ptr0->next;
+    if(new_listnode0->next != nullptr)
+        new_listnode0->next->pre = new_listnode0;
+    new_listnode1->next = ptr1->next;
+    if(new_listnode1->next != nullptr)
+        new_listnode1->next->pre = new_listnode1;
+    unlinkEdge(ptr0);
+    unlinkEdge(ptr1);
+    std::shared_ptr<ListNode> ptr = head;
+    ptr0.reset();
+    ptr1.reset();
+    legalizeEdge(indr, ind0, indl, pointSet);
+    legalizeEdge(indr, ind1, indl, pointSet);
+}
+```
 
 ### 设计3：画图API的调用
 
