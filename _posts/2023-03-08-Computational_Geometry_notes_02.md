@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Computational_Geometry_notes_02
-date: 2023-02-11 15:23 +0800
+date: 2023-03-08 15:23 +0800
 tags: ["learning", "Computational Geometry"]
 toc: true
 ---
