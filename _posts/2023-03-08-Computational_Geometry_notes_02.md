@@ -70,11 +70,86 @@ __Lemma 7.7__ 海滩线上一段已有的抛物线弧消失的唯一途径是 $l
 
 - 我们利用双向链接的边列表来存储正在构建的Voronoi图，这是解决细分问题的常规结构。然而由于Voronoi图中的边并不全是线段，也有射线或者直线。虽然这不会影响构建Voronoi图的过程，但是在构建完成后，我们希望得到一个有效的双向链接的边列表。为此我们需要在场景中添加一个足够大的包围盒，以涵盖所有Voronoi图中的顶点，最后我们计算的结果将是包围盒及其中的Voronoi图的部分。
 - 我们用平衡二叉树 $\mathcal{T}$ 来维护海滩线的信息，这是一个记录状态的结构。树的每个叶子节点对应海滩线上的每段抛物线弧，弧的顺序和叶子结点的顺序相对应：最左侧的叶子结点对应最左侧的弧，从左数第二个叶子结点对应左侧第二个弧。每个节点中存储的是定义这段弧所对应的抛物线的 $P$ 中的点。 $\mathcal{T}$ 中内部的节点表示海滩线中的中断点，尺寸出的方式使用一个有序元组 $\langle p_i, p_j\rangle$ ，其中 $p_i$ 是中断点左侧的抛物线弧所对应的 $P$ 中的点， $p_j$ 是中断点右侧的抛物线弧所对应的 $P$ 中的点。利用二叉树来表示海滩线，我们可以用 $O(\log n)$ 的时间里确定新添加 $P$ 中的点的时候其弧应当添加的位置。注意到我们并没有直接存储抛物线。在 $\mathcal{T}$ 中，我们还存储了扫描过程中用到的另外两个数据结构的指针。 $\mathcal{T}$ 中的每个叶子节点对应了一段海滩线中的弧 $\alpha$ ，存储了其在事件队列中的一个节点的指针，即对应了队列中这段弧消失的圆事件的节点。如果这个指针是空指针，则说明这段弧对应的圆事件不存在，或者它的圆事件还没有被检测到； $\mathcal{T}$ 中内部的每个节点 $v$ 对应Voronoi图的双向链接的边列表中一条边的一半，具体地说， $v$ 中包含的指针对应这个节点对应的中断点所在的那条边的一半。
-- 我们用优先队列来表示事件队列 $Q$ ，其优先级用每个事件点的 $y$ 坐标来表示。它存储了已知的待发生的事件。对于点事件，我们用 $P$ 中对应点的坐标来记录；对于圆事件，我们用这个圆的最低点来记录，还要用一个指针记录在树 $\mathcal{T}$ 中将要消失的那段弧的节点。
+- 我们用优先队列来表示事件队列 $\mathcal{Q}$ ，其优先级用每个事件点的 $y$ 坐标来表示。它存储了已知的待发生的事件。对于点事件，我们用 $P$ 中对应点的坐标来记录；对于圆事件，我们用这个圆的最低点来记录，还要用一个指针记录在树 $\mathcal{T}$ 中将要消失的那段弧的节点。
 
 所有的点事件都是事先知道的，但是圆事件不是。所以这节的最后还需要讨论如何检测圆事件。
 
+在扫描线经过每个事件点的时候，它的弧组成都会发生变化，因此在扫描过程中会有新的相邻的弧组成的三元组产生，这些三元组中有的可能会对应一个令中断点消失的圆事件。算法可以确保对海滩线上每个相邻的三段弧组成的元组，都会在事件队列中存储一个可能的圆事件点，其中有两种情况需要特别考虑。第一种是三段弧产生的两个中断点根本不会收敛到一起，这时候两个中断点实际上是沿着从一个Voronoi图中顶点引出的两条边以相背的方向延伸，对于这种情况，算法可以提前对其处理，从而不会生成这样的圆事件点；第二种情况是虽然中断点会收敛，但是相应的圆事件却因为这个相邻弧的三元组先消失而不会发生（比如在圆事件发生之前三条弧新检测到了点事件），对于这种情况我们称这个事件为 __误报事件__ 。
 
+所以我们需要处理误报事件。在处理每个事件的时候，算法需要检测所有新出现的连续三段弧组成的元组，如果这些元组中存在使中断点收敛的可能，那么就向事件队列 $\mathcal{Q}$ 中插入一个潜在的圆事件。同样，对于处理每个事件时破坏连续三段弧组成的元组，我们也需要检测 $\mathcal{Q}$ 中是否有这个元组定义的圆事件点，如果存在则它显然是一个误报事件，我们需要将其从 $\mathcal{Q}$ 中删除这个误报事件。这样的处理方式因为事先已经在 $\mathcal{T}$ 中每个叶子结点中添加了 $\mathcal{Q}$ 中对应事件点的指针而变得非常简单。
+
+__Lemma 7.8__ Voronoi图中的每个顶点都可以通过一个圆事件检测到。
+
+接下来我们就可以详细地介绍平面扫描算法了。注意到当所有事件都被处理过后，此时事件队列 $\mathcal{Q}$ 为空，但是海滩线还没有消失。由于Voronoi图中一些边是射线，海滩线中还会存在一些中断点。正如在前面提到的，一个双向链接的边列表不能表示射线，所以我们必须向场景中再添加一个可以控制每条边的包围盒。算法总览如下：
+
+```c++
+Algorithm VoronoiDiagram(P)
+/***
+Input:  A set P := {p_1, p_2, ..., p_n} of point sites in the plane
+Output: The Voronoi diagram Vor(P) given inside a bounding box in a 
+        doubly-connected edge list D
+***/
+Initialize the event Q with all site events, initialize an empty status 
+   structure T and an empty doubly-connected edge list D
+while Q is not empty
+    Remove the event with largest y-coordinate from Q,
+    if the event is a site event, occurring at site p_i
+      HandleSiteEvent(p_i)
+    else
+      HandleCircleEvent(gamma), where gamma is the leaf of T represent-
+        ing the arc that will disappear
+The internal nodes still present in T correspond to the half-infinite edges 
+  of the Voronoi diagram. Compute a bounding box that contains all vertices 
+  of the Voronoi diagram in its interior, and attach the half-infinite edges 
+  to the bounding box by updating the doubly-connected edge list appropriately.
+Traverse the half-edges of the doubly-connected edge list to add the cell
+  records and the pointers to and from them
+```
+
+其中处理两种不同的事件算法如下：
+
+```c++
+HandleSiteEvent(p_i)
+If T is empty, insert p_i into it and return. Otherwise continue.
+Search in T for the arc alpha vertically above p_i. If the leaf representing
+  alpha has a pointer to a circle event in Q, then this circle event is a 
+  false alarm and it must be deleted from Q.
+Replace the leaf of T that represents alpha with a subtree having three
+  leaves. The middle leaf stores the new site p_i and the other two leaves
+  store the site p_j that was originally stored with alpha. Store the tuples 
+  <p_j, p_i> and <p_i, p_j> representing the new breakpoints at the two new 
+  internal nodes. Perform rebalancing operations on T if necessary.
+Create new half-edge records in the Voronoi diagram structure for the
+  edge separating V(p_i) and V(p_j), which will be traced out by the two new 
+  breakpoints.
+Check the triple of consecutive arcs where the new arc for p_i is the left arc
+  to see if the breakpoints converge. If so, insert the circle event into Q 
+  and add pointers between the node in T and the node in Q. Do the same for
+  the triple where the new arc is the right arc.
+```
+
+```c++
+HandleCircleEvent(gamma)
+Delete the leaf gamma that represents the disappearing arc alpha from T. 
+  Update the tuples representing the breakpoints at the internal nodes.
+  Perform rebalancing operations on T if necessary. Delete all circle events involving alpha from Q; these can be found using the pointers from the predecessor and the successor of gamma in T.
+Add the center of the circle causing the event as a vertex record to the
+  doubly-connected edge list D storing the Voronoi diagram under construction. 
+  Create two half-edge records corresponding to the new breakpoint of the
+  beach line. Set the pointers between them appropriately. Attach the three 
+  new records to the half-edge records that end at the vertex.
+Check the new triple of consecutive arcs that has the former left neighbor 
+  of alpha as its middle arc to see if the two breakpoints of the triple 
+  converge. If so, insert the corresponding circle event into Q, and set 
+  pointers between the new circle in Q and corresponding leaf of T. Do the 
+  same for the triple where the former right neighbor is the middle arc.
+```
+
+__Lemma 7.9__ 上述算法的时间复杂度为 $O(n\log n)$，空间复杂度为 $O(n)$ 。
+
+在结束本节之前，我们还要再处理一下上述算法中遇到的退化情况。
+
+__Theorem 7.10__ 对平面上 $n$ 个点组成的点集，利用扫描线算法计算其Voronoi图的时间复杂度为 $O(n\log n)$，空间复杂度为 $O(n)$ 。
 
 ### Advanced Topics
 
@@ -107,8 +182,14 @@ Lemma 7.6 海滩线中出现一段新的抛物线弧的唯一途径就是 $l$ �
 
 证明：
 
-#### Lemma 7.7
+#### Lemma 7.8
 
-Lemma 7.7 海滩线上一段已有的抛物线弧消失的唯一途径是 $l$ 遇到一个圆事件。
+Lemma 7.8 Voronoi图中的每个顶点都可以通过一个圆事件检测到。
+
+证明：
+
+#### Lemma 7.9
+
+Lemma 7.9 上述算法的时间复杂度为 $O(n\log n)$，空间复杂度为 $O(n)$ 。
 
 证明：
