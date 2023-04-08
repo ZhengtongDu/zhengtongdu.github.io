@@ -132,7 +132,8 @@ Check the triple of consecutive arcs where the new arc for p_i is the left arc
 HandleCircleEvent(gamma)
 Delete the leaf gamma that represents the disappearing arc alpha from T. 
   Update the tuples representing the breakpoints at the internal nodes.
-  Perform rebalancing operations on T if necessary. Delete all circle events involving alpha from Q; these can be found using the pointers from the predecessor and the successor of gamma in T.
+  Perform rebalancing operations on T if necessary. Delete all circle events 
+  involving alpha from Q; these can be found using the pointers from the predecessor and the successor of gamma in T.
 Add the center of the circle causing the event as a vertex record to the
   doubly-connected edge list D storing the Voronoi diagram under construction. 
   Create two half-edge records corresponding to the new breakpoint of the
@@ -145,9 +146,11 @@ Check the new triple of consecutive arcs that has the former left neighbor
   same for the triple where the former right neighbor is the middle arc.
 ```
 
-__Lemma 7.9__ 上述算法的时间复杂度为 $O(n\log n)$，空间复杂度为 $O(n)$ 。
+__Lemma 7.9__ 上述算法的时间复杂度为 $O(n\log n)$ ，空间复杂度为 $O(n)$ 。
 
-在结束本节之前，我们还要再处理一下上述算法中遇到的退化情况。
+在结束本节之前，我们还要再介绍一下上述算法中遇到的退化情况。
+
+该算法中的退化情况有以下几种，其一是多个事件点出现在一条水平线但是 $x$ 坐标不同，其二是多个事件点重合。对于第一种情况，我们只需要补充对“算法开始时遇到多个点事件”这种退化情况的处理，其他情况按任意顺序处理事件点即可；对于第二种情况，比如四点共圆，这时候我们并不需要特殊处理，只需要把它看作两个三点共圆事件，得到的两个 $\mathcal{Vor}(P)$ 中的顶点被一条长度为0的边连接即可。此外，还有一些退化情况，比如新的事件点刚好在两条抛物线弧的交点下出现等等，这些情况也和情况二一样，都可以视作产生或消除了长度为0的抛物线弧或者边，因此并不会影响到算法的运行。我们可以在最后得到边列表之后对这些顶点重合的情况进行一步后处理。
 
 __Theorem 7.10__ 对平面上 $n$ 个点组成的点集，利用扫描线算法计算其Voronoi图的时间复杂度为 $O(n\log n)$，空间复杂度为 $O(n)$ 。
 
